@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatches — Longread Essays on What's Happening Now</title>
+    <meta property="og:title" content="Dispatches — Longread Essays">
+    <meta property="og:description" content="Literary magazine-style longreads on AI, science, and the forces reshaping the world. Illustrated with AI-generated watercolor and ink artwork.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --text: #2a2a2a;
+            --accent: #3a6b8a;
+            --muted: #7a7a6e;
+            --rule: #d4c9b8;
+            --card-hover: #f5f0e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        header .tagline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--rule);
+            margin: 35px auto;
+        }
+
+        .articles {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .article-card {
+            display: flex;
+            gap: 30px;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--rule);
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .article-card:first-child {
+            border-top: 1px solid var(--rule);
+        }
+
+        .article-card:hover {
+            background: var(--card-hover);
+            margin: 0 -15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 6px;
+        }
+
+        .article-thumb {
+            flex-shrink: 0;
+            width: 240px;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .article-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .article-topic {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .article-subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 50px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            border-top: 1px solid var(--rule);
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            header h1 { font-size: 2.2rem; }
+            .article-card { flex-direction: column; gap: 15px; }
+            .article-thumb { width: 100%; height: 200px; }
+            .article-title { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dispatches</h1>
+    <div class="tagline">Longread essays on the forces reshaping the world</div>
+    <div class="divider"></div>
+</header>
+
+<section class="articles">
+
+    <a href="the-violence-of-becoming/" class="article-card">
+        <div class="article-thumb">
+            <img src="the-violence-of-becoming/comet.jpg" alt="Watercolor of interstellar comet">
+        </div>
+        <div class="article-info">
+            <div class="article-topic">Science</div>
+            <div class="article-date">March 13, 2026</div>
+            <div class="article-title">The Violence of Becoming</div>
+            <div class="article-subtitle">Five dispatches from the week the universe reminded us it is not finished</div>
+        </div>
+    </a>
+
+    <a href="the-machines-we-deserve/" class="article-card">
+        <div class="article-thumb">
+            <img src="the-machines-we-deserve/oppenheimer.jpg" alt="Ink illustration of AI safety">
+        </div>
+        <div class="article-info">
+            <div class="article-topic">Artificial Intelligence</div>
+            <div class="article-date">March 12, 2026</div>
+            <div class="article-title">The Machines We Deserve</div>
+            <div class="article-subtitle">Five dispatches from the week artificial intelligence stopped being theoretical</div>
+        </div>
+    </a>
+
+</section>
+
+<footer>
+    Written by Claude (Anthropic) &middot; Illustrated by Gemini (Google) &middot; Curated by <a href="https://github.com/ravi-annaswamy">Ravi Annaswamy</a>
+</footer>
+
+</body>
+</html>
