@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI with Ravi — Friday Evening Edition, March 13 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f4;
+  --surface: #f3f0ea;
+  --card: #ffffff;
+  --card-border: #e8e4dc;
+  --card-hover: #fdfcfa;
+  --text: #2a2a2a;
+  --text-body: #3d3d3d;
+  --text-muted: #7a7a6e;
+  --text-headline: #1a1a1a;
+  --accent: #3a6b8a;
+  --accent-warm: #8b6914;
+  --divider: #d8d4cc;
+  /* Topic accent colors - warm palette */
+  --accent-ai: #3a6b8a;
+  --accent-claude: #a0522d;
+  --accent-research: #6b5b3a;
+  --accent-econ: #8b4557;
+  --accent-heritage: #7a6b3a;
+  --accent-gems: #3a7a6b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 760px; margin: 0 auto; padding: 32px 24px; }
+
+/* Header */
+.header { text-align: center; padding: 48px 0 24px; }
+.header-label {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--text-headline);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.header-sub {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+}
+.header-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin: 28px auto 0;
+}
+
+/* Stats bar */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 0 28px;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 40px;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Section */
+.section { margin-bottom: 44px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--divider);
+}
+.section-bar {
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-headline);
+  flex: 1;
+}
+.section-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--surface);
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-style: italic;
+}
+
+/* Items */
+.item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.item:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border-color: #d0ccc4;
+}
+.item-headline {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-headline);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.item-body {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+.item-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Gems banner */
+.gems-banner {
+  background: linear-gradient(135deg, rgba(58,122,107,0.06), rgba(58,122,107,0.02));
+  border: 1px solid rgba(58,122,107,0.15);
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+}
+.gems-banner-text {
+  font-size: 14px;
+  color: var(--accent-gems);
+  font-style: italic;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 36px 0 24px;
+  border-top: 1px solid var(--divider);
+  margin-top: 24px;
+}
+.footer p {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.back-link:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .container { padding: 20px 16px; }
+  .header h1 { font-size: 32px; }
+  .stats { gap: 24px; }
+  .section-title { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-label">AI with Ravi</div>
+  <h1>Friday Evening Edition</h1>
+  <div class="header-sub">March 13, 2026 &middot; ~8 hours of the timeline, distilled</div>
+  <div class="header-divider"></div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">28+</div><div class="stat-label">Tweets Captured</div></div>
+  <div class="stat"><div class="stat-num">7</div><div class="stat-label">Topic Clusters</div></div>
+  <div class="stat"><div class="stat-num">~8h</div><div class="stat-label">Window</div></div>
+</div>
+
+<!-- The Autoresearch Explosion -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background:var(--accent-ai)"></div>
+    <div class="section-title">The Autoresearch Explosion</div>
+    <div class="section-count">5 items</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Karpathy's autoresearch ignites an entire ecosystem in under a week</div>
+    <div class="item-body">Jay Scambler introduces "autocontext," a recursive self-improving harness that helps agents succeed on any task by building on Karpathy's original pattern — 897 likes and 113K views suggest the developer community is moving fast to productize the idea.</div>
+    <div class="item-meta">@JayScambler &middot; 3h &middot; 113K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Training a small language model on Sri Aurobindo's 23 books</div>
+    <div class="item-body">Mahesh CR adapted Karpathy's autoresearch pattern for automated experiments on a laptop — 14 experiments in 2 hours on a 6.7M-token corpus of Indian philosophical texts. Autoresearch applied beyond ML benchmarks.</div>
+    <div class="item-meta">@maheshcr &middot; 9h &middot; 17K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">wizwand ships "autoexp" — a one-liner to autoresearch any ML project</div>
+    <div class="item-body">The tool turns any AI/ML training project into the Karpathy-style setup, allowing agents to run experiments autonomously — the infrastructure layer for autoresearch is crystallizing remarkably fast.</div>
+    <div class="item-meta">@wizwand_team &middot; 13h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Karpathy's autoresearch Quickstart guide published</div>
+    <div class="item-body">Ellen publishes a practical walkthrough for running AI research with a single command, lowering the barrier from "interesting concept" to "anyone can do it."</div>
+    <div class="item-meta">@ellen_in_sf &middot; 2h &middot; 1.4K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Autoresearch extended to Scientific &amp; Algorithmic Discovery</div>
+    <div class="item-body">Xinming Tu tested whether a simple coding agent could match AlphaEvolve, SkyDiscover, and LoongFlow on algorithmic benchmarks — the results were surprisingly competitive, showing autoresearch has legs well beyond model training.</div>
+    <div class="item-meta">@fuXinming &middot; 5h &middot; 3.2K views</div>
+  </div>
+</div>
+
+<!-- Anthropic's 1M Context & the Claude Ecosystem -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background:var(--accent-claude)"></div>
+    <div class="section-title">Anthropic's 1M Context &amp; Claude Ecosystem</div>
+    <div class="section-count">3 items</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Anthropic boosts Claude to 1 million token context window</div>
+    <div class="item-body">The long-context retrieval benchmark (MRCR v2, 8-needle) went massively viral — 13K likes, 1.6M views, 770 replies — with charts showing Claude's performance at 128K through 1M tokens. Trending story of the day.</div>
+    <div class="item-meta">Trending &middot; 1.6M views &middot; 13K likes</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Paper2Agent turns any research paper into a working AI agent</div>
+    <div class="item-body">A Stanford PhD student's system took a 40-page NeurIPS paper and produced a functioning agent — using Claude under the hood. The gap between reading a paper and implementing it just collapsed.</div>
+    <div class="item-meta">@ihtesham2005 &middot; 4h &middot; 18K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Garry Tan open-sources "gstack" — his exact Claude Code setup</div>
+    <div class="item-body">Y Combinator's CEO shares 6 opinionated tools that serve as CEO, Eng Manager, Release Manager, and QA — already 1K stars and 199 forks on GitHub.</div>
+    <div class="item-meta">garrytan/gstack &middot; 502 likes &middot; 35K views</div>
+  </div>
+</div>
+
+<!-- AI Research Frontiers -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background:var(--accent-research)"></div>
+    <div class="section-title">AI Research Frontiers</div>
+    <div class="section-count">4 items</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">AdaEvolve: open-source answer to Google's AlphaEvolve</div>
+    <div class="item-body">Alex Dimakis introduces an adaptive evolutionary algorithm that dynamically adjusts its own search strategy — directly addressing AlphaEvolve being closed-source while alternatives use rigid, static search policies.</div>
+    <div class="item-meta">@AlexGDimakis &middot; 14h &middot; 9K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">MIT/NVIDIA/Berkeley make AI video processing 19x faster</div>
+    <div class="item-body">Rohan Paul highlights "Attend Before Attention" — skipping pixels that never move, eliminating massive waste in current visual AI models processing long or high-quality videos.</div>
+    <div class="item-meta">@rohanpaul_ai &middot; 8h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Multi-agent prediction project hits 20K GitHub stars</div>
+    <div class="item-body">Used to speculate on the lost ending of "Dream of the Red Chamber," forecast financial trends, and simulate public opinion — versatile multi-agent reasoning at scale.</div>
+    <div class="item-meta">@sanbuphy &middot; 15h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">MIT releases generative AI for CAD programs</div>
+    <div class="item-body">Brian Roemmele declares "AI-assisted garage manufacturing is about to explode" — photograph an object, upload it, and an AI delivers a fully parametric CAD model. The maker economy just got a massive accelerant.</div>
+    <div class="item-meta">@BrianRoemmele &middot; 8h</div>
+  </div>
+</div>
+
+<!-- The Economics of Building -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background:var(--accent-econ)"></div>
+    <div class="section-title">The Economics of Building</div>
+    <div class="section-count">3 items</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Alibaba Cloud: 4 frontier models, 18K requests/month, $10</div>
+    <div class="item-body">OpenClaw just got radically cheaper — Alibaba's Coding Plan bundles Qwen 3.5-Plus, Kimi K2.5, MiniMax M2.5, and GLM-5 under a single API key. The price floor for AI access continues to drop at a pace that should alarm anyone building on pricing moats.</div>
+    <div class="item-meta">@heyshrutimishra &middot; 5h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">CashClaw open-sourced: an agent that finds work, does it, gets paid</div>
+    <div class="item-body">Moltlaunch releases an autonomous agent that evaluates tasks, quotes prices, completes them, collects payment, and learns from every iteration — the full loop of autonomous economic agency, now on GitHub.</div>
+    <div class="item-meta">@moltlaunch &middot; 3h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">SpaceX prepares what could be the largest IPO in history</div>
+    <div class="item-body">Target valuation: $1.75 trillion. The engagement reflects just how much this benchmark would reshape public markets.</div>
+    <div class="item-meta">5K likes &middot; 517K views</div>
+  </div>
+</div>
+
+<!-- Indian Heritage, Science & Culture -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background:var(--accent-heritage)"></div>
+    <div class="section-title">Indian Heritage, Science &amp; Culture</div>
+    <div class="section-count">4 items</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Deedy brings the Ramayana online in a beautiful readable edition</div>
+    <div class="item-body">24,000 verses, 2,500 years old, now free at grandoldbooks.com/books/ramayana — making the epic accessible in a clean digital format at scale.</div>
+    <div class="item-meta">@deedydas &middot; 10h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Ancient Indian zinc production predates the West by centuries</div>
+    <div class="item-body">Parimal documents how the world's first industrial-scale zinc production happened in Zawar, Rajasthan around 1200 CE — a problem Indian metallurgists solved long before Europe.</div>
+    <div class="item-meta">@Fintech03 &middot; 9h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Science in Sanskrit: Brahmagupta's eclipse calculations from 7th century CE</div>
+    <div class="item-body">A video on eclipses and the Brahmasphutasiddhanta — adding to the growing thread of ancient Indian scientific contributions surfacing in the feed.</div>
+    <div class="item-meta">141 likes &middot; 4.4K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Michel Danino's work on India's scientific gifts to the world</div>
+    <div class="item-body">Tamil Labs 2.0 recommends the book as an antidote to the colonial mindset of dismissing Indian contributions — part of a broader cultural reclamation conversation.</div>
+    <div class="item-meta">@labstamil &middot; 14h</div>
+  </div>
+</div>
+
+<!-- Quiet Gems -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background:var(--accent-gems)"></div>
+    <div class="section-title">Quiet Gems: Not Trending But Must-See</div>
+    <div class="section-count">4 items</div>
+  </div>
+  <div class="gems-banner">
+    <div class="gems-banner-text">These didn't break the algorithm, but they deserve your attention.</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Harvard finds meditation physically grows brain tissue</div>
+    <div class="item-body">An NIH study shows 10-20 minutes/day of meditation doesn't just reduce stress — it grows new brain tissue, shrinks the fear center (amygdala), and reverses age-related cortical thinning. The kind of finding that deserves far more than 554 likes.</div>
+    <div class="item-meta">@karimehta &middot; 6h &middot; 27K views</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">9-year-old British Tamil girl defeats chess masters</div>
+    <div class="item-body">Tamil Guardian reports a Leicester schoolgirl emerging as one of the UK's most promising chess talents after competing against the country's strongest female players.</div>
+    <div class="item-meta">@TamilGuardian &middot; 7h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Trading volume is autocorrelated — worth more than most ML pipelines</div>
+    <div class="item-body">Gemchanger breaks down a Stanford lecture: yesterday's volume predicts today's. Strong, reliable, exploitable. They build two models on NYSE data, showing simple statistical facts often beat complex ML.</div>
+    <div class="item-meta">@gemchange_ltd &middot; 4h</div>
+  </div>
+  <div class="item">
+    <div class="item-headline">Zinc supplementation improves weight management (RCT)</div>
+    <div class="item-body">A randomized, placebo-controlled, double-blind trial shows 30mg zinc sulfate increased weight loss by ~7 lbs, improved inflammatory biomarkers, and reduced insulin resistance — a concrete, evidence-based health signal.</div>
+    <div class="item-meta">@Outdoctrination &middot; Mar 12</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Compiled by @bag_of_ideas &middot; AI with Ravi &middot; Friday Evening Edition</p>
+  <a href="../index.html" class="back-link">&larr; All Dispatches</a>
+</div>
+
+</div>
+</body>
+</html>
