@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Visions of π — How Great Mathematicians Found Strange Formulas for a Simple Constant</title>
+<meta property="og:title" content="Four Visions of π — Dispatches">
+<meta property="og:description" content="From Madhava's patient corrections to Ramanujan's hidden tunnel — how four mathematicians across five centuries each found their own strange, beautiful path to the same constant.">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<style>
+:root {
+  --bg: #faf8f4;
+  --text: #2a2520;
+  --text-light: #6b6560;
+  --accent-madhava: #b5432a;
+  --accent-wallis: #1a5276;
+  --accent-brouncker: #4a6741;
+  --accent-ramanujan: #6b2d7b;
+  --rule: #d4cec6;
+  --illustration-bg: #f2efe8;
+  --cream: #eee9de;
+  --foreword-bg: #f0ece4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.article-container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+/* ── Back link ── */
+.back-link {
+  display: inline-block;
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  color: var(--text-light);
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--text); }
+
+/* ── Header ── */
+.article-header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5.5vw, 48px);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.article-header .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--text-light);
+  max-width: 520px;
+  margin: 0 auto 16px;
+}
+
+.article-header .dateline {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+}
+
+/* ── Opening decoration ── */
+.pi-symbol-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.pi-symbol-header span {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-madhava), var(--accent-wallis), var(--accent-brouncker), var(--accent-ramanujan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Foreword ── */
+.foreword {
+  background: var(--foreword-bg);
+  border-radius: 10px;
+  padding: 32px 36px;
+  margin-bottom: 48px;
+  border-left: 4px solid var(--rule);
+}
+
+.foreword h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.foreword p {
+  font-size: 16px !important;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.foreword p:last-child { margin-bottom: 0; }
+
+.foreword .signoff {
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 16px;
+}
+
+/* ── Body text ── */
+.article-container p {
+  margin-bottom: 22px;
+  font-size: 19px;
+  text-align: left;
+}
+
+.article-container p.drop-cap::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  float: left;
+  line-height: 0.78;
+  margin-right: 8px;
+  margin-top: 6px;
+  color: var(--accent-madhava);
+  font-weight: 700;
+}
+
+/* ── Section headers ── */
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 56px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+h2 .mathematician-date {
+  display: block;
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+h2.madhava { color: var(--accent-madhava); }
+h2.wallis { color: var(--accent-wallis); }
+h2.brouncker { color: var(--accent-brouncker); }
+h2.ramanujan { color: var(--accent-ramanujan); }
+
+/* ── Section intro line ── */
+.section-rule {
+  height: 3px;
+  border: none;
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+.section-rule.madhava { background: var(--accent-madhava); }
+.section-rule.wallis { background: var(--accent-wallis); }
+.section-rule.brouncker { background: var(--accent-brouncker); }
+.section-rule.ramanujan { background: var(--accent-ramanujan); }
+
+/* ── Formula display ── */
+.formula-block {
+  background: var(--illustration-bg);
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin: 28px 0;
+  text-align: center;
+  border-left: 4px solid var(--rule);
+  overflow-x: auto;
+}
+
+.formula-block.madhava { border-left-color: var(--accent-madhava); }
+.formula-block.wallis { border-left-color: var(--accent-wallis); }
+.formula-block.brouncker { border-left-color: var(--accent-brouncker); }
+.formula-block.ramanujan { border-left-color: var(--accent-ramanujan); }
+
+/* ── Illustration containers ── */
+.illustration {
+  margin: 36px 0;
+  background: var(--illustration-bg);
+  border-radius: 12px;
+  padding: 32px 20px 20px;
+  position: relative;
+}
+
+.illustration .caption {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.illustration svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Pull quote ── */
+.pull-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  padding: 32px 40px;
+  margin: 40px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+/* ── Summary cards ── */
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 36px 0;
+}
+
+@media (max-width: 600px) {
+  .vision-grid { grid-template-columns: 1fr; }
+}
+
+.vision-card {
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  background: white;
+}
+
+.vision-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.vision-card .metaphor {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.vision-card p {
+  font-size: 15px !important;
+  line-height: 1.55;
+  margin-bottom: 0 !important;
+}
+
+.vision-card.madhava h3 { color: var(--accent-madhava); }
+.vision-card.wallis h3 { color: var(--accent-wallis); }
+.vision-card.brouncker h3 { color: var(--accent-brouncker); }
+.vision-card.ramanujan h3 { color: var(--accent-ramanujan); }
+
+/* ── Closing ── */
+.closing-ornament {
+  text-align: center;
+  margin: 56px 0 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--rule);
+  letter-spacing: 12px;
+}
+
+/* ── Interactive convergence chart ── */
+.convergence-chart {
+  margin: 36px 0;
+  background: var(--illustration-bg);
+  border-radius: 12px;
+  padding: 28px 20px 16px;
+}
+
+.convergence-chart .caption {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 12px;
+}
+
+.conv-bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.conv-label {
+  width: 120px;
+  text-align: right;
+  padding-right: 12px;
+  font-size: 12px;
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.conv-bar-track {
+  flex: 1;
+  height: 22px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.conv-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.2s ease;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  font-size: 11px;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.chart-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.chart-axis-label {
+  font-family: 'Source Serif 4', serif;
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* ── Footnote ── */
+.footnote {
+  font-size: 14px;
+  color: var(--text-light);
+  border-top: 1px solid var(--rule);
+  margin-top: 16px;
+  padding-top: 12px;
+  line-height: 1.6;
+}
+
+/* ── Colophon ── */
+.colophon {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.colophon a {
+  color: var(--accent-wallis);
+  text-decoration: none;
+}
+
+.colophon a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<article class="article-container">
+
+<a href="../" class="back-link">&larr; Dispatches</a>
+
+<!-- ════════ HEADER ════════ -->
+<header class="article-header">
+  <div class="pi-symbol-header"><span>&pi;</span></div>
+  <h1>Four Visions of&nbsp;&pi;</h1>
+  <p class="subtitle">How great mathematicians found strange formulas for a simple constant</p>
+  <p class="dateline">March 15, 2026</p>
+</header>
+
+<!-- ════════ FOREWORD ════════ -->
+<div class="foreword">
+  <h3>A Note on How This Was Made</h3>
+  <p>It started, as these things often do, with an image that wouldn't leave me alone. A Scientific American graphic showing four formulas for &pi; &mdash; by Madhava, Wallis, Gauss (actually Brouncker, as we'll see), and Ramanujan &mdash; each one stranger and more beautiful than the last. I've always wondered: how on earth did anyone arrive at these?</p>
+  <p>So I asked the two most capable AI systems I have access to, with the same prompt: <em>"I am always amazed by formulae for pi like the one in the image. How the heck did these people arrive at such complicated but accurate formulae. For each of them, to the extent you can, try to propose the intuitive path that led to these."</em></p>
+  <p>ChatGPT 5.4 gave strong intuitive framings &mdash; the metaphors of walking, balancing, recursing, tunneling. Claude Opus 4.6 added mathematical depth, the hypergeometric thread tying all four together, and the correction about Brouncker's continued fraction being misattributed to Gauss. I combined the best ideas from both, then had ChatGPT draft the essay and Claude add the illustrated diagrams and verify the convergence numbers programmatically.</p>
+  <p>The result is a genuinely collaborative piece: human curiosity as the spark, two AI systems contributing complementary strengths, and an editor (me) making sure the whole thing holds together and tells the truth.</p>
+  <p class="signoff">&mdash; Ravi Annaswamy</p>
+</div>
+
+<!-- ════════ INTRODUCTION ════════ -->
+<p class="drop-cap">At school, &pi; is introduced as something almost embarrassingly simple: the ratio of a circle's circumference to its diameter. A familiar constant. A geometric fact. A decimal that begins 3.14159 and continues forever.</p>
+
+<p>But then one stumbles upon formulas like the ones shown above &mdash; involving infinite sums, products, continued fractions, and mysterious constants like 1103 and 396 &mdash; and the natural response is astonishment. How did anyone arrive at these? Who looks at a circle and somehow finds factorials and nested fractions?</p>
+
+<p>The answer is that they usually did not begin by chasing &pi; directly. Each of these formulas emerged from a different mathematical landscape. One came from thinking about angles and arcs. Another from patterns in families of integrals. Another from recursive algebra. The last from the deep arithmetic of elliptic and modular functions. &pi; appeared because it lives at the crossroads of all of them.</p>
+
+<p>That is what makes the history of &pi; so beautiful. The number stays the same, but the ways of seeing it keep changing.</p>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- MADHAVA -->
+<!-- ════════════════════════════════════════════════════════ -->
+<h2 class="madhava">Madhava: Building an Angle Out of Infinite Corrections
+  <span class="mathematician-date">14th or 15th century, Kerala, India</span>
+</h2>
+<hr class="section-rule madhava">
+
+<p>The most intuitive of these stories begins with Madhava of Sangamagrama, the great mathematician of the Kerala school.</p>
+
+<p>His route to &pi; starts with a special angle:</p>
+
+<div class="formula-block madhava">
+$$\tan\!\left(\frac{\pi}{6}\right)=\frac{1}{\sqrt{3}}$$
+</div>
+
+<p>So if one could express $\arctan(x)$ as an infinite series, then substituting $x = 1/\sqrt{3}$ would give $\pi/6$, and hence &pi;.</p>
+
+<!-- ── ILLUSTRATION 1: The 30-60-90 triangle and arctan ── -->
+<div class="illustration">
+<svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background arc -->
+  <defs>
+    <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#b5432a" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Left panel: Triangle -->
+  <text x="160" y="28" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" fill="#b5432a" font-weight="600">The Special Triangle</text>
+
+  <!-- Triangle -->
+  <polygon points="60,280 260,280 60,110" fill="none" stroke="#2a2520" stroke-width="2"/>
+
+  <!-- Right angle marker -->
+  <rect x="60" y="256" width="24" height="24" fill="none" stroke="#2a2520" stroke-width="1.2"/>
+
+  <!-- Arc for 30 angle -->
+  <path d="M220,280 A45,45 0 0,0 240,258" fill="none" stroke="#b5432a" stroke-width="2"/>
+  <text x="215" y="264" font-family="'Source Serif 4', serif" font-size="15" fill="#b5432a">30&deg;</text>
+
+  <!-- Arc for 60 angle -->
+  <path d="M85,128 A40,40 0 0,1 60,156" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="72" y="158" font-family="'Source Serif 4', serif" font-size="14" fill="#6b6560">60&deg;</text>
+
+  <!-- Side labels -->
+  <text x="40" y="200" font-family="'JetBrains Mono', monospace" font-size="16" fill="#2a2520" text-anchor="middle">1</text>
+  <text x="160" y="298" font-family="'JetBrains Mono', monospace" font-size="16" fill="#b5432a" text-anchor="middle">1/&radic;3</text>
+  <text x="182" y="186" font-family="'JetBrains Mono', monospace" font-size="16" fill="#6b6560" text-anchor="middle" transform="rotate(-40,182,186)">2/&radic;3</text>
+
+  <!-- tan label -->
+  <text x="160" y="248" font-family="'Source Serif 4', serif" font-size="14" fill="#b5432a" font-style="italic" text-anchor="middle">tan 30&deg; = 1/&radic;3</text>
+
+  <!-- Divider -->
+  <line x1="340" y1="50" x2="340" y2="290" stroke="#d4cec6" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Right panel: The series idea -->
+  <text x="510" y="28" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" fill="#b5432a" font-weight="600">The Series Idea</text>
+
+  <!-- Curved arrow from angle to series -->
+  <text x="510" y="68" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="14" fill="#6b6560" font-style="italic">If we know that</text>
+
+  <text x="510" y="100" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" fill="#2a2520">arctan(x) = x - x&sup3;/3 + x&sup5;/5 - ...</text>
+
+  <text x="510" y="136" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="14" fill="#6b6560" font-style="italic">then substituting x = 1/&radic;3 gives</text>
+
+  <text x="510" y="168" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" fill="#b5432a">&pi;/6 = 1/&radic;3 - 1/(3&middot;3&radic;3) + ...</text>
+
+  <!-- Visual: converging corrections -->
+  <text x="510" y="210" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="13" fill="#6b6560" font-style="italic">Each term is a smaller correction:</text>
+
+  <!-- Correction bars -->
+  <rect x="390" y="228" width="140" height="12" rx="2" fill="#b5432a" opacity="0.7"/>
+  <text x="536" y="239" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">+0.5774</text>
+
+  <rect x="390" y="246" width="46" height="12" rx="2" fill="#1a5276" opacity="0.6"/>
+  <text x="442" y="257" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&minus;0.0642</text>
+
+  <rect x="390" y="264" width="17" height="12" rx="2" fill="#b5432a" opacity="0.5"/>
+  <text x="413" y="275" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">+0.0137</text>
+
+  <rect x="390" y="282" width="6" height="12" rx="2" fill="#1a5276" opacity="0.4"/>
+  <text x="402" y="293" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&minus;0.0036</text>
+
+</svg>
+<p class="caption">The 30-60-90 triangle provides the key angle. The arctan series then unfolds that angle into an infinite sequence of ever-smaller corrections.</p>
+</div>
+
+<p>That is exactly what happens. One begins with the simple algebraic identity</p>
+
+<div class="formula-block madhava">
+$$\frac{1}{1+t^2} = 1 - t^2 + t^4 - t^6 + \cdots$$
+</div>
+
+<p>which is just a geometric series in disguise. Integrating term by term gives</p>
+
+<div class="formula-block madhava">
+$$\arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots$$
+</div>
+
+<p>Now substitute $x = 1/\sqrt{3}$, multiply by 6, and Madhava's formula appears.</p>
+
+<p>Seen this way, the formula no longer looks like an arbitrary miracle. It feels almost inevitable. First comes a simple series. Then integration. Then a special angle from elementary geometry. The pieces lock together naturally.</p>
+
+<p>The deeper intuition is even more beautiful. An angle is being built from an infinite sequence of corrections. Start with a crude approximation. Then correct it. Then correct the correction. Then keep going. The curve is unfolded into an endless alternating process.</p>
+
+<p>What makes Madhava especially impressive is that he did not merely find a series for &pi;. He found a <em>good</em> one. If one uses $x = 1$, one gets the famous later Leibniz formula $\pi/4 = 1 - 1/3 + 1/5 - \cdots$, which converges painfully slowly. Madhava's choice $x = 1/\sqrt{3}$ is far wiser, because the powers shrink much faster. This was not only theoretical insight. It was computational intelligence.</p>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- WALLIS -->
+<!-- ════════════════════════════════════════════════════════ -->
+<h2 class="wallis">Wallis: Finding &pi; in a Pattern of Areas
+  <span class="mathematician-date">1656, England</span>
+</h2>
+<hr class="section-rule wallis">
+
+<p>John Wallis arrived by a very different road. He was not primarily trying to produce a dazzling &pi; formula. He was studying patterns in areas and integrals.</p>
+
+<p>In the modern formulation, we define $I_n = \int_0^{\pi/2} \sin^n x\, dx$ and then show, by integration by parts, that these integrals satisfy a recurrence: $I_n = \frac{n-1}{n}\, I_{n-2}$.</p>
+
+<!-- ── ILLUSTRATION 2: The Wallis integral ladder ── -->
+<div class="illustration">
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+  <text x="340" y="26" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" fill="#1a5276" font-weight="600">The Recurrence Ladder</text>
+  <text x="340" y="48" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="13" fill="#6b6560" font-style="italic">Even and odd chains interleave, with &pi; hiding in just one of them</text>
+
+  <!-- Even chain (left) -->
+  <text x="180" y="82" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" fill="#1a5276" font-weight="600">Even chain</text>
+  <text x="180" y="99" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="#6b6560" font-style="italic">carries &pi;/2</text>
+
+  <rect x="100" y="112" width="160" height="36" rx="6" fill="white" stroke="#1a5276" stroke-width="1.5"/>
+  <text x="180" y="135" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#1a5276">I&#8320; = &pi;/2</text>
+
+  <line x1="180" y1="148" x2="180" y2="166" stroke="#1a5276" stroke-width="1.2"/>
+  <text x="210" y="162" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&times; 1/2</text>
+
+  <rect x="100" y="166" width="160" height="36" rx="6" fill="white" stroke="#1a5276" stroke-width="1.5"/>
+  <text x="180" y="189" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#1a5276">I&#8322; = (1/2)&middot;&pi;/2</text>
+
+  <line x1="180" y1="202" x2="180" y2="220" stroke="#1a5276" stroke-width="1.2"/>
+  <text x="210" y="216" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&times; 3/4</text>
+
+  <rect x="100" y="220" width="160" height="36" rx="6" fill="white" stroke="#1a5276" stroke-width="1.5"/>
+  <text x="180" y="243" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#1a5276">I&#8324; = (3/8)&middot;&pi;/2</text>
+
+  <line x1="180" y1="256" x2="180" y2="274" stroke="#1a5276" stroke-width="1.2"/>
+  <text x="210" y="270" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&times; 5/6</text>
+
+  <rect x="100" y="274" width="160" height="36" rx="6" fill="white" stroke="#1a5276" stroke-width="1.5"/>
+  <text x="180" y="297" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#1a5276">I&#8326; = ...</text>
+
+  <!-- Odd chain (right) -->
+  <text x="500" y="82" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" fill="#b5432a" font-weight="600">Odd chain</text>
+  <text x="500" y="99" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="#6b6560" font-style="italic">purely rational</text>
+
+  <rect x="420" y="112" width="160" height="36" rx="6" fill="white" stroke="#b5432a" stroke-width="1.5"/>
+  <text x="500" y="135" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#b5432a">I&#8321; = 1</text>
+
+  <line x1="500" y1="148" x2="500" y2="166" stroke="#b5432a" stroke-width="1.2"/>
+  <text x="530" y="162" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&times; 2/3</text>
+
+  <rect x="420" y="166" width="160" height="36" rx="6" fill="white" stroke="#b5432a" stroke-width="1.5"/>
+  <text x="500" y="189" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#b5432a">I&#8323; = 2/3</text>
+
+  <line x1="500" y1="202" x2="500" y2="220" stroke="#b5432a" stroke-width="1.2"/>
+  <text x="530" y="216" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&times; 4/5</text>
+
+  <rect x="420" y="220" width="160" height="36" rx="6" fill="white" stroke="#b5432a" stroke-width="1.5"/>
+  <text x="500" y="243" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#b5432a">I&#8325; = 8/15</text>
+
+  <line x1="500" y1="256" x2="500" y2="274" stroke="#b5432a" stroke-width="1.2"/>
+  <text x="530" y="270" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b6560">&times; 6/7</text>
+
+  <rect x="420" y="274" width="160" height="36" rx="6" fill="white" stroke="#b5432a" stroke-width="1.5"/>
+  <text x="500" y="297" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#b5432a">I&#8327; = ...</text>
+
+  <!-- Squeeze arrows -->
+  <text x="340" y="338" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="14" fill="#2a2520" font-weight="500">As n &rarr; &infin;, comparing the two chains squeezes out &pi;</text>
+
+  <!-- Connecting dotted lines -->
+  <line x1="260" y1="130" x2="420" y2="130" stroke="#d4cec6" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="260" y1="184" x2="420" y2="184" stroke="#d4cec6" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="260" y1="238" x2="420" y2="238" stroke="#d4cec6" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="260" y1="292" x2="420" y2="292" stroke="#d4cec6" stroke-width="1" stroke-dasharray="3,3"/>
+
+</svg>
+<p class="caption">The even integrals carry a factor of &pi;/2; the odd ones are purely rational. As they converge toward each other, their ratio reveals the Wallis product.</p>
+</div>
+
+<p>This recurrence splits naturally into even and odd cases. The even chain carries a factor of $\pi/2$, while the odd chain does not. Comparing the two and pushing the pattern to its limit yields Wallis's famous product:</p>
+
+<div class="formula-block wallis">
+$$\frac{\pi}{2} = \frac{2\cdot 2}{1\cdot 3}\cdot\frac{4\cdot 4}{3\cdot 5}\cdot\frac{6\cdot 6}{5\cdot 7}\cdots$$
+</div>
+
+<p>But the historical intuition is perhaps even more interesting. Wallis studied families of definite integrals that could be computed for whole-number exponents. He arranged the results in tables, noticed a pattern, and then did something bold: he extended the pattern to the half-integer case. Why half-integers? Because the quarter-circle area involves $\sqrt{1 - x^2}$, and that square root corresponds to exponent $1/2$.</p>
+
+<p>So Wallis was effectively asking a daring question: if a family of formulas behaves beautifully for ordinary integers, might the same pattern continue to the case that describes the circle?</p>
+
+<p>That act of interpolation was the real leap. He did not yet possess our modern language of limits, beta functions, or gamma functions. What he had was pattern recognition, symbolic confidence, and a willingness to trust that the structure extended beyond the cases already computed.</p>
+
+<p>Madhava reached &pi; by adding corrections. Wallis reached it by multiplying balance factors. Each factor in the Wallis product is only a tiny adjustment, but together they build up to $\pi/2$. It is a different kind of infinity, and it reveals a different side of &pi;.</p>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- CONTINUED FRACTION -->
+<!-- ════════════════════════════════════════════════════════ -->
+<h2 class="brouncker">Brouncker and the Continued Fraction: Turning Pattern into Recursion
+  <span class="mathematician-date">17th century onward</span>
+</h2>
+<hr class="section-rule brouncker">
+
+<p>The continued fraction often shown beside these formulas is</p>
+
+<div class="formula-block brouncker">
+$$\pi = \cfrac{4}{1+\cfrac{1^2}{3+\cfrac{2^2}{5+\cfrac{3^2}{7+\cdots}}}}$$
+</div>
+
+<p>Popular images sometimes attach Gauss's name directly to it, but historically the specific formula belongs more naturally to the Brouncker&ndash;Wallis line. Brouncker transformed Wallis-type product structure into a continued fraction, while Gauss, much later, developed the broader theory that explains why such things arise so naturally.</p>
+
+<!-- ── ILLUSTRATION 3: Nested refinement ── -->
+<div class="illustration">
+<svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
+  <text x="340" y="26" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" fill="#4a6741" font-weight="600">Recursive Refinement: Zooming into &pi;</text>
+
+  <!-- Nested boxes showing refinement -->
+  <!-- Outermost -->
+  <rect x="40" y="48" width="600" height="268" rx="10" fill="none" stroke="#4a6741" stroke-width="2.5" opacity="0.3"/>
+  <text x="60" y="72" font-family="'JetBrains Mono', monospace" font-size="14" fill="#4a6741" font-weight="500">4 / (1 + ...)</text>
+  <text x="540" y="72" font-family="'JetBrains Mono', monospace" font-size="12" fill="#4a6741" opacity="0.7">&rarr; 4.000</text>
+
+  <!-- Level 1 -->
+  <rect x="80" y="88" width="520" height="216" rx="8" fill="none" stroke="#4a6741" stroke-width="2" opacity="0.45"/>
+  <text x="100" y="112" font-family="'JetBrains Mono', monospace" font-size="13" fill="#4a6741" font-weight="500">1&sup2; / (3 + ...)</text>
+  <text x="504" y="112" font-family="'JetBrains Mono', monospace" font-size="12" fill="#4a6741" opacity="0.7">&rarr; 3.000</text>
+
+  <!-- Level 2 -->
+  <rect x="120" y="128" width="440" height="164" rx="8" fill="none" stroke="#4a6741" stroke-width="1.8" opacity="0.6"/>
+  <text x="140" y="152" font-family="'JetBrains Mono', monospace" font-size="13" fill="#4a6741" font-weight="500">2&sup2; / (5 + ...)</text>
+  <text x="468" y="152" font-family="'JetBrains Mono', monospace" font-size="12" fill="#4a6741" opacity="0.7">&rarr; 3.167</text>
+
+  <!-- Level 3 -->
+  <rect x="160" y="168" width="360" height="112" rx="6" fill="none" stroke="#4a6741" stroke-width="1.5" opacity="0.75"/>
+  <text x="180" y="192" font-family="'JetBrains Mono', monospace" font-size="13" fill="#4a6741" font-weight="500">3&sup2; / (7 + ...)</text>
+  <text x="432" y="192" font-family="'JetBrains Mono', monospace" font-size="12" fill="#4a6741" opacity="0.7">&rarr; 3.138</text>
+
+  <!-- Level 4 -->
+  <rect x="200" y="208" width="280" height="60" rx="5" fill="none" stroke="#4a6741" stroke-width="1.3" opacity="0.9"/>
+  <text x="220" y="232" font-family="'JetBrains Mono', monospace" font-size="13" fill="#4a6741" font-weight="500">4&sup2; / (9 + ...)</text>
+  <text x="396" y="232" font-family="'JetBrains Mono', monospace" font-size="12" fill="#4a6741" opacity="0.9">&rarr; 3.142</text>
+
+  <!-- Innermost: target -->
+  <rect x="240" y="244" width="200" height="16" rx="3" fill="#4a6741" opacity="0.12"/>
+  <text x="340" y="256" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#4a6741" font-weight="500">&middot;&middot;&middot;  &rarr; &pi; = 3.14159...</text>
+
+  <!-- Right annotation -->
+  <text x="340" y="330" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="13" fill="#6b6560" font-style="italic">Each level refines the denominator, narrowing toward &pi;</text>
+</svg>
+<p class="caption">A continued fraction nests refinement inside refinement. Each new layer slightly adjusts the value, and the infinite nesting converges to &pi;.</p>
+</div>
+
+<p>Why should &pi; appear in a continued fraction at all? A continued fraction is what happens when refinement becomes recursive. Instead of saying, "Here is a number, then a correction, then another correction," one says, "Here is a number, and its correction has the same nested structure as the whole expression." Each stage opens into another stage of the same form.</p>
+
+<p>This particular formula is best seen as Wallis's world turned inside out. What appeared there as a product of ratios becomes here a recursive denominator structure. The odd numbers $1, 3, 5, 7, \dots$ and the squares $1^2, 2^2, 3^2, \dots$ are not ornamental. They are the visible trace of a deeper self-similar pattern.</p>
+
+<p>Gauss's later contribution was to show that this phenomenon was not a one-off curiosity. In the larger world of hypergeometric functions, continued fractions arise with striking regularity. Ratios of related functions often collapse into beautiful nested forms. Since trigonometric and inverse trigonometric functions belong to that larger family, &pi; enters naturally as one special value among many.</p>
+
+<div class="pull-quote">If Madhava teaches us that &pi; can be reached through an infinite sum, and Wallis shows that it can arise through an infinite product, Brouncker's continued fraction shows that it can also appear through recursive refinement. The same constant survives different kinds of infinite organization.</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- RAMANUJAN -->
+<!-- ════════════════════════════════════════════════════════ -->
+<h2 class="ramanujan">Ramanujan: The Hidden Tunnel
+  <span class="mathematician-date">1914, India</span>
+</h2>
+<hr class="section-rule ramanujan">
+
+<p>Then comes Ramanujan.</p>
+
+<p>His formula for $1/\pi$,</p>
+
+<div class="formula-block ramanujan">
+$$\frac{1}{\pi} = \frac{2\sqrt{2}}{9801}\sum_{k=0}^{\infty}\frac{(4k)!\,(1103 + 26390k)}{(k!)^4 \; 396^{4k}}$$
+</div>
+
+<p>does not merely converge. It races. Each new term contributes an astonishing number of correct digits. The first time one sees it, it can feel almost supernatural.</p>
+
+<!-- ── ILLUSTRATION 4: Convergence race ── -->
+<div class="convergence-chart">
+  <div class="chart-title">The Convergence Race: Correct Digits of &pi; After 10 Terms</div>
+
+  <div class="conv-bar-row">
+    <span class="conv-label" style="color: var(--accent-madhava)">Madhava</span>
+    <div class="conv-bar-track">
+      <div class="conv-bar" style="width: 6.25%; background: var(--accent-madhava);">~5</div>
+    </div>
+  </div>
+  <div class="conv-bar-row">
+    <span class="conv-label" style="color: var(--accent-wallis)">Wallis</span>
+    <div class="conv-bar-track">
+      <div class="conv-bar" style="width: 2.5%; background: var(--accent-wallis); padding-left: 4px; font-size: 10px;">~1</div>
+    </div>
+  </div>
+  <div class="conv-bar-row">
+    <span class="conv-label" style="color: var(--accent-brouncker)">Cont. Frac.</span>
+    <div class="conv-bar-track">
+      <div class="conv-bar" style="width: 8.75%; background: var(--accent-brouncker);">~7</div>
+    </div>
+  </div>
+  <div class="conv-bar-row">
+    <span class="conv-label" style="color: var(--accent-ramanujan)">Ramanujan</span>
+    <div class="conv-bar-track">
+      <div class="conv-bar" style="width: 100%; background: linear-gradient(90deg, var(--accent-ramanujan), #9b59b6);">~80 digits</div>
+    </div>
+  </div>
+
+  <div class="chart-axis-label">approximate correct decimal digits</div>
+  <p class="caption">Ramanujan's formula adds roughly 8 correct digits per term &mdash; making it incomparably faster than the classical methods.</p>
+  <p class="footnote">Convergence verified programmatically using Python's arbitrary-precision <code>Decimal</code> library. After 10 terms: Madhava &asymp; 5 digits, Wallis &asymp; 1, continued fraction &asymp; 7, Ramanujan &asymp; 80.</p>
+</div>
+
+<p>And in a sense, this is because Ramanujan was no longer operating in the visible world of circles, arcs, or elementary integrals. He was operating in a far deeper landscape: elliptic integrals, modular equations, special algebraic values, and the hidden symmetries of hypergeometric series.</p>
+
+<p>Modern mathematics explains this formula through the theory of elliptic and modular functions. Certain hypergeometric series are intimately related to elliptic integrals. Elliptic integrals, in turn, are tied to &pi;. Modular transformations connect one representation to another, often turning a slow approximation into a dramatically faster one. At special algebraic points &mdash; sometimes called singular moduli &mdash; the resulting formulas become extraordinarily efficient.</p>
+
+<!-- ── ILLUSTRATION 5: Ramanujan's landscape ── -->
+<div class="illustration">
+<svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg">
+  <text x="340" y="26" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" fill="#6b2d7b" font-weight="600">Ramanujan's Conceptual Landscape</text>
+
+  <!-- Nodes -->
+  <!-- Circle / Geometry -->
+  <circle cx="110" cy="100" r="38" fill="white" stroke="#d4cec6" stroke-width="1.5"/>
+  <text x="110" y="96" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="#2a2520" font-weight="500">Circle</text>
+  <text x="110" y="112" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#6b6560" font-style="italic">&pi; = C/d</text>
+
+  <!-- Elliptic integrals -->
+  <rect x="245" y="62" width="130" height="48" rx="8" fill="white" stroke="#6b2d7b" stroke-width="1.5"/>
+  <text x="310" y="83" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="#6b2d7b" font-weight="500">Elliptic Integrals</text>
+  <text x="310" y="99" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#6b6560" font-style="italic">K(k) ~ &pi;/2 &times; ...</text>
+
+  <!-- Modular forms -->
+  <rect x="430" y="62" width="130" height="48" rx="8" fill="white" stroke="#6b2d7b" stroke-width="2"/>
+  <text x="495" y="83" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="#6b2d7b" font-weight="500">Modular Forms</text>
+  <text x="495" y="99" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#6b6560" font-style="italic">j-invariant, &theta;-functions</text>
+
+  <!-- Hypergeometric -->
+  <rect x="245" y="170" width="130" height="48" rx="8" fill="white" stroke="#6b2d7b" stroke-width="1.5"/>
+  <text x="310" y="190" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="#6b2d7b" font-weight="500">Hypergeometric</text>
+  <text x="310" y="206" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#6b6560" font-style="italic">(4k)!/(k!)&#8308; terms</text>
+
+  <!-- Singular moduli (special point) -->
+  <rect x="430" y="170" width="130" height="48" rx="8" fill="#6b2d7b" stroke="#6b2d7b" stroke-width="2"/>
+  <text x="495" y="190" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="12" fill="white" font-weight="500">Singular Moduli</text>
+  <text x="495" y="206" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#e8d5f0">&tau; = &radic;&minus;58</text>
+
+  <!-- Result -->
+  <rect x="355" y="252" width="160" height="30" rx="6" fill="#6b2d7b" opacity="0.1" stroke="#6b2d7b" stroke-width="1"/>
+  <text x="435" y="272" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6b2d7b" font-weight="500">1103, 26390, 396, 9801</text>
+
+  <!-- Arrows -->
+  <line x1="148" y1="100" x2="243" y2="88" stroke="#d4cec6" stroke-width="1.2"/>
+  <line x1="377" y1="86" x2="428" y2="86" stroke="#6b2d7b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="310" y1="112" x2="310" y2="168" stroke="#6b2d7b" stroke-width="1.2"/>
+  <line x1="495" y1="112" x2="495" y2="168" stroke="#6b2d7b" stroke-width="1.2"/>
+  <line x1="377" y1="194" x2="428" y2="194" stroke="#6b2d7b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="470" y1="220" x2="450" y2="250" stroke="#6b2d7b" stroke-width="1.5"/>
+  <line x1="340" y1="220" x2="400" y2="250" stroke="#6b2d7b" stroke-width="1.2"/>
+
+  <!-- Annotation -->
+  <text x="110" y="158" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#6b6560" font-style="italic">simple world</text>
+  <text x="500" y="248" text-anchor="middle" font-family="'Source Serif 4', serif" font-size="11" fill="#6b2d7b" font-style="italic">express elevator</text>
+
+</svg>
+<p class="caption">Ramanujan's formula emerges from the intersection of elliptic integrals, modular symmetries, and hypergeometric series &mdash; evaluated at a special algebraic point where everything aligns.</p>
+</div>
+
+<p>That is why the constants in Ramanujan's formula are not random curiosities. Numbers like 9801, 396, 1103, and 26390 are arithmetic fingerprints of a very special modular setting. Later mathematicians, including the Borweins in the twentieth century, showed how Ramanujan's formulas fit rigorously into this larger theory.</p>
+
+<p>But even after the theory is understood, some mystery remains. For Madhava and Wallis, one can imagine the chain of reasoning step by step. For Ramanujan, we can describe the mathematical territory, but it is much harder to reconstruct the inner flash by which he saw such identities. He seems to have had an uncanny intuition for where modular and hypergeometric worlds would align.</p>
+
+<p>If Madhava walks to &pi;, and Wallis balances his way there, Ramanujan seems to take a hidden tunnel.</p>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- CLOSING: Four Visions -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="closing-ornament">&middot; &middot; &middot; &middot;</div>
+
+<h2 style="color: var(--text); text-align: center; margin-bottom: 28px;">Four Visions of the Same Constant</h2>
+
+<p>These four formulas are not four variations of the same trick. They are four different visions of the same constant.</p>
+
+<div class="vision-grid">
+  <div class="vision-card madhava">
+    <h3>Madhava</h3>
+    <p class="metaphor">"I can walk there by adding tiny steps."</p>
+    <p>Additive correction: an angle built term by term from a series for the inverse tangent.</p>
+  </div>
+  <div class="vision-card wallis">
+    <h3>Wallis</h3>
+    <p class="metaphor">"I can balance my way there by multiplying ratios."</p>
+    <p>Multiplicative balance: area emerging from a product of tiny adjustments in a recurrence.</p>
+  </div>
+  <div class="vision-card brouncker">
+    <h3>Brouncker</h3>
+    <p class="metaphor">"I can reach it by recursively refining."</p>
+    <p>Recursive refinement: the same nested structure repeated within itself, converging to &pi;.</p>
+  </div>
+  <div class="vision-card ramanujan">
+    <h3>Ramanujan</h3>
+    <p class="metaphor">"I know a hidden tunnel."</p>
+    <p>Deep symmetry: a geometric constant encoded in the arithmetic of modular objects.</p>
+  </div>
+</div>
+
+<p>That is why formulas for &pi; can look so wildly different from each other. &pi; is not only the number of the circle. It is also a meeting point of analysis, algebra, recursion, and arithmetic structure.</p>
+
+<p>In that sense, the history of &pi; is almost a miniature history of mathematics itself. A simple constant first seen in geometry keeps reappearing as human thought grows more abstract. The number does not change. The surrounding intuition deepens.</p>
+
+<p>And perhaps that is why these formulas continue to fascinate. They are not just efficient ways to compute digits. They are windows into the many hidden worlds in which &pi; quietly lives.</p>
+
+<div class="closing-ornament">&blacksquare;</div>
+
+<!-- ── Colophon ── -->
+<div class="colophon">
+  <p>Conceived and curated by <a href="https://github.com/ravi-annaswamy">Ravi Annaswamy</a><br>
+  Written with ChatGPT 5.4 &amp; Claude Opus 4.6 &middot; Illustrated by Claude &middot; Convergence verified programmatically</p>
+  <p style="margin-top: 8px; font-style: italic;">Sparked by a Scientific American graphic of four &pi; formulas that wouldn't leave the editor alone. Two AI systems were given the same prompt; their best ideas were combined by a human who cared more about the answer than who provided it.</p>
+</div>
+
+</article>
+</body>
+</html>
