@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monday Evening Edition — AI with Ravi</title>
+    <meta property="og:title" content="Monday Evening Edition — X/Twitter Briefing">
+    <meta property="og:description" content="35+ tweets from the AI frontier: GTC 2026's Claw moment, Claude's financial integration, agents leaving the browser, and the physical bottleneck.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #faf8f4;
+            color: #2a2a2a;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: #7a7a6e;
+            margin-bottom: 20px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: #3a6b8a;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a6b8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-top: 2px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e4dc;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 15px;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: #7a7a6e;
+            line-height: 1.5;
+        }
+
+        .card-meta a {
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e4dc;
+            margin: 32px 0;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: #f5f2ec;
+            border-left: 3px solid #7a7a6e;
+            padding: 18px 22px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #5a5a50;
+            line-height: 1.7;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e8e4dc;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #7a7a6e;
+            margin-bottom: 16px;
+        }
+
+        .footer-back {
+            font-size: 14px;
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .footer-back:hover {
+            text-decoration: underline;
+        }
+
+        /* Accent colors */
+        .accent-gtc { background: #3a6b8a; }
+        .accent-wild { background: #a0522d; }
+        .accent-engineering { background: #5a6b3a; }
+        .accent-physical { background: #8b4557; }
+        .accent-research { background: #6b5b3a; }
+        .accent-math { background: #6b3a5a; }
+        .accent-quiet { background: #3a7a6b; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .container { padding: 24px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Monday Evening Edition</h1>
+            <div class="header-date">March 16, 2026</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">35+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">7</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">16h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Section 1: GTC 2026 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-gtc"></div>
+                <div class="section-title">GTC 2026: The Agentic Operating System</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jensen Huang declared at GTC 2026 that "every company in the world needs to have a Claw strategy" — comparing AI agents to HTML and Linux, and announcing NemoClaw, Nvidia's enterprise-grade fork of OpenClaw.</div>
+                <div class="card-body">Brian Roemmele shared the quote alongside an architectural diagram showing agents as "a new computing platform" built on multi-modal prompts, computer use, memory, tools, and sub-agents. NemoClaw is essentially OpenClaw with enterprise security and privacy baked in — Nvidia positioning itself not as a chip vendor but as the architect of the enterprise AI operating system. The timing is deliberate: Huang made this call the same day Nvidia unveiled Vera Rubin, its next computing rack optimized for agent workloads.</div>
+                <div class="card-meta"><a href="https://x.com/BrianRoemmele" target="_blank">@BrianRoemmele</a> · 1h · 171 likes, 10K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">NVIDIA's DLSS 5 announcement — an AI-powered breakthrough that "infuses pixels with photorealistic lighting and materials" — drew 28 million views and 40K likes, making it the single most-viewed post in this digest window.</div>
+                <div class="card-body">The technology bridges the gap between rendering and reality by using neural networks to predict what light should look like, coming this fall. The engagement is a reminder that Nvidia's consumer GPU audience dwarfs the AI research community by orders of magnitude — and Jensen Huang is building bridges between both.</div>
+                <div class="card-meta"><a href="https://x.com/NVIDIAGeForce" target="_blank">@NVIDIAGeForce</a> · 6h, reposted by <a href="https://x.com/TomLikesRobots" target="_blank">@TomLikesRobots</a> · 40K likes, 28M views — engagement on a scale that makes most AI research announcements look like whispers</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Burke Holland showed that you can build your own OpenClaw from scratch in about 20 minutes using the GitHub Copilot SDK — and shared how he's using it as a personal AI assistant daily.</div>
+                <div class="card-body">The post is a data point about how quickly the Claw ecosystem is maturing: what required deep infra knowledge six months ago is now a weekend project. Combined with Nvidia's NemoClaw announcement, the picture is clear — the agent layer is standardizing fast.</div>
+                <div class="card-meta"><a href="https://x.com/burkeholland" target="_blank">@burkeholland</a> · 9h · 201 likes, 12K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 2: Claude in the Wild -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-wild"></div>
+                <div class="section-title">Claude in the Wild</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jason Luongo announced that Claude now has live access to real-time stock quotes and options chain data — letting users pull prices, scan option chains, check Greeks, and view portfolios without leaving the chat.</div>
+                <div class="card-body">The post drew 322K views and 2.7K likes in four hours, the highest single-topic engagement for a Claude feature announcement today. The API connection is free, and Luongo shared a step-by-step setup guide. The implication: Claude is no longer just a reasoning engine — it's becoming a live terminal for financial data.</div>
+                <div class="card-meta"><a href="https://x.com/JasonL_Capital" target="_blank">@JasonL_Capital</a> · 4h · 2.7K likes, 322K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Marc Andreessen posted "From my philosophy instructor Claude" and shared a multi-section essay titled "The Nietzschean Demolition of Introspection and Feelings" — treating the AI as a personal tutor.</div>
+                <div class="card-body">The essay opens with "Consciousness Is the Last Thing You Should Trust" and reads like a dense academic lecture generated on demand. The 201 comments and 106K views suggest the post resonated less as philosophy and more as a demonstration: a16z's co-founder is publicly treating Claude as his intellectual sparring partner, normalizing a use case that would have seemed absurd two years ago.</div>
+                <div class="card-meta"><a href="https://x.com/pmarca" target="_blank">@pmarca</a> · 2h · 580 likes, 106K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A viral tutorial showed how to build your own "JARVIS" using Obsidian + Claude Code in one hour — drawing 167K views and nearly 3K likes.</div>
+                <div class="card-body">Ronin's thread frames it as the Iron Man fantasy made real: a personal AI assistant that lives inside your knowledge base and can take actions. The upstream enabler is Claude Code's ability to execute arbitrary commands, combined with Obsidian's plugin architecture. This is the third "build your own agent" tutorial in a single digest window — the pattern is clear.</div>
+                <div class="card-meta"><a href="https://x.com/DeRonin_" target="_blank">@DeRonin_</a> · 10h · 2.9K likes, 167K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 3: Agentic Engineering -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-engineering"></div>
+                <div class="section-title">Agentic Engineering: Under the Hood</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Simon Willison published a new chapter of his Agentic Engineering Patterns guide — this one titled "How coding agents work" — distilling the key mechanics that practitioners need to understand to use agents effectively.</div>
+                <div class="card-body">The guide treats coding agents as a new medium: the defining feature is that they can both generate and execute code, testing and iterating independently. Each chapter is designed to be updated over time rather than frozen at publication. This is the second consecutive daily digest where Willison's guide appears — it's becoming the field's de facto reference text.</div>
+                <div class="card-meta"><a href="https://x.com/simonw" target="_blank">@simonw</a> · 10h · 428 likes, 27K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Dimensional released its DimOS stack as open source — an "agentic operating system for physical space" that extends AI agents beyond the digital realm into controlling drones, humanoids, and quadrupeds.</div>
+                <div class="card-body">Wes Roth shared a demo video showing an agent beginning "full patrol of the office." The backstory: the team's earlier demo of giving OpenClaw access to physical hardware got 1M views and hundreds of death threats. They're releasing everything open-source anyway. The pattern here is significant: agents are leaving the browser.</div>
+                <div class="card-meta"><a href="https://x.com/WesRoth" target="_blank">@WesRoth</a> · 8h, quoting <a href="https://x.com/stash_pomichter" target="_blank">@stash_pomichter</a></div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Ada Fang introduced ClawInstitute, an AI scientist research network designed to replicate how scientific communities actually work — exchanging ideas, critiquing results, and refining hypotheses through iterative discussion.</div>
+                <div class="card-body">The premise is that scientific discovery rarely occurs in isolation, and AI research agents should mirror that collaborative structure. The timing, one day after Nvidia announced NemoClaw, positions this as part of a broader week where the agent ecosystem is visibly crystallizing.</div>
+                <div class="card-meta"><a href="https://x.com/AdaFang_" target="_blank">@AdaFang_</a> · 10h · 245 likes, 21K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 4: The Physical Bottleneck -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-physical"></div>
+                <div class="section-title">The Physical Bottleneck</div>
+                <div class="section-count">2 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jason Shuman's observation that "the AI bottleneck isn't chips — it's the trades" drew nearly 10K likes and 789K views, making it the second-most-engaging original post of the day after DLSS 5.</div>
+                <div class="card-body">The data: the US needs 500,000 new electricians this decade, apprenticeships take five years, and Microsoft's Brad Smith has said it's the number-one thing slowing data center expansion. The irony is sharp: the most advanced technology in human history is being constrained by the availability of people who work with copper wire.</div>
+                <div class="card-meta"><a href="https://x.com/JasonrShuman" target="_blank">@JasonrShuman</a> · 12h · 9.9K likes, 789K views — the engagement reflects a real anxiety: what if the physical world can't keep pace with the digital one?</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jon Barron flagged a YouTube engineer building a room-scale laundry-picking "UFO catcher" robot out of QR codes and string — calling it one of the most compelling robotics demos he'd seen in a while.</div>
+                <div class="card-body">Barron, a respected computer vision researcher at Google, doesn't throw around superlatives. The demo is notable not for its polish but for its scrappiness: the builder is solving real-world manipulation with commodity materials, no expensive hardware. It's the physical-world analog of "build your own OpenClaw in 20 minutes."</div>
+                <div class="card-meta"><a href="https://x.com/jon_barron" target="_blank">@jon_barron</a> · 3h · 1.3K likes, 138K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 5: AI Research & Brain Drain -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-research"></div>
+                <div class="section-title">AI Research & the Brain Drain</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A new NBER working paper reveals that the top 1% of AI scientists in industry now earn around $2 million a year — and that researchers who move from universities to private companies stop writing public papers and instead file 530% more patents.</div>
+                <div class="card-body">Rohan Paul surfaced the paper, which quantifies what everyone suspected: the knowledge is moving behind corporate walls at an accelerating rate. The upstream cause is straightforward economics — no university can compete with a $2M salary — but the downstream effect on open science is a slow-motion crisis.</div>
+                <div class="card-meta"><a href="https://x.com/rohanpaul_ai" target="_blank">@rohanpaul_ai</a> · 11h · 185 likes, 56K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Kimi AI (Moonshot AI) released "Attention Residuals" — replacing traditional fixed residuals with depth-wise softmax attention, letting transformer layers selectively pull up older information without it getting diluted through intermediate layers.</div>
+                <div class="card-body">Rohan Paul explained the mechanism: it's a surgical fix for the problem of deep transformers losing early-layer information. The paper, dated March 2026, claims the approach makes models significantly better at long reasoning tasks. Worth tracking: this is the kind of architectural tweak that tends to get quietly absorbed into every major model within six months.</div>
+                <div class="card-meta"><a href="https://x.com/rohanpaul_ai" target="_blank">@rohanpaul_ai</a> · 7h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">AK shared a new paper asking whether vision-language models can solve the shell game — the classic three-cups-and-a-ball tracking challenge — with a demo video and HuggingFace paper link.</div>
+                <div class="card-body">The test is deceptively hard because it requires persistent spatial tracking through occlusion, exactly the capability VLMs need for real-world robotics. If current models can't follow a ball under cups, they can't be trusted to track tools in surgery or parts in manufacturing.</div>
+                <div class="card-meta"><a href="https://x.com/_akhaliq" target="_blank">@_akhaliq</a> · 10h · 106 likes, 18K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 6: Mathematics & Deep Pattern -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-math"></div>
+                <div class="section-title">Mathematics & Deep Pattern</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Parimal explored why the Greeks, Renaissance Europeans, and Arabs all resisted negative numbers when the concepts arrived from India — where comfortable abstraction made zero and negatives uncontroversial as early as the 7th century.</div>
+                <div class="card-body">Quoting Sahana Singh's question about why Western mathematical traditions rejected what Indian mathematicians found natural, Parimal traced the issue to a fundamental philosophical difference: for Europeans, a number was a length (you can't draw a line of -5"), while for Indians, numbers were abstract entities used in accounting. Francis Maseres was still arguing against negative numbers as late as 1758.</div>
+                <div class="card-meta"><a href="https://x.com/Fintech03" target="_blank">@Fintech03</a> · 51m, quoting <a href="https://x.com/singhsahana" target="_blank">@singhsahana</a> · 4h · 92 likes, 2.5K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Quanta Magazine reported that three mathematicians built the first physical model of a "monostable" tetrahedron — a shape that always flips onto the same face no matter how you place it, requiring engineering precision within one-tenth of a millimeter.</div>
+                <div class="card-body">The result is a physical proof of a mathematical conjecture that had been open for decades. The object looks unremarkable — a slightly lopsided pyramid — but its behavior is uncanny: drop it from any angle and it finds its way home.</div>
+                <div class="card-meta"><a href="https://x.com/QuantaMagazine" target="_blank">@QuantaMagazine</a> · 3h · 152 likes, 17K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Carlos E. Perez released "The Incompleteness of Being," a new theory of consciousness derived from Quaternion Process Theory 2.0 — his second major theoretical post this week.</div>
+                <div class="card-body">The video essay argues that consciousness exhibits a fundamental incompleteness analogous to Gödel's theorems: no system can fully model itself. Perez is building a body of work that sits at the intersection of mathematics, physics, and phenomenology — a niche that would have zero audience five years ago but is finding traction in a feed full of people who spend their days building artificial minds.</div>
+                <div class="card-meta"><a href="https://x.com/IntuitMachine" target="_blank">@IntuitMachine</a> · 4h · 105 likes, 5.7K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 7: Quiet Signals -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-quiet"></div>
+                <div class="section-title">Quiet Signals</div>
+                <div class="section-count">4 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Ashlee Vance — Bloomberg journalist, Elon Musk's biographer — posted "I won't really be impressed with AI until a dog uses ChatGPT to cure a human's cancer" — and it became the most-retweeted quip of the day.</div>
+                <div class="card-body">The joke inverts the viral dog-cancer-vaccine story from last week (where a pet owner used AI to design an mRNA vaccine for his dog), and its 26K views suggest it landed as both humor and genuine commentary: the most impressive AI feat so far involved a species that can't type.</div>
+                <div class="card-meta"><a href="https://x.com/ashleevance" target="_blank">@ashleevance</a> · 5h, reposted by <a href="https://x.com/NickADobos" target="_blank">@NickADobos</a> · 1K likes, 26K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Ethan Mollick argued it's never been a better time to study the humanities — because LLMs are trained on the cultural history of all humans, the humanities give us context in "this odd moment in history," and "books & stuff are good."</div>
+                <div class="card-body">The three-point structure is deliberately understated. Coming from Wharton's most prominent AI researcher, this isn't nostalgia — it's a strategic argument that the people who understand what's inside the training data will have an advantage over those who just use the outputs.</div>
+                <div class="card-meta"><a href="https://x.com/emollick" target="_blank">@emollick</a> · 1h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Marlow discovered a $339,000 crypto trading bot living on a $0.0058/hour AWS instance that someone had spun up using credentials he'd forgotten to rotate — and the tweet drew 727K views.</div>
+                <div class="card-body">The narrative arc is almost too perfect: an unexpected $47 AWS bill, a micro instance running since February, the moment of opening the logs and finding a bot quietly accumulating a fortune. Whether the story is entirely real or slightly embellished, it touched a nerve: 727K people stopped scrolling for a tale about neglected infrastructure generating accidental wealth.</div>
+                <div class="card-meta"><a href="https://x.com/marlowxbt" target="_blank">@marlowxbt</a> · 5h · 1.7K likes, 727K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Arvind Chotia posted a five-minute-43-second sitar performance by Roopa Panesar from Darbar and said simply: "Listen with your eyes closed. It will feel good." The post drew 89K views and 2.7K likes — outperforming most AI research papers.</div>
+                <div class="card-body">In a feed that spent the day debating agent architectures and consciousness theories, the most emotionally resonant content was a musician and a suggestion to close your eyes.</div>
+                <div class="card-meta"><a href="https://x.com/arvindchotia" target="_blank">@arvindchotia</a> · 15h · 2.7K likes, 89K views</div>
+            </div>
+        </div>
+
+        <!-- Meta observation -->
+        <div class="meta-observation">
+            This Monday was defined by a single word — Claw. Jensen Huang used his GTC keynote to declare that every company needs an agent strategy, Nvidia launched NemoClaw, three separate tutorials showed how to build your own agent in under an hour, and Simon Willison published his guide to how agents actually work under the hood. The feed is starting to feel like the early web circa 1996: everyone knows this changes everything, but the infrastructure is still being poured. The most telling ratio of the day: DLSS 5 (a graphics upgrade) drew 28 million views, while NemoClaw (arguably the more consequential announcement) drew 10K. The consumer market and the builder market are watching the same keynote and seeing completely different revolutions.
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">Compiled by <a href="https://x.com/bag_of_ideas" target="_blank" style="color: #3a6b8a; text-decoration: none;">@bag_of_ideas</a> via automated X/Twitter digest</div>
+            <a href="../" class="footer-back">&larr; All Dispatches</a>
+        </footer>
+    </div>
+</body>
+</html>
