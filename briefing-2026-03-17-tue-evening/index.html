@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuesday Evening Edition — AI with Ravi</title>
+    <meta property="og:title" content="Tuesday Evening Edition — X/Twitter Briefing">
+    <meta property="og:description" content="35+ tweets from the AI frontier: OpenAI's mini and nano models, Claude's ecosystem expansion, infrastructure breakthroughs, and local AI reaching interactive speeds.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #faf8f4;
+            color: #2a2a2a;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: #7a7a6e;
+            margin-bottom: 20px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: #3a6b8a;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a6b8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-top: 2px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e4dc;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 15px;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: #7a7a6e;
+            line-height: 1.5;
+        }
+
+        .card-meta a {
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e4dc;
+            margin: 32px 0;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: #f5f2ec;
+            border-left: 3px solid #7a7a6e;
+            padding: 18px 22px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #5a5a50;
+            line-height: 1.7;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e8e4dc;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #7a7a6e;
+            margin-bottom: 16px;
+        }
+
+        .footer-back {
+            font-size: 14px;
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .footer-back:hover {
+            text-decoration: underline;
+        }
+
+        /* Accent colors */
+        .accent-openai { background: #3a6b8a; }
+        .accent-claude { background: #6b5b3a; }
+        .accent-infrastructure { background: #5a6b3a; }
+        .accent-local { background: #8b4557; }
+        .accent-physical { background: #a0522d; }
+        .accent-research { background: #6b3a5a; }
+        .accent-gems { background: #3a7a6b; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .container { padding: 24px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Tuesday Evening Edition</h1>
+            <div class="header-date">March 17, 2026</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">35+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">7</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">16h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Section 1: OpenAI Ships the Fleet -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-openai"></div>
+                <div class="section-title">OpenAI Ships the Fleet</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">OpenAI released GPT-5.4 mini and nano — smaller, cheaper models optimized for coding, computer use, and subagents that run 2x faster than their predecessors.</div>
+                <div class="card-body">The mini model is available immediately in ChatGPT, Codex, and the API. Benchmarks show strong performance on SWE-Bench Pro (57.7%), Terminal-Bench 2.0 (75.1%), and GPQA Diamond (93%). The strategic move here is filling out the model family below the flagship: GPT-5.4 already exists as the frontier model, and these distilled variants let developers build agentic workflows at a fraction of the cost. Simon Willison calculated that the nano model could describe every image in his 76,000-photo library for just $52 — making vision tasks that were prohibitively expensive a year ago essentially free.</div>
+                <div class="card-meta"><a href="https://x.com/OpenAI" target="_blank">@OpenAI</a> · 6h, <a href="https://x.com/simonw" target="_blank">@simonw</a> · 3h — combined 440K+ views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">OpenAI simultaneously rolled out "Subagents" for Codex, letting developers spin up parallel specialized AI agents that tackle different parts of a complex workflow concurrently.</div>
+                <div class="card-body">The feature keeps the main agent's context window clean by delegating subtasks to child agents. The timing is deliberate — announced alongside the mini/nano models that make running multiple agents economically viable. Dominik Kundel from the OpenAI Devs team shared a practical tip: have Codex analyze its own past conversations to auto-generate rules files, so future runs stay sandboxed without needing full access.</div>
+                <div class="card-meta"><a href="https://x.com/OpenAIDevs" target="_blank">@OpenAIDevs</a> · Mar 16, <a href="https://x.com/dkundel" target="_blank">@dkundel</a> · Mar 16 — 56K+ views on Kundel's tip alone</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Ethan Mollick observed that a knowledge-work platform built around GPT-5.4 Pro-level intelligence "would be really useful," noting the gap between Pro and other models on complex intellectual work remains stark.</div>
+                <div class="card-body">He specifically wished for a Codex-like platform with shared file spaces and subagents — suggesting the current product packaging still doesn't match the model's capability. Separately, @scaling01 called OpenAI's accompanying price hike "completely unnecessary," reflecting a growing tension in the community between excitement over model quality and frustration over pricing.</div>
+                <div class="card-meta"><a href="https://x.com/emollick" target="_blank">@emollick</a> · 6h, 22K views · <a href="https://x.com/scaling01" target="_blank">@scaling01</a> · 6h, 76K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 2: The Claude Ecosystem Explodes -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-claude"></div>
+                <div class="section-title">The Claude Ecosystem Explodes</div>
+                <div class="section-count">5 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Anthropic engineer Boris Cherny published the internal playbook for Claude Code Skills — revealing how Anthropic's own team builds, structures, and auto-improves the modular skill system that has become Claude Code's most popular extension point.</div>
+                <div class="card-body">The post, titled "Lessons from Building Claude Code: How We Use Skills," hit 485K views and 3K likes in six hours, making it one of the most-engaged Anthropic developer posts in months. The key insight: skills are flexible and easy to create, but that flexibility makes it hard to know what works best — so Anthropic codified their internal patterns into a public guide.</div>
+                <div class="card-meta"><a href="https://x.com/bcherny" target="_blank">@bcherny</a> · 6h, 485K views — the engagement suggests developers are hungry for official best practices</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Anthropic shipped "Dispatch" in Claude Cowork — a persistent conversation that runs on your computer, accepts messages from your phone, and returns finished work.</div>
+                <div class="card-body">Felix Rieseberg announced it as a research preview: you dispatch a task to Claude running on your desktop, walk away, check in from your phone, and come back to completed output. The "walkie-talkie" metaphor gained instant traction, with Daniel San and Om Patel both testing it within hours of launch and confirming the phone-to-desktop loop works as advertised.</div>
+                <div class="card-meta"><a href="https://x.com/felixrieseberg" target="_blank">@felixrieseberg</a> · 2h, 43K views · <a href="https://x.com/dani_avila7" target="_blank">@dani_avila7</a> · 1h · <a href="https://x.com/om_patel5" target="_blank">@om_patel5</a> · 1h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Ole Lehmann built an auto-improvement system for Claude Skills using Karpathy's autoresearch method — a single meta-skill that runs any other skill, scores the output, identifies failures, makes one small change, and keeps iterating until the score improves.</div>
+                <div class="card-body">The approach borrows the hill-climbing loop from Karpathy's research methodology and applies it to prompt engineering. Lehmann claims most Claude skills fail 30% of the time without users noticing, and the auto-improver catches and fixes these silent failures on autopilot.</div>
+                <div class="card-meta"><a href="https://x.com/itsolelehmann" target="_blank">@itsolelehmann</a> · 4h, 30K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A tenant fed their entire 47-page lease to Claude after a $400 rent increase — and Claude found a clause showing $6,200 in overcharges spanning 18 months, which the landlord's lawyer confirmed.</div>
+                <div class="card-body">The tweet from @Argona0x went mega-viral at 925K views, becoming the week's most-shared "Claude in the wild" story. The attached spreadsheet showed a detailed rent overcharge calculation cross-referenced against LA County code. The upstream enabler is Claude's long-context capability making full-document legal analysis trivially accessible to non-lawyers.</div>
+                <div class="card-meta"><a href="https://x.com/Argona0x" target="_blank">@Argona0x</a> · 4h, 925K views, 5.4K likes — the single most viral Claude use-case story this week</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Tom Dörr open-sourced "Stop Slop," a Claude skill specifically designed to strip AI writing patterns from prose — the predictable phrases, structures, and rhythms that mark AI-generated text.</div>
+                <div class="card-body">The skill ships with a reference library of patterns to avoid and teaches Claude to recognize and rewrite its own verbal tics. At 137K views and 2.3K likes, it reflects a maturing ecosystem where users are now building tools to improve AI output quality rather than just generating more of it.</div>
+                <div class="card-meta"><a href="https://x.com/tom_doerr" target="_blank">@tom_doerr</a> · 13h, 137K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 3: Infrastructure & Developer Tools -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-infrastructure"></div>
+                <div class="section-title">Infrastructure & Developer Tools</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">NVIDIA open-sourced OpenShell at GTC — a sandboxed runtime for AI agents that restricts access to terminals, files, AWS keys, and network resources through declarative policies.</div>
+                <div class="card-body">The Apache 2.0 project addresses a real and growing problem: most coding agents today run with full access to your system, including credentials and sensitive files. OpenShell provides a container-like execution environment where agents get only the permissions explicitly granted. The timing is notable — announced the day after Jensen Huang's GTC keynote about AI as civilization's operating system, acknowledging that an operating system needs security boundaries.</div>
+                <div class="card-meta"><a href="https://x.com/livingdevops" target="_blank">@livingdevops</a> · 13h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">alphaXiv launched an MCP (Model Context Protocol) server for arXiv, giving research agents fast multi-turn retrieval, keyword search, and embedding search across millions of papers.</div>
+                <div class="card-body">The announcement framed it as letting "research agents stand on the shoulders of giants." MCP continues to emerge as the standard interface layer between AI agents and data sources — this is now the same protocol Claude uses for tool access, and seeing it adopted by research infrastructure suggests the ecosystem is consolidating around it.</div>
+                <div class="card-meta"><a href="https://x.com/askalphaxiv" target="_blank">@askalphaxiv</a> · 3h, 24K views, 489 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jeffrey Emanuel shared his "Agentic Coding Flywheel" — a methodology for orchestrating swarms of AI agents using exhaustive markdown plans, polished beads (reusable components), and a systematic stack.</div>
+                <div class="card-body">The guide has become a frequently-referenced playbook in the AI coding community, with Emanuel noting he posts the same link multiple times daily because people keep asking about his methodology. The approach treats AI agents less like tools and more like a managed workforce requiring plans, reviews, and iteration cycles.</div>
+                <div class="card-meta"><a href="https://x.com/doodlestein" target="_blank">@doodlestein</a> · 6h, 7.1K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 4: Local AI & Hardware -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-local"></div>
+                <div class="section-title">Local AI & Hardware</div>
+                <div class="section-count">1 item</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">The Apple M5 Max MacBook Pro with 128GB RAM hit 108 tokens per second running Qwen 3.5 (35B parameters, 3B active) locally — unoptimized, out of the box.</div>
+                <div class="card-body">@krunkosaurus's benchmark went viral at 306K views, with the "Local AI is here" declaration resonating across the community. The key detail: Qwen 3.5 uses a mixture-of-experts architecture where only 3B of the 35B parameters are active per token, which is why the M5 Max's unified memory architecture can run it at interactive speeds. This is a qualitatively different moment for local inference — a reasoning-capable model running faster than most people can read.</div>
+                <div class="card-meta"><a href="https://x.com/krunkosaurus" target="_blank">@krunkosaurus</a> · 19h, 306K views, 4K likes — unified memory is the enabler; GPU-memory bandwidth was always the bottleneck</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 5: AI Meets the Physical World -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-physical"></div>
+                <div class="section-title">AI Meets the Physical World</div>
+                <div class="section-count">2 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Dilum Sanjaya built a working smart home dashboard from an idea generated with Nano Banana 2, coding with Gemini 3.1 Pro and rendering 3D assets with Tripo — end to end from concept to interactive prototype.</div>
+                <div class="card-body">The video demo shows a polished dashboard with room controls, energy monitoring, security cameras, and climate management. It's a tidy example of the new stack: ideation with one model, implementation with another, and visual assets from a third, all stitched together by a single person.</div>
+                <div class="card-meta"><a href="https://x.com/DilumSanjaya" target="_blank">@DilumSanjaya</a> · 6h, 65K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Rahi Anil Barve released MANN-PISHACH, an 80-minute experimental film built entirely on a home PC with two actors, iPhone footage, and hand-drawn elements.</div>
+                <div class="card-body">The zero-budget production demonstrates what's possible when AI-assisted tools meet passionate indie filmmaking. At 31K views and 729 likes, it resonated with the creative community as proof that the barrier to feature-length filmmaking has collapsed to the cost of a laptop.</div>
+                <div class="card-meta"><a href="https://x.com/BarveRahi" target="_blank">@BarveRahi</a> · 7h, 31K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 6: Deep Thinking & Science -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-research"></div>
+                <div class="section-title">Deep Thinking & Science</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">JJ (Joseph Jacks) argued that AI's real bottleneck is architecture, not compute — using Paramecium Caudatum as the proof.</div>
+                <div class="card-body">The single-celled organism, roughly the width of a human hair, has no brain, no neurons, and no central nervous system, yet coordinates ~100,000 cilia to swim, eat, and reproduce using a decentralized microtubule lattice. Jacks's implication: if nature solved complex coordination without centralized processing, our obsession with scaling GPU clusters may be missing a more fundamental architectural insight. The post referenced Stuart Hameroff and Anirban Bandyopadhyay's work on biological computing.</div>
+                <div class="card-meta"><a href="https://x.com/JosephJacks_" target="_blank">@JosephJacks_</a> · 9h, 24K views, 559 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Michael Strong argued that Einstein's genius was not raw cognitive power but intellectual integrity — a relentless honesty about what he understood and what he did not.</div>
+                <div class="card-body">Strong noted that Einstein's definition of "simultaneity," the conceptual move that led to special relativity, is original but not complex. The implication for the AI age: the bottleneck in reasoning is rarely compute or knowledge, but the willingness to sit with uncertainty rather than reaching for a premature answer.</div>
+                <div class="card-meta"><a href="https://x.com/flowidealism" target="_blank">@flowidealism</a> · 6h, 8.4K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Paige Bailey took a thousand oral histories from the Computer History Museum and made them fully searchable and deeply interconnected at f0lkl0r3.dev.</div>
+                <div class="card-body">The project is a love letter to computing's oral tradition — the bizarre anecdotes, the personalities, the decisions that shaped an industry, now navigable as a knowledge graph rather than isolated transcripts. Grace Hopper, Reynold B. Johnson, and James H. Williams are among the searchable figures.</div>
+                <div class="card-meta"><a href="https://x.com/DynamicWebPaige" target="_blank">@DynamicWebPaige</a> · 7h, 1.7K views — small audience but high signal for anyone who cares about computing's history</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 7: Gems & Signals -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-gems"></div>
+                <div class="section-title">Gems & Signals</div>
+                <div class="section-count">4 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">MiroFish simulates 1,000,000 AI agents debating geopolitical futures — you upload a news event, it builds a relationship graph between entities, launches thousands of agents with different belief systems, and lets them influence each other's positions over simulated time.</div>
+                <div class="card-body">The demo showed agents clustering into Bull Coalitions, Bear Alliances, Contrarians, and Neutral Pools around prediction market outcomes. It's less a forecasting tool than a way to stress-test how narratives propagate through belief networks.</div>
+                <div class="card-meta"><a href="https://x.com/de1lymoon" target="_blank">@de1lymoon</a> · Mar 16, 136K views, 1.2K likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Freya Holmér, the math visualization creator, said she'd been feeling stressed and made "a little prototype" — a colorful puzzle game that hit 1.2M views and 26K likes in seven hours.</div>
+                <div class="card-body">No AI angle here, just pure creative craft from one of the feed's most beloved figures. The engagement is a reminder that this feed — and the community around it — still responds most viscerally to things people make with their own hands.</div>
+                <div class="card-meta">Pure craft, no AI required — and it outperformed most technical announcements</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Kurtis The Quant used Claude Cowork to turn an academic paper on Dynamic Factor Allocation via Momentum-Based Regime Switching into a working ETF dashboard with live regime detection — in a single session.</div>
+                <div class="card-body">The before-and-after (dense paper → interactive dashboard) is one of the cleanest demonstrations of what "10x productivity" actually looks like when applied to specialized domain work.</div>
+                <div class="card-meta"><a href="https://x.com/Quant_Kurtis" target="_blank">@Quant_Kurtis</a> · 9h, 19K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">The feed is saturated with Claude and OpenAI ecosystem stories running in parallel, with the interesting signal being how naturally the conversation flows between them.</div>
+                <div class="card-body">People are comparing, building with both, treating them as complementary rather than competing. The real competition isn't between companies anymore; it's between the pace of tooling and the pace of human adaptation.</div>
+                <div class="card-meta">A meta-signal about ecosystem maturity and integration</div>
+            </div>
+        </div>
+
+        <!-- Meta observation -->
+        <div class="meta-observation">
+            This Tuesday evening, the feed is saturated with Claude and OpenAI ecosystem stories running in parallel. Anthropic shipped Dispatch and the Skills playbook on the same day OpenAI shipped mini/nano and subagents. The community is processing both simultaneously, and the interesting signal is how naturally the conversation flows between them — people comparing, building with both, treating them as complementary rather than competing. The real competition isn't between companies anymore; it's between the pace of tooling and the pace of human adaptation. Meanwhile, local AI reached a qualitative milestone (108 tokens per second on consumer hardware), and a tenant used Claude's long-context capability to audit a 47-page lease and recover $6,200 in overcharges — a reminder that the most impactful uses of AI today are often the unglamorous ones.
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">Compiled by <a href="https://x.com/bag_of_ideas" target="_blank" style="color: #3a6b8a; text-decoration: none;">@bag_of_ideas</a> via automated X/Twitter digest</div>
+            <a href="../" class="footer-back">&larr; All Dispatches</a>
+        </footer>
+    </div>
+</body>
+</html>
