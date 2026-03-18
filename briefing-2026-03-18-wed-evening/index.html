@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wednesday Evening Edition — AI with Ravi</title>
+    <meta property="og:title" content="Wednesday Evening Edition — X/Twitter Briefing">
+    <meta property="og:description" content="35+ tweets from the AI frontier: Google Stitch launches, self-improving models, Claude ecosystem expansion day two, agent reliability breakthroughs, and the economics of white-collar displacement.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #faf8f4;
+            color: #2a2a2a;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: #7a7a6e;
+            margin-bottom: 20px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: #3a6b8a;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a6b8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-top: 2px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e4dc;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 15px;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: #7a7a6e;
+            line-height: 1.5;
+        }
+
+        .card-meta a {
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e4dc;
+            margin: 32px 0;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: #f5f2ec;
+            border-left: 3px solid #7a7a6e;
+            padding: 18px 22px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #5a5a50;
+            line-height: 1.7;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e8e4dc;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #7a7a6e;
+            margin-bottom: 16px;
+        }
+
+        .footer-back {
+            font-size: 14px;
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .footer-back:hover {
+            text-decoration: underline;
+        }
+
+        /* Accent colors */
+        .accent-google { background: #d32f2f; }
+        .accent-selfimproving { background: #7b1fa2; }
+        .accent-claude { background: #6b5b3a; }
+        .accent-reliability { background: #0288d1; }
+        .accent-society { background: #c62828; }
+        .accent-gems { background: #3a7a6b; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .container { padding: 24px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Wednesday Evening Edition</h1>
+            <div class="header-date">March 18, 2026</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">35+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">6</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">16h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Section 1: Google Stitch Arrives -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-google"></div>
+                <div class="section-title">Google Stitch Arrives</div>
+                <div class="section-count">1 item</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Google launched Stitch, an AI-native design platform with five major upgrades that transform it from a prompt-to-UI generator into a spatial, multimodal, autonomous design environment — and it hit 2.4M views in hours.</div>
+                <div class="card-body">The upgrades include AI-Native Canvas, Design Systems integration, and DESIGN.md support. The product walkthrough video is rolling out now. At 10K likes and 1.5K retweets, this is one of Google's most engaged product launches in months — notable because it targets the design-to-code pipeline that Figma, Vercel's v0, and a dozen startups have been fighting over. Google entering with a full design-system-aware tool raises the bar significantly.</div>
+                <div class="card-meta"><a href="https://x.com/stitchbygoogle" target="_blank">@stitchbygoogle</a> · 5h, 2.4M views, 10K likes — the engagement dwarfs most AI tool launches, suggesting designers have been waiting for this</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 2: The Self-Improving Machine -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-selfimproving"></div>
+                <div class="section-title">The Self-Improving Machine</div>
+                <div class="section-count">4 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">MiniMax released M2.7, describing "Early Echoes of Self-Evolution" — a model whose RL training loop literally runs and iterates experiments on its own, with minimal human intervention.</div>
+                <div class="card-body">The blog post and accompanying workflow diagram show a five-stage pipeline: Experiment Plan → Experiment Dev & Run → Analyze & Report → Review & Discuss → Iterate Loop. The "auto-continue" arrow between stages is the key detail — the agent doesn't stop between iterations. Ara called it "borderline singularity level ML achieved in open-source," noting that the model writes code to upgrade itself, fixes live server crashes in under 3 minutes, and wins gold medals in ML competitions.</div>
+                <div class="card-meta"><a href="https://x.com/MiniMax_AI" target="_blank">@MiniMax_AI</a> · 4h, <a href="https://x.com/arafatkatze" target="_blank">@arafatkatze</a> · 4h, <a href="https://x.com/wildmindai" target="_blank">@wildmindai</a> · 3h — combined 27K+ views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">ClawTeam demonstrated fully autonomous ML training: a single prompt spawns 8 agents that self-coordinate across 8 H100s, run 2,430+ experiments, and achieve a 6.4% performance boost with zero human intervention.</div>
+                <div class="card-body">Chao Huang's post describes what is essentially AI iterating on AI — the agents manage GPU allocation, experiment design, hyperparameter search, and evaluation autonomously. The upstream enabler is the same agent-orchestration infrastructure (OpenClaw, Codex subagents) that shipped last week, now applied to the training loop itself rather than just coding tasks.</div>
+                <div class="card-meta"><a href="https://x.com/huang_chao4969" target="_blank">@huang_chao4969</a> · 8h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A Zhejiang University team built SkillNet — an open infrastructure with 200,000 reusable AI skills designed to solve the "every agent forgets everything" problem.</div>
+                <div class="card-body">The paper addresses a fundamental limitation: current agents operate in complete isolation, reinventing the wheel on every task. SkillNet creates a repository where agents can discover, compose, and chain pre-built skills with relational connections and multi-dimensional evaluation. The team reports it improves average rewards by 47% and reduces execution steps by 30% across multiple backbone models.</div>
+                <div class="card-meta"><a href="https://x.com/godofprompt" target="_blank">@godofprompt</a> · 13h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A researcher distilled Claude Opus 4.6's reasoning into an open-source Qwen 3.5 27B model — and it immediately attracted 858 likes on HuggingFace.</div>
+                <div class="card-body">The model, "Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled," was trained on filtered reasoning traces from Opus and is Apache 2.0 licensed. The demand for frontier-model reasoning in smaller, runnable packages is clearly intense — this is the same dynamic that drove GPT-5.4 mini/nano yesterday, but from the open-source community working backward from Claude's outputs.</div>
+                <div class="card-meta"><a href="https://x.com/Jackrong" target="_blank">@Jackrong</a> on HuggingFace · 6 replies, 45 retweets, 305 likes, 19K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 3: Claude Ecosystem — Day Two -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-claude"></div>
+                <div class="section-title">Claude Ecosystem — Day Two</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Garry Tan launched /office-hours, a Claude skill that simulates YC's startup evaluation thinking — and Jed White called it "essentially YC open-sourcing some of the thinking they use to help startups grappling with new ideas."</div>
+                <div class="card-body">The skill runs on GStack and includes a companion /debug skill that follows what Tan calls the Iron Law: no fixes without root cause investigation first. It traces data flow, matches against known bug patterns, and if three fixes fail, stops and questions the architecture. The meta-story here is the YC president personally building Claude skills, signaling that the skills ecosystem has reached institutional adoption.</div>
+                <div class="card-meta"><a href="https://x.com/garrytan" target="_blank">@garrytan</a> · 7h, <a href="https://x.com/jedwhite" target="_blank">@jedwhite</a> · 5h, 18K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Suryansh Tiwari's breakdown of Anthropic's internal Claude Code skills playbook hit 16h of sustained engagement, with a detailed terminal screenshot showing the full methodology: Plan Mode Default, Subagent Strategy, Self-Improvement Loop, Verification Before Done, Demand Elegance, and Skills as Context Engine.</div>
+                <div class="card-body">The key insight from the playbook: skills are not text files — they are modular systems the agent can explore and execute, including code, scripts, data, and workflows. The "Avoid Over-Constraining AI" section advises providing context rather than micromanagement, and letting AI adapt to problems with flexibility over strict instructions.</div>
+                <div class="card-meta"><a href="https://x.com/Suryanshti777" target="_blank">@Suryanshti777</a> · 16h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Charly Wargnier framed Anthropic's Dispatch as a direct competitor to OpenClaw, describing it as "a new research preview in Claude Cowork that completely changes how you interact with AI" — pair your phone to a persistent desktop session and message tasks on the go.</div>
+                <div class="card-body">The Dispatch-vs-OpenClaw framing is interesting because it reveals how quickly the market is converging on "persistent agent sessions" as the next interface paradigm, with both Anthropic and OpenAI shipping variants within days of each other.</div>
+                <div class="card-meta"><a href="https://x.com/DataChaz" target="_blank">@DataChaz</a> · 2h, 9.2K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 4: Agent Reliability -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-reliability"></div>
+                <div class="section-title">Agent Reliability</div>
+                <div class="section-count">2 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Clare Liguori tested 5 approaches to guiding AI agent behavior across 3,000 eval runs — and Strands steering hooks was the only method that achieved 100% accuracy.</div>
+                <div class="card-body">The results are striking: steering hooks hit 100% across 600 eval runs, compared to 82.5% for simple prompt-based instructions and 80.8% for graph-based workflows. The key mechanism is "just-in-time guidance" — injecting instructions to the model immediately before tool calls rather than upfront in the system prompt. The paper from strandsagents.com suggests that the problem with most agent frameworks isn't the model but the timing of when guidance is delivered.</div>
+                <div class="card-meta"><a href="https://x.com/clare_liguori" target="_blank">@clare_liguori</a> · 3h, 2.7K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Chinese researchers proposed "Attention Residuals" to fix what they call a 10-year-old flaw in every major language model — the residual connection.</div>
+                <div class="card-body">The Kivi Team paper argues that standard residual connections blindly stack layer outputs, causing hidden-state noise to accumulate with depth. Their approach, Attention Residuals (AttRes), replaces blind accumulation with softmax attention over preceding layer outputs, allowing selective aggregation. They report preserving most gains of full Attention while adding minimal overhead, and scale validation up to 6.5 billion parameters.</div>
+                <div class="card-meta"><a href="https://x.com/simplifyinAI" target="_blank">@simplifyinAI</a> · 12h, 35K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 5: AI, Work & Society -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-society"></div>
+                <div class="section-title">AI, Work & Society</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Andrew Yang declared "The Fuckening of white-collar workers has arrived" — and 700K people read it.</div>
+                <div class="card-body">His blog post landed at 4.1K likes and 673 retweets, making it one of the week's most-engaged takes on AI labor displacement. The bluntness of the framing stands out against the usual measured policy language — Yang has been warning about this since his 2020 presidential campaign, but the tone shift from "this is coming" to "this has arrived" reflects the acceleration in real-world job impacts that stories like the Bengaluru IT crisis are making undeniable.</div>
+                <div class="card-meta"><a href="https://x.com/AndrewYang" target="_blank">@AndrewYang</a> · Mar 17, 700K views — the engagement pattern shows the anxiety is no longer theoretical</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">CrowdReply crossed $5M ARR fully bootstrapped with a product that embeds business names into AI-training-data conversations — and a viral thread framing it as the birth of "Generative Engine Optimization" hit 802K views.</div>
+                <div class="card-body">The business model is elegantly cynical: DM local businesses saying they're invisible to AI search, use CrowdReply to seed their name into online conversations that AI models scrape, and those businesses surface in AI-generated answers. It's SEO for the age of LLMs, and the 802K views suggest the market recognizes this as the next gold rush.</div>
+                <div class="card-meta"><a href="https://x.com/MrBallaz" target="_blank">@MrBallaz</a> · Mar 17, 802K views, 3.8K likes · <a href="https://x.com/Crowdreply_io" target="_blank">@Crowdreply_io</a> · $5M ARR</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Databricks CEO Ali Ghodsi argued that Zoom has a massive, underexploited chance to become an AI-first enterprise product — because it sits on the largest dataset of meeting videos and transcripts in the world.</div>
+                <div class="card-body">The insight, shared by Rohan Paul, is that the big pain in enterprise isn't generating content but extracting actionable intelligence from the unstructured conversations companies already have. Zoom's data moat — millions of hours of real business conversations — may be more valuable than its video-calling product.</div>
+                <div class="card-meta"><a href="https://x.com/rohanpaul_ai" target="_blank">@rohanpaul_ai</a> · 1h, 2.9K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 6: Quiet Gems -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-gems"></div>
+                <div class="section-title">Quiet Gems</div>
+                <div class="section-count">4 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">OpenAI's Noam Brown launched "Parameter Golf" — a challenge game at openai.com/parameter-golf that tests how efficiently you can solve problems with minimal model parameters.</div>
+                <div class="card-body">It's a clever piece of developer marketing that doubles as a genuine intellectual puzzle about model efficiency. The framing as a "golf" game — fewer parameters is better — neatly inverts the industry's obsession with scale.</div>
+                <div class="card-meta"><a href="https://x.com/polynoamial" target="_blank">@polynoamial</a> · 17m, 3.8K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Yann LeCun reposted Jon Barron's "gaussid" — a markdown conversion of Sam Roweis's classic gaussid.pdf, preserving a foundational machine learning document in a more accessible format on GitHub.</div>
+                <div class="card-body">A small act of digital preservation for a paper that shaped how a generation of researchers thought about Gaussian processes.</div>
+                <div class="card-meta"><a href="https://x.com/jon_barron" target="_blank">@jon_barron</a> · 5h, 7.5K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Parimal drew a connection between ancient Indian knowledge systems — Samkhya, Yoga Vasistha, Kashmir Shaivism — and modern neuromorphic logic, arguing these frameworks offer a hardly-known architecture that mirrors how biological neural networks actually compute.</div>
+                <div class="card-body">Filed under the feed's contemplative thread, which runs quieter than the AI product cycle but often surfaces the most interesting ideas.</div>
+                <div class="card-meta"><a href="https://x.com/Fintech03" target="_blank">@Fintech03</a> · 37m, 785 views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Astrogravity launched a free Vedic astrology platform generating complete birth charts (Rasi/D1 to D60), 120-year Vimshottari Dasha timelines, and multiple Ayanamsha calculations — no signup, no login.</div>
+                <div class="card-body">A niche launch, but a polished one: the tool supports Lahiri, Raman, and KP ayanamshas and runs Panchanga, Muhurtha, and Tara Bala calculations. For anyone on this feed who follows Ravi's astrology thread alongside the AI signal, this is worth bookmarking.</div>
+                <div class="card-meta"><a href="https://x.com/Astrogravity_in" target="_blank">@Astrogravity_in</a> · 5h, 742 views</div>
+            </div>
+        </div>
+
+        <!-- Meta observation -->
+        <div class="meta-observation">
+            This Wednesday evening, the feed has shifted decisively from "what new models can do" to "what systems can do with models." SkillNet's 200K reusable skills, ClawTeam's self-coordinating GPU agents, Strands' steering hooks, Garry Tan's YC office-hours skill — every major story today is about orchestration, memory, and reliability rather than raw capability. The frontier moved from the model to the scaffold around it. And MiniMax's "self-evolution" paper suggests the scaffold itself is starting to evolve autonomously. Google's Stitch entry into the design-to-code space signals the same pattern in frontend tooling: the competition isn't about API quality anymore, it's about integrating design systems and autonomous iteration. Meanwhile, Andrew Yang's "Fuckening" landed with 700K views, and CrowdReply's $5M ARR on generative engine optimization signals that the market is reshaping faster than policy can adapt — the anxiety is no longer theoretical.
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">Compiled by <a href="https://x.com/bag_of_ideas" target="_blank" style="color: #3a6b8a; text-decoration: none;">@bag_of_ideas</a> via automated X/Twitter digest</div>
+            <a href="../" class="footer-back">&larr; All Dispatches</a>
+        </footer>
+    </div>
+</body>
+</html>
