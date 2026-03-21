@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturday Morning Edition — AI with Ravi</title>
+    <meta property="og:title" content="Saturday Morning Edition — X/Twitter Briefing">
+    <meta property="og:description" content="30+ tweets from the AI frontier: The $3 pill, Claude Code without browsers, agents get workflows, design without designers, and Saturday contemplations.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #faf8f4;
+            color: #2a2a2a;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: #7a7a6e;
+            margin-bottom: 20px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: #3a6b8a;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a6b8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-top: 2px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e4dc;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 15px;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: #7a7a6e;
+            line-height: 1.5;
+        }
+
+        .card-meta a {
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e4dc;
+            margin: 32px 0;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: #f5f2ec;
+            border-left: 3px solid #7a7a6e;
+            padding: 18px 22px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #5a5a50;
+            line-height: 1.7;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e8e4dc;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #7a7a6e;
+            margin-bottom: 16px;
+        }
+
+        .footer-back {
+            font-size: 14px;
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .footer-back:hover {
+            text-decoration: underline;
+        }
+
+        /* Accent colors */
+        .accent-pill { background: #d4a574; }
+        .accent-code { background: #6b5b3a; }
+        .accent-workflows { background: #7b1fa2; }
+        .accent-design { background: #0288d1; }
+        .accent-contemplative { background: #3a7a6b; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .container { padding: 24px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Saturday Morning Edition</h1>
+            <div class="header-date">March 21, 2026</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">6</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">~24h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Section 1: The $3 Pill -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-pill"></div>
+                <div class="section-title">The $3 Pill</div>
+                <div class="section-count">1 item</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Novo Nordisk's semaglutide patent expired Friday — and the weight-loss drug that costs $100/month can now be produced generically for $3 per patient.</div>
+                <div class="card-body">Shraddha's tweet hit 658K views and 9.7K likes in under 24 hours, making it the single most-engaged item on the feed. The patent expiry opens the door for generic manufacturers worldwide to produce the GLP-1 drug that has reshaped the obesity treatment landscape. The financial implication is severe for Novo Nordisk's revenue model, but the public health implication is staggering: a drug that was accessible only to the insured and wealthy becomes, in principle, available to anyone. The 33x price collapse from branded to generic is among the steepest in recent pharma history — and it arrives at a moment when GLP-1 drugs are being studied for everything from Alzheimer's prevention to addiction treatment.</div>
+                <div class="card-meta"><a href="https://x.com/shraddhaha" target="_blank">@shraddhaha</a> · Mar 20, 658K views, 9.7K likes — the engagement reflects a public that viscerally understands what a 33x price drop means</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 2: Claude Code Does Everything Now -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-code"></div>
+                <div class="section-title">Claude Code Does Everything Now</div>
+                <div class="section-count">4 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Browser Use shipped CLI 2.0 — and users are reporting that paired with Claude Code, they haven't manually touched a browser in days.</div>
+                <div class="card-body">Shawn Pana's testimonial hit 165K views. Browser Use 2.0 promises 2x the speed at half the cost, with native integration into running Chrome sessions. The upstream enabler is Claude Code v2.1.80 running Opus 4.6 with 1M context and "high effort" mode — the combination of deep context, tool access, and persistent browser control is crossing the threshold where manual browser interaction becomes optional for a growing class of tasks.</div>
+                <div class="card-meta"><a href="https://x.com/shawn_pana" target="_blank">@shawn_pana</a> · 12h, <a href="https://x.com/browser_use" target="_blank">@browser_use</a> · 20h, 165K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A developer built a Claude Code skill that sat in a cybersecurity workshop, recorded the instructor via Whisper, extracted 9 key topics from 22 audio fragments, and generated a complete JupyterBook — all while he just listened.</div>
+                <div class="card-body">Bartosz Naskręcki's /live-workshop skill is now open-sourced and works for any workshop or lecture. The significance isn't the individual components — it's that they're packaged as a single Claude Code skill that runs autonomously in the background. The user's role reduces to "be present and approve the output." This is the skills ecosystem maturing from clever tricks into genuine productivity infrastructure.</div>
+                <div class="card-meta"><a href="https://x.com/nasqret" target="_blank">@nasqret</a> · 15h, 11K views, 269 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Garry Tan demonstrated his GStack /plan-design-review skill taking a 4/10 wireframe to a 10/10 visual design — by having the LLM rate the current state, enumerate exactly what's missing, and describe what perfection looks like.</div>
+                <div class="card-body">The output is remarkably specific: no typography scale, no spacing system, no color system, no interaction states, no animation spec, no entry density decisions. A 10/10 "would have full visual spec for every state of every component at exact pixel dimensions." The meta-insight is about prompting strategy: instead of asking "make this better," ask "rate this 0–10 and tell me exactly what would make it a 10." The gap between the two approaches is enormous.</div>
+                <div class="card-meta"><a href="https://x.com/garrytan" target="_blank">@garrytan</a> · 11h, 21K views, 367 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Someone described a full wall unit to Claude Code — wardrobe, drawers, mirror, hidden vault, laundry — and Claude generated carpenter-ready technical drawings without a designer.</div>
+                <div class="card-body">The output images show dimensioned CAD-style floor plans and elevations suitable for actual fabrication. It's a small story by view count but a telling one: Claude Code's tool-use capabilities now extend to producing professional-grade technical output in domains far from software engineering.</div>
+                <div class="card-meta"><a href="https://x.com/DAIEvolutionHub" target="_blank">@DAIEvolutionHub</a> · 2h, 3K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 3: Agents Get a Workflow Layer -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-workflows"></div>
+                <div class="section-title">Agents Get a Workflow Layer</div>
+                <div class="section-count">1 item</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Alchemy CEO Nikil Viswanathan open-sourced ClawFlows — a workflow system for OpenClaw that ships with 100+ prebuilt workflows and which he says he uses 1,000+ times daily.</div>
+                <div class="card-body">The project hit 133K views and 909 likes, reflecting strong demand for structured automation on top of raw agent capability. ClawFlows positions itself as "AI-powered workflows that run on autopilot" with a single command to install. The implication is that the OpenClaw ecosystem is developing the same kind of community-contributed workflow library that made tools like Zapier and n8n sticky — except the primitives are AI agents rather than API connectors.</div>
+                <div class="card-meta"><a href="https://x.com/nikil" target="_blank">@nikil</a> · 18h, 133K views, 909 likes — the Alchemy CEO open-sourcing his personal productivity stack signals where the agent-workflow market is heading</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 4: Design Without Designers -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-design"></div>
+                <div class="section-title">Design Without Designers</div>
+                <div class="section-count">1 item</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">AI can now generate your home interior as a 3D navigable world with real dimensions — and let you walk inside it.</div>
+                <div class="card-body">el.cine's demo video hit 540K views and 3.2K likes with the two-word assessment: "interior designers are cooked." The tool takes a 2D floor plan or description, generates a photorealistic 3D environment, and renders it as a walkable space. It's the most visceral "this job is changing" demo of the week — not because the output is perfect, but because it collapses a workflow that previously required specialized software, 3D modeling skills, and days of rendering into something that runs in minutes from a text description.</div>
+                <div class="card-meta"><a href="https://x.com/EHuanglu" target="_blank">@EHuanglu</a> · 23h, 540K views — the blunt framing drove sharing, but the underlying capability is real</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 5: The Saturday Contemplative Thread -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-contemplative"></div>
+                <div class="section-title">The Saturday Contemplative Thread</div>
+                <div class="section-count">3 items</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Terence Tao, asked what advice he'd give someone considering a math career in 2026, said: "We live in a particularly unpredictable era. I think things that we've taken for granted..."</div>
+                <div class="card-body">The quote, shared by Andrew Curran, captures the world's greatest living mathematician openly acknowledging that the value proposition of mathematical expertise is shifting under AI pressure. Tao's willingness to sit with the uncertainty — rather than offering false reassurance or premature doom — is itself the advice.</div>
+                <div class="card-meta"><a href="https://x.com/AndrewCurran_" target="_blank">@AndrewCurran_</a> · 22h, via <a href="https://x.com/muthutalks" target="_blank">@muthutalks</a> · 7h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Dijkstra solved the shortest-path problem in twenty minutes at a café in Amsterdam, without paper — and every navigation app on Earth still runs his algorithm 68 years later.</div>
+                <div class="card-body">Robbert Leusink's telling of the story is a reminder that the most consequential algorithms weren't produced by scaling compute or training on data — they were produced by a person thinking clearly in a café. Filed alongside the Tao quote above, it forms a quiet counter-narrative to the week's dominant "AI does everything" thread.</div>
+                <div class="card-meta"><a href="https://x.com/robbertleusink" target="_blank">@robbertleusink</a> · 2h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Trees release airborne chemicals called phytoncides that activate your natural killer cells — boosting them ~50% after three days in a forest, with the effect lasting 7–30 days.</div>
+                <div class="card-body">Anish Moonka's infographic traced the complete pathway from pine/cedar/cypress trees through bloodstream absorption to cancer cell destruction, citing a Lancet study of 3,626 people and noting that Japan has 65 certified Forest Therapy sites. It's the kind of post that makes this feed unusual — hard science about the immune system, packaged as a quiet Saturday morning reminder that the body responds to environments in ways we're only beginning to map.</div>
+                <div class="card-meta"><a href="https://x.com/AnishA_Moonka" target="_blank">@AnishA_Moonka</a> · Mar 19, via <a href="https://x.com/jack_schroder_" target="_blank">@jack_schroder_</a> · 8h</div>
+            </div>
+        </div>
+
+        <!-- Meta observation -->
+        <div class="meta-observation">
+            The Saturday morning feed has a different texture than the weekday editions. The urgency drops. The signal-to-noise ratio improves. The biggest story isn't an AI product launch — it's a patent expiration that will change millions of lives. The second biggest isn't a benchmark result — it's a man who didn't touch his browser for an entire day because Claude did it for him. And threading through everything is a contemplative current: Terence Tao admitting uncertainty, Dijkstra solving the hard problem at a café, trees silently activating your immune system. The weekend feed remembers that not everything important moves fast.
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">Compiled by <a href="https://x.com/bag_of_ideas" target="_blank" style="color: #3a6b8a; text-decoration: none;">@bag_of_ideas</a> via automated X/Twitter digest</div>
+            <a href="../" class="footer-back">&larr; All Dispatches</a>
+        </footer>
+    </div>
+</body>
+</html>
