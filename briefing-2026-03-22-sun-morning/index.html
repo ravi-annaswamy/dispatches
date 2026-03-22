@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunday Morning Edition — AI with Ravi</title>
+    <meta property="og:title" content="Sunday Morning Edition — X/Twitter Briefing">
+    <meta property="og:description" content="30+ tweets from the AI frontier: Claude Code plugins go multi-agent, autoresearch hits real scale, Tao on the beauty of running out of ideas, and Jensen's open-model stage.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #faf8f4;
+            color: #2a2a2a;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: #7a7a6e;
+            margin-bottom: 20px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: #3a6b8a;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a6b8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-top: 2px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e4dc;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 15px;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: #7a7a6e;
+            line-height: 1.5;
+        }
+
+        .card-meta a {
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e4dc;
+            margin: 32px 0;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: #f5f2ec;
+            border-left: 3px solid #7a7a6e;
+            padding: 18px 22px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #5a5a50;
+            line-height: 1.7;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Quick signals */
+        .quick-signal {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0ece4;
+            font-size: 14px;
+            color: #3d3d3d;
+            line-height: 1.6;
+        }
+
+        .quick-signal:last-child {
+            border-bottom: none;
+        }
+
+        .quick-signal strong {
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e8e4dc;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #7a7a6e;
+            margin-bottom: 16px;
+        }
+
+        .footer-back {
+            font-size: 14px;
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .footer-back:hover {
+            text-decoration: underline;
+        }
+
+        /* Accent colors */
+        .accent-claude { background: #3a6b8a; }
+        .accent-research { background: #a0522d; }
+        .accent-talk { background: #6b5b3a; }
+        .accent-gtc { background: #8b4557; }
+        .accent-tao { background: #3a7a6b; }
+        .accent-culture { background: #7a6b3a; }
+        .accent-signals { background: #7b6b8a; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .container { padding: 24px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Sunday Morning Edition</h1>
+            <div class="header-date">March 22, 2026</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">7</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">~10h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Section 1: Claude Code & Agent Tooling -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-claude"></div>
+                <div class="section-title">Claude Code & the Agent Tooling Wave</div>
+                <span class="section-count">6 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A father asked Claude to build his daughter a piano-learning app — with live keystroke detection, sheet music display, and a Guitar Hero–style game — and she's now using it daily.</div>
+                <div class="card-body">Ryan Leachman's viral demo shows the app plugging directly into a Yamaha keyboard via MIDI, reading live key presses, rendering sheet music, and gamifying practice with progressively harder songs. The upstream enabler is Claude's ability to write working multi-component apps from a single natural-language prompt. Anthony Pompliano amplified the post, calling parent-built educational tools his favorite AI use case.</div>
+                <div class="card-meta"><a href="https://x.com/RG_Leachman">@RG_Leachman</a> · 13h · 9.1K views, amplified by <a href="https://x.com/APompliano">@APompliano</a> · 16m · 286K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">PolyClaude, a new Claude Code plugin that spawns parallel subagents to analyze problems from multiple expert perspectives, shipped its first public release.</div>
+                <div class="card-body">Riley Coyote describes it as exploiting subagents to give multi-perspective council analysis — think architect, skeptic, innovator, and temporal perspectives all running in parallel, then synthesized into a single decision-ready report. The concept rides the wave of Claude Code's open plugin marketplace and its increasingly capable subagent infrastructure.</div>
+                <div class="card-meta"><a href="https://x.com/RileyRalmuto">@RileyRalmuto</a> · 8h · 3.8K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Lydia Hallie announced that Claude Code skills and slash commands can now set effort level — controlling how long the model thinks before responding.</div>
+                <div class="card-body">The feature adds a frontmatter field to SKILL.md files, giving skill authors fine-grained control over reasoning depth per task. This matters because it lets developers optimize the cost-quality tradeoff at the workflow level rather than globally — a small but important step toward programmable reasoning budgets.</div>
+                <div class="card-meta"><a href="https://x.com/lydiahallie">@lydiahallie</a> · 20h · 94K views — 897 likes signals strong developer interest</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">The Claude Code harness (Agent SDK) is public — and you can run Kimi Minimax 2.5 inside it for 1/20th the cost of Opus 4.6 while agents work 24/7.</div>
+                <div class="card-body">Cody Schneider's discovery highlights a significant implication: Anthropic's orchestration layer is model-agnostic, so builders can swap in cheaper models for bulk agentic work while keeping Claude's infrastructure for routing and oversight. This decouples the agent framework from the model powering it.</div>
+                <div class="card-meta"><a href="https://x.com/codyschneiderxx">@codyschneiderxx</a> · 7h · 41K views — 532 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">code-review-graph builds a persistent knowledge graph of your codebase using Tree-sitter so Claude Code reads only what matters — cutting tokens by 6.8% while raising review quality.</div>
+                <div class="card-body">Vaishnavi's tool tracks changes incrementally and gives Claude precise structural context instead of dumping the entire repo. The upstream problem is real: Claude Code currently re-reads your entire codebase on every task, burning tokens on unchanged files. The graph approach is elegant — track what changed, load only what matters.</div>
+                <div class="card-meta"><a href="https://x.com/_vmlops">@_vmlops</a> · 13h · 39K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A local PDF-to-Word converter built in 30 minutes using Claude and Groq's API — no cloud upload, no privacy concern.</div>
+                <div class="card-body">Sanjai Gandhi's tool uses Claude for orchestration and Groq for fast inference, running entirely locally. A small but telling example of how fast inference APIs and Claude's code-generation ability are collapsing the distance between "I wish this existed" and "I built it."</div>
+                <div class="card-meta"><a href="https://x.com/SanjaiGandhi">@SanjaiGandhi</a> · 3h · 12K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 2: AutoResearch -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-research"></div>
+                <div class="section-title">AutoResearch & the Vibe Science Debate</div>
+                <span class="section-count">4 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Andrej Karpathy's autoresearch project — a ~630-line LLM training core that autonomously runs experiments — has sparked a wave of community adoption and one early reality check.</div>
+                <div class="card-body">Karpathy packaged it as a self-contained minimal repo (nanochat stripped to single-GPU), and the community has been racing to apply it to everything with a measurable metric. Zhengyao Jiang tracked early results: two weeks in, some domains show promise while others remain stubborn.</div>
+                <div class="card-meta"><a href="https://x.com/karpathy">@karpathy</a> · Mar 7 · 57K views; <a href="https://x.com/zhengyaojiang">@zhengyaojiang</a> · 23h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">One developer ran autoresearch on a real-scale project for a full week — 103 experiments across multiple machines — and only one showed improvement.</div>
+                <div class="card-body">Mikhail Parakhin's field report is the first serious stress test of autoresearch beyond toy settings. The single success was produced by GPT-5.4 xhigh. The batting average was worse than manual experiments, but automated search runs while you sleep and still surfaces the occasional breakthrough.</div>
+                <div class="card-meta"><a href="https://x.com/MParakhin">@MParakhin</a> · 10h · 1M views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Shunyu Yao argues AI could surpass 99.99% of theoretical physicists before 2030 — but that won't solve all physics problems because we'll be bound by experimental scale.</div>
+                <div class="card-body">Commenting on a Physics World piece about "vibe physics," Yao forecasts that most science becomes AI-assisted by 2026-2030, peer review breaks down, and journal publication loses meaning. But he's careful to note that real-world experiments can't be accelerated by compute alone — a crucial distinction.</div>
+                <div class="card-meta"><a href="https://x.com/ShunyuYao14">@ShunyuYao14</a> · 6h · 9.3K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">AI research could become a swarm of agents on the internet — with systems like AutoResearch letting anyone propose model improvements, verified automatically.</div>
+                <div class="card-body">@vitrupo envisions decentralized ML research where the Earth's aggregate compute exceeds any frontier lab, with Karpathy's AutoResearch as the enabling mechanism. The vision is provocative, though the gap between automated proposal and reliable verification remains wide.</div>
+                <div class="card-meta"><a href="https://x.com/vitrupo">@vitrupo</a> · 14h · 9.3K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 3: How We Talk to Machines -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-talk"></div>
+                <div class="section-title">How We Talk to Machines</div>
+                <span class="section-count">3 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Paul Graham observed that AIs defaulting to bulleted lists reveals something depressing about users: people can't read.</div>
+                <div class="card-body">The tweet landed with 2.5K likes and 457 replies, touching a nerve about whether AI output formats reflect model limitations or user preferences. Graham's point is that models optimize for what users engage with — and bullet points win. A characteristically sharp observation that's also a mirror held up to the audience.</div>
+                <div class="card-meta"><a href="https://x.com/paulg">@paulg</a> · Mar 21 · 205K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Carlos E. Perez pushed back: AI is more precise when anchoring to repeatable semantic structures like lists — the real problem is that humans have difficulty remembering them.</div>
+                <div class="card-body">His counter-argument is that lists are a cognitive scaffold, not a dumbing-down. The tension between these two positions — lists as crutch vs. lists as precision tool — captures an underappreciated design question in how we build AI interfaces.</div>
+                <div class="card-meta"><a href="https://x.com/IntuitMachine">@IntuitMachine</a> · Mar 21</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Karpathy's latest interview surfaced a sharp thesis: AI agent failures stem from user skill, not model capability — poor instructions cause errors.</div>
+                <div class="card-body">He suggests delegating 20-minute macro actions (coding, research) to parallel agents and reviewing their work, rather than expecting agents to handle open-ended autonomy. The upstream insight is that the bottleneck has shifted from model intelligence to human ability to specify intent clearly.</div>
+                <div class="card-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · Mar 21 · 1M views — Karpathy on No Priors podcast</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 4: Jensen & GTC -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-gtc"></div>
+                <div class="section-title">Jensen, GTC & the Open Models Stage</div>
+                <span class="section-count">2 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Robert Scoble called it the rare panel discussion that didn't suck: Jensen Huang interviewing 10 CEOs from frontier AI labs about Open Models, with thousands of AI thinkers in the audience.</div>
+                <div class="card-body">The GTC panel featured leaders from major open-source and open-weight model companies onstage together, signaling that NVIDIA sees the open ecosystem as strategically essential to its GPU business. Brian Roemmele amplified it as a defining moment for the AI community's center of gravity.</div>
+                <div class="card-meta"><a href="https://x.com/Scobleizer">@Scobleizer</a> · 6h, reposted by <a href="https://x.com/BrianRoemmele">@BrianRoemmele</a></div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Emanuele Di Pietro published a guide on building astonishing UI with OpenAI's Codex — arguing GPT-5.4 can build beautiful frontends, but only with tighter constraints and visual references.</div>
+                <div class="card-body">The article pushes back on the "just vibe code it" narrative: better output requires tighter input. Anushriya separately confirmed Codex can create ambitious UI patterns, suggesting the tool is gaining real design traction among frontend developers.</div>
+                <div class="card-meta"><a href="https://x.com/emanuledpt">@emanuledpt</a> · 22h · 181K views; <a href="https://x.com/Anushriya_UX">@Anushriya_UX</a> · 15h</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 5: The Dwarkesh-Tao Thread -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-tao"></div>
+                <div class="section-title">The Dwarkesh–Tao Thread</div>
+                <span class="section-count">3 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Terence Tao spent a year at the Institute for Advanced Study with unlimited time to think — no teaching, no committees — and after a few months, he ran out of ideas.</div>
+                <div class="card-body">The clip from Dwarkesh Patel's podcast resonated widely because it challenges the romantic notion that genius just needs time. Tao himself believes mathematicians need a certain level of external friction and serendipitous input to stay productive — pure optimization of thinking time backfires.</div>
+                <div class="card-meta"><a href="https://x.com/dwarkesh_sp">@dwarkesh_sp</a> · 19h · 24K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Kenneth Stanley connected this to his thesis in "Why Greatness Cannot Be Planned" — too much emphasis on optimization means getting exactly what we asked for, which misses the breakthroughs.</div>
+                <div class="card-body">The cross-reference between Tao's experience and Stanley's work on open-ended search is striking: both suggest that inefficiency and randomness are features, not bugs, of discovery. A powerful frame for thinking about how AI itself should be directed.</div>
+                <div class="card-meta"><a href="https://x.com/kenneth0stanley">@kenneth0stanley</a> · 13h · 24K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Dwarkesh also highlighted Tao explaining the beauty of Lean proofs — even when not human-comprehensible, each bit can be taken apart, analyzed, tweaked, and understood modularly.</div>
+                <div class="card-body">This suggests a future where formal verification becomes a collaboration tool between humans and machines, with Lean as the shared language. The Dwarkesh podcast continues to be the strongest longform interviewer in the AI-adjacent intellectual space.</div>
+                <div class="card-meta"><a href="https://x.com/dwarkesh_sp">@dwarkesh_sp</a> · 3m</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 6: Contemplative & Cultural -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-culture"></div>
+                <div class="section-title">Contemplative & Cultural Thread</div>
+                <span class="section-count">3 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Sadhavi Khosla posted a meditation on how spirituality was never meant to be sold — the moment it becomes organized, truth disappears.</div>
+                <div class="card-body">The thread drew 228 likes and 5.6K views, a notable engagement rate for philosophical content on a feed dominated by AI signal. A quiet reminder that this feed carries a strong contemplative current alongside the tech.</div>
+                <div class="card-meta"><a href="https://x.com/sadhavi">@sadhavi</a> · 4h · 5.6K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Dushyanth Sridhar documented 800+ Tamil-speaking devotees in Chennai reciting the Hanuman Chalisa in Awadhi — stotras uniting Bharatiyas across language and geography.</div>
+                <div class="card-body">The video captured the emotional charge of cross-linguistic devotion. Separately, Sridhar expressed being rejuvenated by a new generation of astikas aged 10–25 attending discourses across metros and smaller cities — a cultural renewal happening quietly.</div>
+                <div class="card-meta"><a href="https://x.com/dushyanthsridar">@dushyanthsridar</a> · 4h · 16K views; 21h · 28K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Business school students good at Civilization V also turn out to be better planners, organizers, and problem-solvers in real settings.</div>
+                <div class="card-body">Ethan Mollick shared a proof-of-concept study from the Review of Managerial Science linking strategy-game skill to managerial aptitude. The gamification-as-assessment angle is gaining academic rigor — a vindication for anyone who learned resource management from Sid Meier before business school.</div>
+                <div class="card-meta"><a href="https://x.com/emollick">@emollick</a> · 13h, reposted by James V</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 7: Quick Signals -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-signals"></div>
+                <div class="section-title">Quick Signals</div>
+                <span class="section-count">5 items</span>
+            </div>
+
+            <div class="quick-signal"><strong>Dr. Dominic Ng:</strong> High meat consumption linked to 55% lower dementia risk in APOE ε4 carriers — a surprising finding from a new study on 257 older adults. <em>(18h · 17K views)</em></div>
+            <div class="quick-signal"><strong>Parimal @Fintech03:</strong> India's school market has surged to ~$60B as of 2026, with 340K private unaided schools representing massive revenue potential. <em>(10h · 11K views)</em></div>
+            <div class="quick-signal"><strong>David Roberts:</strong> Built an AI system that creates luxury real estate listing videos from a Zillow link for $12 — agents typically pay $200–800 for professional production. <em>(23h · 136K views)</em></div>
+            <div class="quick-signal"><strong>Elliot Arledge:</strong> Built a CLI tool to search YouTube transcripts from the terminal — no download, no API key, no whisper, pulls captions directly over HTTP. <em>(5h)</em></div>
+            <div class="quick-signal"><strong>Garry Tan:</strong> Previewed the builder ethos being built into GStack — search before building as a prime directive for the 1000x engineer. <em>(Mar 21)</em></div>
+        </div>
+
+        <div class="meta-observation">
+            This Sunday morning feed carries an unusually strong tension between two moods — the relentless acceleration of AI tooling (Claude Code plugins, autoresearch, agent SDKs) and a quieter thread about the limits of optimization itself (Tao running out of ideas, Karpathy saying the bottleneck is human intent, Stanley arguing greatness can't be planned). The feed is asking, in its own chaotic way, whether building faster is the same as building better.
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">Compiled by <a href="https://x.com/bag_of_ideas" style="color: #3a6b8a; text-decoration: none;">@bag_of_ideas</a> via automated X/Twitter digest</div>
+            <a href="../" class="footer-back">&larr; All Dispatches</a>
+        </footer>
+    </div>
+</body>
+</html>
