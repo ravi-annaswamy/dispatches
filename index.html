@@ -34,7 +34,7 @@
 
         header {
             text-align: center;
-            padding: 70px 20px 40px;
+            padding: 60px 20px 30px;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -59,99 +59,261 @@
             width: 60px;
             height: 2px;
             background: var(--rule);
-            margin: 35px auto;
+            margin: 30px auto;
         }
 
-        .articles {
-            max-width: 860px;
+        /* ── FEATURED LONGREADS: 3-up grid ── */
+        .section-label {
+            max-width: 1060px;
             margin: 0 auto;
-            padding: 0 20px 80px;
+            padding: 0 20px;
         }
 
-        .article-card {
-            display: flex;
-            gap: 30px;
-            padding: 35px 0;
-            border-bottom: 1px solid var(--rule);
+        .section-label h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .featured-grid {
+            max-width: 1060px;
+            margin: 0 auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .featured-card {
             text-decoration: none;
             color: inherit;
-            transition: background 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
         }
 
-        .article-card:first-child {
-            border-top: 1px solid var(--rule);
+        .featured-card:hover {
+            transform: translateY(-3px);
         }
 
-        .article-card:hover {
-            background: var(--card-hover);
-            margin: 0 -15px;
-            padding-left: 15px;
-            padding-right: 15px;
-            border-radius: 6px;
+        .featured-card:hover .featured-thumb {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
         }
 
-        .article-thumb {
-            flex-shrink: 0;
-            width: 240px;
-            height: 160px;
+        .featured-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 10;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 5px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 14px;
+            transition: box-shadow 0.2s ease;
         }
 
-        .article-thumb img {
+        .featured-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .article-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .article-date {
-            font-size: 0.8rem;
-            color: var(--muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .article-topic {
-            display: inline-block;
-            font-size: 0.7rem;
+        .featured-topic {
+            font-size: 0.65rem;
             color: var(--accent);
             letter-spacing: 0.12em;
             text-transform: uppercase;
             font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .featured-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.25;
             margin-bottom: 6px;
         }
 
-        .article-title {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.65rem;
-            font-weight: 700;
-            line-height: 1.25;
-            margin-bottom: 10px;
-        }
-
-        .article-subtitle {
+        .featured-subtitle {
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
-            font-size: 1rem;
+            font-size: 0.88rem;
             color: var(--muted);
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
+        .featured-date {
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* ── BRIEFINGS: compact calendar strip ── */
+        .briefings-strip {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 20px 0;
+        }
+
+        .briefings-row {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--rule) transparent;
+        }
+
+        .briefings-row::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .briefings-row::-webkit-scrollbar-thumb {
+            background: var(--rule);
+            border-radius: 2px;
+        }
+
+        .briefing-chip {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 16px 10px;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.15s ease;
+            min-width: 100px;
+            background: transparent;
+        }
+
+        .briefing-chip:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .briefing-chip .chip-day {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+        }
+
+        .briefing-chip .chip-date {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .briefing-chip .chip-time {
+            font-size: 0.62rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .briefing-chip .chip-stats {
+            font-size: 0.58rem;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        /* ── ARCHIVE: compact list of remaining longreads ── */
+        .archive {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 20px 70px;
+        }
+
+        .archive-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .archive-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 12px;
+            border-bottom: 1px solid var(--rule);
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.15s ease;
+        }
+
+        /* Add right border to left column items */
+        .archive-item:nth-child(odd) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .archive-item:hover {
+            background: var(--card-hover);
+        }
+
+        .archive-thumb {
+            flex-shrink: 0;
+            width: 72px;
+            height: 48px;
+            overflow: hidden;
+            border-radius: 3px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        }
+
+        .archive-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .archive-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .archive-topic {
+            font-size: 0.58rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .archive-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.25;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .archive-date {
+            font-size: 0.65rem;
+            color: var(--muted);
+        }
+
+        /* ── FOOTER ── */
         footer {
             text-align: center;
             padding: 30px 20px 50px;
             font-size: 0.85rem;
             color: var(--muted);
             border-top: 1px solid var(--rule);
-            max-width: 860px;
+            max-width: 1060px;
             margin: 0 auto;
         }
 
@@ -160,108 +322,43 @@
             text-decoration: none;
         }
 
-        /* Section headers */
-        .section-label {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* ── SPACING between sections ── */
+        .section-gap {
+            height: 38px;
         }
 
-        .section-label h2 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 4px;
+        .section-gap-sm {
+            height: 24px;
         }
 
-        /* Briefing cards */
-        .briefings {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
+        /* ── RESPONSIVE ── */
+        @media (max-width: 860px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .featured-grid .featured-card:nth-child(3) {
+                grid-column: 1 / -1;
+            }
+            .featured-grid .featured-card:nth-child(3) .featured-thumb {
+                aspect-ratio: 21 / 9;
+            }
         }
 
-        .briefing-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 22px 0;
-            border-bottom: 1px solid var(--rule);
-            text-decoration: none;
-            color: inherit;
-            transition: background 0.2s ease;
-        }
-
-        .briefing-card:first-child {
-            border-top: 1px solid var(--rule);
-        }
-
-        .briefing-card:hover {
-            background: var(--card-hover);
-            margin: 0 -15px;
-            padding-left: 15px;
-            padding-right: 15px;
-            border-radius: 6px;
-        }
-
-        .briefing-accent {
-            flex-shrink: 0;
-            width: 4px;
-            height: 52px;
-            border-radius: 2px;
-            background: var(--accent);
-        }
-
-        .briefing-info {
-            flex: 1;
-        }
-
-        .briefing-edition {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 4px;
-        }
-
-        .briefing-meta {
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        .briefing-stats {
-            display: flex;
-            gap: 16px;
-            flex-shrink: 0;
-        }
-
-        .briefing-stat {
-            text-align: center;
-        }
-
-        .briefing-stat-num {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .briefing-stat-label {
-            font-size: 0.6rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        @media (max-width: 640px) {
+        @media (max-width: 580px) {
             header h1 { font-size: 2.2rem; }
-            .article-card { flex-direction: column; gap: 15px; }
-            .article-thumb { width: 100%; height: 200px; }
-            .article-title { font-size: 1.35rem; }
-            .briefing-stats { display: none; }
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            .featured-grid .featured-card:nth-child(3) .featured-thumb {
+                aspect-ratio: 16 / 10;
+            }
+            .featured-title { font-size: 1.2rem; }
+            .archive-list {
+                grid-template-columns: 1fr;
+            }
+            .archive-item:nth-child(odd) {
+                border-right: none;
+            }
         }
     </style>
 </head>
@@ -273,290 +370,202 @@
     <div class="divider"></div>
 </header>
 
+<!-- ── FEATURED LONGREADS ── -->
 <div class="section-label">
-    <h2>AI Briefings</h2>
+    <h2>Featured</h2>
 </div>
 
-<section class="briefings">
+<section class="featured-grid">
 
-    <a href="briefing-2026-03-22-sun-morning/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Sunday Morning Edition</div>
-            <div class="briefing-meta">March 22, 2026 &middot; AI with Ravi</div>
+    <a href="the-quiet-replacement/" class="featured-card">
+        <div class="featured-thumb">
+            <img src="the-quiet-replacement/illustration-1.png" alt="Vintage engraving of a photographer with a drone shadow">
         </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">30+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">7</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
+        <div class="featured-topic">Economics &amp; Labor</div>
+        <div class="featured-title">The Quiet Replacement</div>
+        <div class="featured-subtitle">Five dispatches from the age of the $12 economy</div>
+        <div class="featured-date">March 22, 2026</div>
     </a>
 
-    <a href="briefing-2026-03-21-sat-morning/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Saturday Morning Edition</div>
-            <div class="briefing-meta">March 21, 2026 &middot; AI with Ravi</div>
+    <a href="the-fourth-state/" class="featured-card">
+        <div class="featured-thumb">
+            <img src="the-fourth-state/illustration-1.png" alt="Watercolor of a mathematician at a desk with geometric shapes dissolving into mist">
         </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">30+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">6</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
+        <div class="featured-topic">Neuroscience &amp; Consciousness</div>
+        <div class="featured-title">The Fourth State</div>
+        <div class="featured-subtitle">Five dispatches from the frontier where thinking meets its mirror</div>
+        <div class="featured-date">March 22, 2026</div>
     </a>
 
-    <a href="briefing-2026-03-19-thu-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Thursday Evening Edition</div>
-            <div class="briefing-meta">March 19, 2026 &middot; AI with Ravi</div>
+    <a href="the-secret-lives-of-wild-things/" class="featured-card">
+        <div class="featured-thumb">
+            <img src="the-secret-lives-of-wild-things/golden-gate.png" alt="Gray whale surfacing near the Golden Gate Bridge at dawn">
         </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">30+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">5</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
-    </a>
-
-    <a href="briefing-2026-03-18-wed-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Wednesday Evening Edition</div>
-            <div class="briefing-meta">March 18, 2026 &middot; AI with Ravi</div>
-        </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">35+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">6</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
-    </a>
-
-    <a href="briefing-2026-03-17-tue-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Tuesday Evening Edition</div>
-            <div class="briefing-meta">March 17, 2026 &middot; AI with Ravi</div>
-        </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">35+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">7</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
-    </a>
-
-    <a href="briefing-2026-03-16-mon-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Monday Evening Edition</div>
-            <div class="briefing-meta">March 16, 2026 &middot; AI with Ravi</div>
-        </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">35+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">7</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
-    </a>
-
-    <a href="briefing-2026-03-15-sun-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Sunday Evening Edition</div>
-            <div class="briefing-meta">March 15, 2026 &middot; AI with Ravi</div>
-        </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">30+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">6</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
-    </a>
-
-    <a href="briefing-2026-03-14-sat-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Saturday Evening Edition</div>
-            <div class="briefing-meta">March 14, 2026 &middot; AI with Ravi</div>
-        </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">25+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">7</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
-    </a>
-
-    <a href="briefing-2026-03-13-fri-evening/" class="briefing-card">
-        <div class="briefing-accent"></div>
-        <div class="briefing-info">
-            <div class="briefing-edition">Friday Evening Edition</div>
-            <div class="briefing-meta">March 13, 2026 &middot; AI with Ravi</div>
-        </div>
-        <div class="briefing-stats">
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">28+</div>
-                <div class="briefing-stat-label">Tweets</div>
-            </div>
-            <div class="briefing-stat">
-                <div class="briefing-stat-num">7</div>
-                <div class="briefing-stat-label">Topics</div>
-            </div>
-        </div>
+        <div class="featured-topic">Wildlife</div>
+        <div class="featured-title">The Secret Lives of Wild Things</div>
+        <div class="featured-subtitle">From sharks with best friends to rhinos reclaiming lost kingdoms</div>
+        <div class="featured-date">March 19, 2026</div>
     </a>
 
 </section>
 
-<div class="section-label" style="margin-top: 10px;">
-    <h2>Longreads</h2>
+<div class="section-gap"></div>
+
+<!-- ── BRIEFINGS STRIP ── -->
+<div class="section-label">
+    <h2>This Week's Briefings</h2>
 </div>
 
-<section class="articles">
+<div class="section-gap-sm"></div>
 
-    <a href="the-quiet-replacement/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-quiet-replacement/illustration-1.png" alt="Vintage engraving of a photographer with a drone shadow">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Economics &amp; Labor</div>
-            <div class="article-date">March 22, 2026</div>
-            <div class="article-title">The Quiet Replacement</div>
-            <div class="article-subtitle">Five dispatches from the age of the $12 economy</div>
-        </div>
-    </a>
+<section class="briefings-strip">
+    <div class="briefings-row">
 
-    <a href="the-fourth-state/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-fourth-state/illustration-1.png" alt="Watercolor of a mathematician at a desk with geometric shapes dissolving into mist">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Neuroscience &amp; Consciousness</div>
-            <div class="article-date">March 22, 2026</div>
-            <div class="article-title">The Fourth State</div>
-            <div class="article-subtitle">Five dispatches from the frontier where thinking meets its mirror</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-22-sun-morning/" class="briefing-chip">
+            <span class="chip-day">Sun</span>
+            <span class="chip-date">22</span>
+            <span class="chip-time">Morning</span>
+            <span class="chip-stats">30+ tweets &middot; 7 topics</span>
+        </a>
 
-    <a href="the-secret-lives-of-wild-things/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-secret-lives-of-wild-things/golden-gate.png" alt="Gray whale surfacing near the Golden Gate Bridge at dawn">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Wildlife</div>
-            <div class="article-date">March 19, 2026</div>
-            <div class="article-title">The Secret Lives of Wild Things</div>
-            <div class="article-subtitle">From sharks with best friends to rhinos reclaiming lost kingdoms, a week of wonder</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-21-sat-morning/" class="briefing-chip">
+            <span class="chip-day">Sat</span>
+            <span class="chip-date">21</span>
+            <span class="chip-time">Morning</span>
+            <span class="chip-stats">30+ tweets &middot; 6 topics</span>
+        </a>
 
-    <a href="when-the-machine-runs-ahead/" class="article-card">
-        <div class="article-thumb">
-            <img src="when-the-machine-runs-ahead/opening-podium.jpg" alt="Charcoal sketch of a lone figure at a podium beneath enormous screens">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Responsible AI</div>
-            <div class="article-date">March 17, 2026</div>
-            <div class="article-title">When the Machine Runs Ahead</div>
-            <div class="article-subtitle">Children exploited, wars obscured, livelihoods erased — and the laws still catching up</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-19-thu-evening/" class="briefing-chip">
+            <span class="chip-day">Thu</span>
+            <span class="chip-date">19</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">30+ tweets &middot; 5 topics</span>
+        </a>
 
-    <a href="four-visions-of-pi/" class="article-card">
-        <div class="article-thumb" style="background: linear-gradient(135deg, #b5432a22, #1a527622, #4a674122, #6b2d7b22); display: flex; align-items: center; justify-content: center;">
-            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 5rem; font-weight: 700; background: linear-gradient(135deg, #b5432a, #1a5276, #4a6741, #6b2d7b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">&pi;</span>
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Mathematics</div>
-            <div class="article-date">March 15, 2026</div>
-            <div class="article-title">Four Visions of &pi;</div>
-            <div class="article-subtitle">How great mathematicians found strange formulas for a simple constant</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-18-wed-evening/" class="briefing-chip">
+            <span class="chip-day">Wed</span>
+            <span class="chip-date">18</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">35+ tweets &middot; 6 topics</span>
+        </a>
 
-    <a href="the-slow-emergency/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-slow-emergency/vagus-telegraph.jpg" alt="Woodcut illustration of gut and brain connected by telegraph wire with mouse operating the key">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Health</div>
-            <div class="article-date">March 14, 2026</div>
-            <div class="article-title">The Slow Emergency</div>
-            <div class="article-subtitle">Five dispatches from the age of anticipatory medicine</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-17-tue-evening/" class="briefing-chip">
+            <span class="chip-day">Tue</span>
+            <span class="chip-date">17</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">35+ tweets &middot; 7 topics</span>
+        </a>
 
-    <a href="the-rewritten-self/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-rewritten-self/cave-ancestors.jpg" alt="Vintage engraving of archaeologist in Moroccan cave uncovering ancient human fossils">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Genetics</div>
-            <div class="article-date">March 13, 2026</div>
-            <div class="article-title">The Rewritten Self</div>
-            <div class="article-subtitle">Five dispatches from the age of the editable genome</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-16-mon-evening/" class="briefing-chip">
+            <span class="chip-day">Mon</span>
+            <span class="chip-date">16</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">35+ tweets &middot; 7 topics</span>
+        </a>
 
-    <a href="the-violence-of-becoming/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-violence-of-becoming/comet.jpg" alt="Watercolor of interstellar comet">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Science</div>
-            <div class="article-date">March 13, 2026</div>
-            <div class="article-title">The Violence of Becoming</div>
-            <div class="article-subtitle">Five dispatches from the week the universe reminded us it is not finished</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-15-sun-evening/" class="briefing-chip">
+            <span class="chip-day">Sun</span>
+            <span class="chip-date">15</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">30+ tweets &middot; 6 topics</span>
+        </a>
 
-    <a href="the-machines-we-deserve/" class="article-card">
-        <div class="article-thumb">
-            <img src="the-machines-we-deserve/oppenheimer.jpg" alt="Ink illustration of AI safety">
-        </div>
-        <div class="article-info">
-            <div class="article-topic">Artificial Intelligence</div>
-            <div class="article-date">March 12, 2026</div>
-            <div class="article-title">The Machines We Deserve</div>
-            <div class="article-subtitle">Five dispatches from the week artificial intelligence stopped being theoretical</div>
-        </div>
-    </a>
+        <a href="briefing-2026-03-14-sat-evening/" class="briefing-chip">
+            <span class="chip-day">Sat</span>
+            <span class="chip-date">14</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">25+ tweets &middot; 7 topics</span>
+        </a>
 
+        <a href="briefing-2026-03-13-fri-evening/" class="briefing-chip">
+            <span class="chip-day">Fri</span>
+            <span class="chip-date">13</span>
+            <span class="chip-time">Evening</span>
+            <span class="chip-stats">28+ tweets &middot; 7 topics</span>
+        </a>
+
+    </div>
+</section>
+
+<div class="section-gap"></div>
+
+<!-- ── ARCHIVE: remaining longreads ── -->
+<div class="section-label">
+    <h2>Archive</h2>
+</div>
+
+<div class="section-gap-sm"></div>
+
+<section class="archive">
+    <div class="archive-list">
+
+        <a href="when-the-machine-runs-ahead/" class="archive-item">
+            <div class="archive-thumb">
+                <img src="when-the-machine-runs-ahead/opening-podium.jpg" alt="Charcoal sketch of a lone figure at a podium">
+            </div>
+            <div class="archive-info">
+                <div class="archive-topic">Responsible AI</div>
+                <div class="archive-title">When the Machine Runs Ahead</div>
+                <div class="archive-date">March 17, 2026</div>
+            </div>
+        </a>
+
+        <a href="four-visions-of-pi/" class="archive-item">
+            <div class="archive-thumb" style="background: linear-gradient(135deg, #b5432a22, #1a527622, #4a674122, #6b2d7b22); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #b5432a, #1a5276, #4a6741, #6b2d7b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">&pi;</span>
+            </div>
+            <div class="archive-info">
+                <div class="archive-topic">Mathematics</div>
+                <div class="archive-title">Four Visions of &pi;</div>
+                <div class="archive-date">March 15, 2026</div>
+            </div>
+        </a>
+
+        <a href="the-slow-emergency/" class="archive-item">
+            <div class="archive-thumb">
+                <img src="the-slow-emergency/vagus-telegraph.jpg" alt="Woodcut illustration of gut and brain connected by telegraph wire">
+            </div>
+            <div class="archive-info">
+                <div class="archive-topic">Health</div>
+                <div class="archive-title">The Slow Emergency</div>
+                <div class="archive-date">March 14, 2026</div>
+            </div>
+        </a>
+
+        <a href="the-rewritten-self/" class="archive-item">
+            <div class="archive-thumb">
+                <img src="the-rewritten-self/cave-ancestors.jpg" alt="Vintage engraving of archaeologist in Moroccan cave">
+            </div>
+            <div class="archive-info">
+                <div class="archive-topic">Genetics</div>
+                <div class="archive-title">The Rewritten Self</div>
+                <div class="archive-date">March 13, 2026</div>
+            </div>
+        </a>
+
+        <a href="the-violence-of-becoming/" class="archive-item">
+            <div class="archive-thumb">
+                <img src="the-violence-of-becoming/comet.jpg" alt="Watercolor of interstellar comet">
+            </div>
+            <div class="archive-info">
+                <div class="archive-topic">Science</div>
+                <div class="archive-title">The Violence of Becoming</div>
+                <div class="archive-date">March 13, 2026</div>
+            </div>
+        </a>
+
+        <a href="the-machines-we-deserve/" class="archive-item">
+            <div class="archive-thumb">
+                <img src="the-machines-we-deserve/oppenheimer.jpg" alt="Ink illustration of AI safety">
+            </div>
+            <div class="archive-info">
+                <div class="archive-topic">Artificial Intelligence</div>
+                <div class="archive-title">The Machines We Deserve</div>
+                <div class="archive-date">March 12, 2026</div>
+            </div>
+        </a>
+
+    </div>
 </section>
 
 <footer>
