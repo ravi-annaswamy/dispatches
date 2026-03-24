@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monday Evening Edition — AI with Ravi</title>
+    <meta property="og:title" content="Monday Evening Edition — X/Twitter Briefing">
+    <meta property="og:description" content="30+ tweets: Claude launches computer use for Mac, Jensen declares AGI on Lex Fridman, HyperAgents self-improve recursively, Qwen 35B runs on iPhone at 13 tok/sec.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #faf8f4;
+            color: #2a2a2a;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: #7a7a6e;
+            margin-bottom: 20px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: #3a6b8a;
+            margin: 0 auto;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+        }
+
+        .stat { text-align: center; }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a6b8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            margin-top: 2px;
+        }
+
+        .section { margin-bottom: 36px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a7a6e;
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e4dc;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 15px;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: #7a7a6e;
+            line-height: 1.5;
+        }
+
+        .card-meta a {
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e8e4dc;
+            margin: 32px 0;
+        }
+
+        .meta-observation {
+            background: #f5f2ec;
+            border-left: 3px solid #7a7a6e;
+            padding: 18px 22px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #5a5a50;
+            line-height: 1.7;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e8e4dc;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #7a7a6e;
+            margin-bottom: 16px;
+        }
+
+        .footer-back {
+            font-size: 14px;
+            color: #3a6b8a;
+            text-decoration: none;
+        }
+
+        .footer-back:hover {
+            text-decoration: underline;
+        }
+
+        .accent-claude { background: #3a6b8a; }
+        .accent-agents { background: #a0522d; }
+        .accent-jensen { background: #8b4557; }
+        .accent-device { background: #6b5b3a; }
+        .accent-tools { background: #3a7a6b; }
+        .accent-geo { background: #7a6b3a; }
+        .accent-wisdom { background: #7b6b8a; }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .container { padding: 24px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Monday Evening Edition</h1>
+            <div class="header-date">March 23, 2026</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">7</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">~12h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Section 1: Claude & Anthropic Ecosystem -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-claude"></div>
+                <div class="section-title">Claude & Anthropic Ecosystem</div>
+                <span class="section-count">5 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Anthropic launched Claude's computer use for Mac — enabling Claude to physically point, click, scroll, and navigate across any app on a user's desktop.</div>
+                <div class="card-body">The feature lets Claude operate a user's machine the way a human sitting at a desk would: opening apps, filling spreadsheets, navigating browsers. This is Anthropic's clearest move yet toward making Claude a persistent desktop co-worker rather than a chatbot in a tab. "Claude Cowork" was trending in Technology at the time of this scan.</div>
+                <div class="card-meta"><a href="https://x.com/claudeai">@claudeai</a> · 4h · 278K views, 2.8K likes — trending in Technology</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Anthropic introduced its Science Blog, positioning scientific acceleration as a core part of the company's mission alongside safety.</div>
+                <div class="card-body">The blog will feature new research and stories of how scientists use AI to accelerate their work. Anthropic is diversifying its public identity beyond safety research toward being seen as a platform for scientific discovery, mirroring Dario Amassei's earlier essay on the intelligence explosion's benefits.</div>
+                <div class="card-meta"><a href="https://x.com/AnthropicAI">@AnthropicAI</a> · 5h · 129K views, 2.4K likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Ethan Mollick observed a sharp philosophical split between OpenAI's Codex and Claude Code skills — Codex skills are functional references, while Claude skills teach the AI approaches to problems.</div>
+                <div class="card-body">The distinction is revealing: OpenAI's skills tell the model what to do; Anthropic's skills tell it how to think. This maps neatly onto each company's broader identity — one engineering-first, the other more interpretive and adaptive.</div>
+                <div class="card-meta"><a href="https://x.com/emollick">@emollick</a> · Mar 22 · 69K views, 810 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Wes Roth reported that Anthropic is quietly building a dedicated Projects layer for Claude Cowork, with local folders and project-specific scheduling.</div>
+                <div class="card-body">Independently confirmed by TestingCatalog News. The move extends Claude Cowork from a per-session tool into a persistent project management surface — the kind of feature that turns occasional use into daily habit.</div>
+                <div class="card-meta"><a href="https://x.com/WesRoth">@WesRoth</a> · Mar 20 · reposted today</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Sahil Lavingia turned The Minimalist Entrepreneur into 9 Claude Code skills — from /find-community to /marketing-plan — encoding an entire business philosophy into executable AI workflows.</div>
+                <div class="card-body">This is a proof-of-concept for a new form factor: books as code. Rather than reading a chapter on pricing, you invoke /pricing and get an interactive analysis adapted to your specific product. The Gumroad founder is effectively demonstrating that the next generation of business books may ship as skills, not chapters.</div>
+                <div class="card-meta"><a href="https://x.com/shl">@shl</a> · 6h · 50K views, 951 likes</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 2: AI Agents & Self-Improvement -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-agents"></div>
+                <div class="section-title">AI Agents & Self-Improvement</div>
+                <span class="section-count">3 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jeff Clune's team released HyperAgents — a self-improving AI system that extends the Darwin Gödel Machine by improving not just task performance but the very mechanism by which it improves.</div>
+                <div class="card-body">Co-authored across UBC, Vector Institute, Edinburgh, NYU, and Meta, HyperAgents introduces self-referential agents integrating a task agent and meta-agent into a single editable program. By making the improvement procedure itself editable, the system breaks the assumption that task performance and self-modification skill must be aligned — enabling self-acceleration across coding, paper review, robotics, and Olympiad math.</div>
+                <div class="card-meta"><a href="https://x.com/jeffclune">@jeffclune</a> · 9h · <a href="https://x.com/jennyzhangzt">@jennyzhangzt</a> · 10h</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Mckay Wrigley is privately testing a new tool aimed at Claude Cowork, OpenClaw, and Manus users — with a 4-hour self-destruct timer on his DM call.</div>
+                <div class="card-body">In December he declared you're "6 prompts away from infinitely customizable personal AGI." The scarcity play is deliberate, but the signal is real: the personal-agent tooling layer is getting crowded fast, and builders are racing to own the orchestration surface above the model.</div>
+                <div class="card-meta"><a href="https://x.com/mckaywrigley">@mckaywrigley</a> · 1h · 23K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">A photo of a Mac mini farm — racks of Apple silicon boxes — surfaced with the observation that you can run OpenClaw AI agents on these all day, "or it may be just bot farm."</div>
+                <div class="card-body">The ambiguity is the point: the hardware cost of running persistent AI agents has collapsed to where a shelf of Mac minis becomes a plausible agentic computing cluster. This is infrastructure as still life — the visual equivalent of the server rack, but in someone's apartment.</div>
+                <div class="card-meta">From Rakesh B · 52K views, 339 likes</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 3: Jensen Huang & AGI -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-jensen"></div>
+                <div class="section-title">Jensen Huang & the AGI Moment</div>
+                <span class="section-count">2 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jensen Huang told Lex Fridman "I think we've achieved AGI" — the most direct claim of its kind from a major industry leader, on the most prominent AI interview platform.</div>
+                <div class="card-body">Lex's framing was characteristically maximalist: the definition he offered was an AI system capable of doing Jensen's own job. Jensen's agreement signals not just confidence in current capabilities but a willingness to shift the Overton window on what counts as general intelligence, likely to accelerate the AGI narrative across the industry.</div>
+                <div class="card-meta"><a href="https://x.com/altryne">@altryne</a> · 8h · 170K views, 2.2K likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Jensen Huang separately urged that every college student should become an AI expert, framing AI literacy as a universal requirement for the modern economy.</div>
+                <div class="card-body">The statement positions Nvidia as an implicit education platform — its hardware enables the models that every student will need to learn to use. Coming on the same day as his AGI claim, it reads as a one-two punch: AGI is here, and you need to learn how to work with it.</div>
+                <div class="card-meta"><a href="https://x.com/TheChiefNerd">@TheChiefNerd</a> · 4h · 145K views, 1.7K likes</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 4: On-Device AI -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-device"></div>
+                <div class="section-title">On-Device AI & Optimization</div>
+                <span class="section-count">1 item</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Alexintosh ran Qwen3.5 35B at 13.1 tokens per second on an iPhone 17 — a 2.3x speedup from baseline two days earlier — using Flash-MoE with fused attention and expert prefetch.</div>
+                <div class="card-body">This is a Mixture-of-Experts model with 256 experts running fully on-device at conversational speed. The upstream enabler is Apple's increasingly capable Neural Engine combined with aggressive kernel-level optimization. A separate post showed the same model at 5.6 tok/sec on a previous iPhone, making the 13.1 figure a genuine leap in on-device capability.</div>
+                <div class="card-meta"><a href="https://x.com/Alexintosh">@Alexintosh</a> · 4h · 21K views</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 5: AI Tools & Products -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-tools"></div>
+                <div class="section-title">AI Tools & Products</div>
+                <span class="section-count">4 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Perplexity Computer can now access real-time options chains and execute live trades via a free API — pulling quotes, scanning chains, checking delta/IV, and placing orders through conversation.</div>
+                <div class="card-body">This is the first major AI product to integrate real-time financial instrument execution natively, turning a search engine into a brokerage interface. The regulatory and risk implications are significant: conversational options trading eliminates the friction that previously served as a natural guardrail.</div>
+                <div class="card-meta"><a href="https://x.com/JasonL_Capital">@JasonL_Capital</a> · 6h · 31K views, 316 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">OpenArt shipped a browser-based 3D world builder that generates navigable environments from a single prompt or image — one prompt, and you're walking through a rendered world in seconds.</div>
+                <div class="card-body">The XR and spatial computing implications are immediate — this collapses the 3D content creation pipeline from days of modeling to seconds of generation. The browser-native approach means no download, no install, just creation.</div>
+                <div class="card-meta"><a href="https://x.com/AIFrontliner">@AIFrontliner</a> · 18h · 76K views, 456 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">CapCut launched Dreamina Seedance 2.0 — a generate-and-edit video tool rolling out across Southeast Asia, Brazil, and Mexico first.</div>
+                <div class="card-body">The regional rollout strategy is notable: rather than US-first, ByteDance is seeding its most powerful creative tools in markets where TikTok's creator ecosystem is growing fastest. This is distribution-first product strategy at continental scale.</div>
+                <div class="card-meta"><a href="https://x.com/capcutapp">@capcutapp</a> · 4h · 18K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">MirrorMirror AI launched a marketplace where fashion models license their likeness for AI-generated imagery — creating a new revenue stream from identity as digital asset.</div>
+                <div class="card-body">The approach sidesteps the consent crisis in AI image generation by building licensing into the foundation rather than bolting it on after the fact. Commercially licensed, model-approved — a business model that might actually survive the coming regulatory wave.</div>
+                <div class="card-meta"><a href="https://x.com/yusan_lin">@yusan_lin</a> · 9h</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 6: Geopolitics & Markets -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-geo"></div>
+                <div class="section-title">Geopolitics & Markets</div>
+                <span class="section-count">2 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Iran issued a sweeping ultimatum to Washington — demanding closure of all US bases, a $2M toll for Western ships in Hormuz, and $100 billion in reparations — drawing 1.1 million views.</div>
+                <div class="card-body">Trump subsequently postponed planned strikes on Iranian power plants after "very good" talks, extending the Strait of Hormuz deadline. The sequence suggests a high-wire diplomatic dance where maximalist demands create negotiating room.</div>
+                <div class="card-meta"><a href="https://x.com/FurkanGozukara">@FurkanGozukara</a> · 8h · 1.1M views, 35K likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Tuki compiled a single-Monday summary: Zuckerberg building AI to do his CEO job after firing 31K people, while someone bought $1.5B in S&amp;P futures five minutes before Trump halted Iran strikes.</div>
+                <div class="card-body">The juxtaposition captures the surreal velocity of concurrent crises — each item would dominate a normal news cycle, but today they're competing for the same Monday. The $1.5B futures trade timing, if accurate, is the kind of data point that spawns investigations.</div>
+                <div class="card-meta"><a href="https://x.com/TukiFromKL">@TukiFromKL</a> · 4h · 450K views, 2.9K likes</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Section 7: Wisdom & Observations -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar accent-wisdom"></div>
+                <div class="section-title">Wisdom & Observations</div>
+                <span class="section-count">3 items</span>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Garry Tan declared that in the AI revolution, "low status and useful is where the alpha is" — championing markdown files as the ultimate human-AI interface.</div>
+                <div class="card-body">His argument: markdown has zero glamour but is readable by humans and models alike, writable, diffable, transformable, and chainable. The observation names something power users of Claude Code already know intuitively — the most valuable formats in an AI-mediated workflow are the ones nobody would put in a pitch deck.</div>
+                <div class="card-meta"><a href="https://x.com/garrytan">@garrytan</a> · 11h · 30K views, 586 likes</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Vitrupo cited Wolfram's observation that AI agents are least useful where expertise is highest — for experts, thought-to-code is already faster than thought-to-English.</div>
+                <div class="card-body">The implication: AI's greatest impact may be in adjacent competency zones — not replacing experts in their core domain, but making them dangerous in domains they'd otherwise never enter. AI doesn't replace the best; it makes everyone else competitive.</div>
+                <div class="card-meta"><a href="https://x.com/vitrupo">@vitrupo</a> · 22h · 20K views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-headline">Shankar Padmanabhan presented DiSC, a method for updating LLMs with new world knowledge without undoing skills learned during post-training.</div>
+                <div class="card-body">The paper addresses a real pain point: continued training on new facts typically degrades instruction-following and math abilities. DiSC uses document splitting to inject knowledge while preserving capabilities — a quiet but important infrastructure advance for keeping models current.</div>
+                <div class="card-meta"><a href="https://x.com/shankarpad8">@shankarpad8</a> · 11h</div>
+            </div>
+        </div>
+
+        <div class="meta-observation">
+            Today's feed is dominated by a single narrative — AI leaving the browser and arriving on the desktop. Claude's computer use announcement, Cowork trending, Jensen's AGI declaration, Qwen on iPhone, Sahil encoding a whole book into executable skills. The common thread isn't any one product launch. It's the moment where AI stops being something you visit and becomes something that lives with you.
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">Compiled by <a href="https://x.com/bag_of_ideas" style="color: #3a6b8a; text-decoration: none;">@bag_of_ideas</a> via automated X/Twitter digest &middot; March 23, 2026</div>
+            <a href="../index.html" class="footer-back">&larr; All Dispatches</a>
+        </footer>
+    </div>
+</body>
+</html>
