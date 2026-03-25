@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuesday Evening Edition — AI with Ravi</title>
+    <meta property="og:title" content="AI with Ravi — Tuesday Evening Edition, March 24 2026">
+    <meta property="og:description" content="OpenAI kills Sora and restructures for AGI. Anthropic ships Auto Mode and hits 52 features in 52 days. Neuralink restores speech. The feed's clearest fork yet.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --text: #2a2a2a;
+            --headline: #1a1a1a;
+            --muted: #7a7a6e;
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --link: #3a6b8a;
+            --accent-openai: #8b4557;
+            --accent-claude: #a0522d;
+            --accent-research: #3a6b8a;
+            --accent-security: #6b5b3a;
+            --accent-neuralink: #3a7a6b;
+            --accent-data: #7a6b3a;
+            --accent-creative: #6b3a7a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── HEADER ── */
+        .page-header {
+            text-align: center;
+            padding: 56px 24px 20px;
+        }
+        .page-header .label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--headline);
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+        .page-header .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+        .header-rule {
+            width: 48px;
+            height: 3px;
+            background: var(--link);
+            margin: 28px auto 0;
+        }
+
+        /* ── STATS ── */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 28px 0 36px;
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 40px;
+        }
+        .stat { text-align: center; }
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--link);
+        }
+        .stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        /* ── TOPIC SECTIONS ── */
+        .topic-section { margin-bottom: 44px; }
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .topic-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .topic-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--headline);
+        }
+        .topic-count {
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: #f0ece4;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-left: 6px;
+        }
+
+        /* ── ITEM CARDS ── */
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 22px 26px;
+            margin-bottom: 14px;
+            transition: box-shadow 0.2s ease;
+        }
+        .item-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .item-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--headline);
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+        .item-body {
+            font-size: 0.94rem;
+            color: #3d3d3d;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+        .item-meta {
+            font-size: 0.76rem;
+            font-style: italic;
+            color: var(--muted);
+        }
+        .item-meta a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--card-border);
+        }
+        .item-meta a:hover {
+            color: var(--link);
+            border-bottom-color: var(--link);
+        }
+
+        /* ── SECTION DIVIDER ── */
+        .section-rule {
+            border: none;
+            height: 1px;
+            background: var(--card-border);
+            margin: 8px 0 44px;
+        }
+
+        /* ── META OBSERVATION ── */
+        .meta-observation {
+            border-left: 3px solid var(--link);
+            padding: 18px 24px;
+            margin: 44px 0;
+            background: #f7f5f0;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        /* ── FOOTER ── */
+        .page-footer {
+            text-align: center;
+            padding: 40px 24px 60px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 20px;
+        }
+        .page-footer p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .page-footer a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        .page-footer a:hover { text-decoration: underline; }
+        .back-link {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.9rem; }
+            .stats-bar { gap: 28px; }
+            .stat-num { font-size: 1.3rem; }
+            .item-card { padding: 18px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-header">
+    <div class="label">AI with Ravi</div>
+    <h1>Tuesday Evening Edition</h1>
+    <div class="subtitle">March 24, 2026</div>
+    <div class="header-rule"></div>
+</div>
+
+<div class="container">
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Tweets</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">7</div>
+            <div class="stat-label">Topics</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">~10h</div>
+            <div class="stat-label">Window</div>
+        </div>
+    </div>
+
+    <!-- ═══ TOPIC 1: OpenAI ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-openai);"></div>
+            <span class="topic-title">OpenAI Kills Sora, Restructures for AGI</span>
+            <span class="topic-count">3 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">OpenAI shut down Sora entirely — the app, the API, and video generation inside ChatGPT — while the $1 billion Disney deal signed just four months ago is dead on arrival.</div>
+            <div class="item-body">Aakash Gupta's blunt inventory landed hard: app dead, API dead, video in ChatGPT dead, Disney deal dead. The official Sora account confirmed the closure. The upstream economics make the decision legible: OpenAI was reportedly burning $10–15 million per day on Sora — roughly $5.4 billion per year — on a product that never found a sustainable audience. Those GPUs are now being reallocated to ChatGPT, Codex, and tools people actually use daily.</div>
+            <div class="item-meta"><a href="https://x.com/aakashgupta">@aakashgupta</a> · 1h · 77K views &nbsp;|&nbsp; <a href="https://x.com/soraofficialapp">@soraofficialapp</a> · 3h · 590K views &nbsp;|&nbsp; <a href="https://x.com/shiri_shh">@shiri_shh</a> · 2h</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Sam Altman gave up direct control of OpenAI's safety and security teams — moving safety under CRO Mark Chen and security under president Greg Brockman — to focus on fundraising, supply chains, and data centers.</div>
+            <div class="item-body">Simultaneously, Stephanie Palazzolo broke that OpenAI has finished pretraining its latest model, codenamed "Spud." The product deployment team has been renamed "AGI Deployment." Read that renaming carefully: it's not branding — it's an internal reorientation of what they believe they're shipping.</div>
+            <div class="item-meta"><a href="https://x.com/btibor91">@btibor91</a> · 3h · 162K views &nbsp;|&nbsp; <a href="https://x.com/steph_palazzolo">@steph_palazzolo</a> · 4h</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A new "very strong" OpenAI model with the ability to "accelerate the economy" will be released in a few weeks — with Altman saying things are moving faster than expected.</div>
+            <div class="item-body">Combined with the Sora shutdown, Spud pretraining completion, and the AGI Deployment rename, the picture is of a company clearing its decks for a single massive push. One departing employee described the past three days as "by far one of the most intense warzones" of his career.</div>
+            <div class="item-meta"><a href="https://x.com/deredleritt3r">@deredleritt3r</a> · 3h · 77K views &nbsp;|&nbsp; <a href="https://x.com/prodmarketfit">@prodmarketfit</a> · 2h · 17K views</div>
+        </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- ═══ TOPIC 2: Claude / Anthropic ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-claude);"></div>
+            <span class="topic-title">Claude & Anthropic's Shipping Streak</span>
+            <span class="topic-count">4 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Anthropic launched "Auto Mode" for Claude Code — letting Claude make file write and bash command decisions autonomously using a built-in classifier that blocks destructive operations and prompt injection.</div>
+            <div class="item-body">The classifier reviews each tool call before execution, escalating if Claude keeps pushing against a blocked action. Pawel Huryn captured the shift: we've gone from "human in the loop" to "AI in the loop." Charly Wargnier called it Anthropic's clearest move toward true autonomous execution in CLI-based agents.</div>
+            <div class="item-meta"><a href="https://x.com/claudeai">@claudeai</a> · 6h &nbsp;|&nbsp; <a href="https://x.com/PawelHuryn">@PawelHuryn</a> · 3h · 17K views &nbsp;|&nbsp; <a href="https://x.com/DataChaz">@DataChaz</a> · 4h</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">An infographic cataloging everything the Claude team shipped in 52 days — Feb 1 to March 24 — went viral, with one poster quipping "this is why they've shut Sora down."</div>
+            <div class="item-body">The calendar-style graphic shows a relentless daily cadence of product releases, with most users catching only about 5 of them. The juxtaposition with OpenAI's contraction is hard to miss: one company shutting down products, the other shipping them faster than people can track.</div>
+            <div class="item-meta"><a href="https://x.com/iruletheworldmo">@iruletheworldmo</a> · 1h · 20K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Claude Code's "auto dream" feature builds persistent memory by accumulating your preferences, corrections, and patterns over time — stored in a local ~/.claude folder.</div>
+            <div class="item-body">Om Patel highlighted this as one of the most thoughtful agent features yet. The implication is a shift from stateless tool to personalized collaborator — the kind of compounding advantage that makes switching costs real.</div>
+            <div class="item-meta"><a href="https://x.com/om_patel5">@om_patel5</a> · 5h · 19K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A locally deployable distilled version of Claude Opus 4.6 was discovered on Hugging Face — a 27B parameter GGUF model that can run on consumer hardware.</div>
+            <div class="item-body">WorldofAI and ThePrimeagen flagged it, and the reaction was immediate: a frontier-class reasoning model running on a local machine changes the economics and privacy calculus of AI adoption entirely.</div>
+            <div class="item-meta"><a href="https://x.com/intheworldofai">@intheworldofai</a> · 17h &nbsp;|&nbsp; <a href="https://x.com/ThePrimeagen">@ThePrimeagen</a> · 21h</div>
+        </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- ═══ TOPIC 3: Research & Infrastructure ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-research);"></div>
+            <span class="topic-title">AI Research & Infrastructure</span>
+            <span class="topic-count">4 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Google Research introduced TurboQuant — a compression algorithm that reduces LLM key-value cache memory by at least 6x and delivers up to 8x inference speedup with zero accuracy loss.</div>
+            <div class="item-body">This is the kind of infrastructure advance that doesn't make headlines but reshapes the economics of serving models at scale. Smaller KV caches mean longer context windows, more concurrent users, and lower cost per query — all without touching the model weights.</div>
+            <div class="item-meta"><a href="https://x.com/GoogleResearch">@GoogleResearch</a> · 4h · 22K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Surge AI, which built GSM8K with OpenAI five years ago, launched Riemann-bench — a frontier benchmark targeting moonshot problems like the Riemann Hypothesis and curing cancer.</div>
+            <div class="item-body">Their framing was pointed: GSM8K was once the absolute frontier; now it's just a first stepping stone. The benchmark treadmill has accelerated to where only genuinely unsolved problems offer meaningful signal.</div>
+            <div class="item-meta"><a href="https://x.com/HelloSurgeAI">@HelloSurgeAI</a> · 3h · 12K views — reposted by <a href="https://x.com/eaborai">echen</a></div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">An rLLM team topped OpenAI's Parameter Golf Challenge twice by deploying 129 autoresearch agents collaboratively over 3 days on their Hive platform.</div>
+            <div class="item-body">Separately, David T. Song built a tool running autoresearch 24/7 in the cloud using Modal for GPUs and Cloudflare Workers, wrapping Codex and Claude, scaling to thousands of parallel experiments. The autoresearch pattern — agents autonomously designing and running experiments — is rapidly becoming standard.</div>
+            <div class="item-meta"><a href="https://x.com/rllm_project">@rllm_project</a> · 54m &nbsp;|&nbsp; <a href="https://x.com/davidtsong">@davidtsong</a> · 4h</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Insanely Fast Whisper transcribes 150 minutes of audio in under 98 seconds on-device using OpenAI's Whisper Large v3 with flash attention.</div>
+            <div class="item-body">That's 2.5 hours of audio processed in under two minutes, locally, no API call required. The tool uses Transformers, Optimum, and flash-attn to hit these speeds — a signal that on-device inference is becoming surprisingly fast for production workloads.</div>
+            <div class="item-meta"><a href="https://x.com/tom_doerr">@tom_doerr</a> · 6h · 25K views</div>
+        </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- ═══ TOPIC 4: Security & Trust ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-security);"></div>
+            <span class="topic-title">AI Security & Trust</span>
+            <span class="topic-count">3 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Andrej Karpathy flagged a litellm PyPI supply chain attack — where a simple pip install exfiltrated SSH keys, AWS/GCP/Azure creds, Kubernetes configs, crypto wallets, and CI/CD tokens.</div>
+            <div class="item-body">The attack vector is sobering: a widely-used LLM proxy library compromised at the package manager level. Parimal added the meta-observation that the obsession with running the latest AI features has killed stable and secure engineering — version pinning is now seen as a hindrance rather than a safety practice.</div>
+            <div class="item-meta"><a href="https://x.com/karpathy">@karpathy</a> · 7h &nbsp;|&nbsp; <a href="https://x.com/Fintech03">@Fintech03</a> · 21m</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Brian Roemmele spent his morning helping people who lost millions in crypto after following advice to "buy a Mac Mini and run OpenClaw to make millions."</div>
+            <div class="item-body">People with no technical foundation deployed a local LLM, connected it to crypto wallets, and lost money. Roemmele's warning is a reminder that the personal-agent era will produce personal-scale disasters at a pace that outstrips consumer education.</div>
+            <div class="item-meta"><a href="https://x.com/BrianRoemmele">@BrianRoemmele</a> · 2h</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">An AI detection tool flagged Chapter 5 of Mary Shelley's Frankenstein as "100% AI/GPT Generated" — a perfect demonstration of why AI text detection remains unreliable.</div>
+            <div class="item-body">Benji's post serves as a crisp reductio ad absurdum: if a tool can't distinguish 200-year-old Gothic fiction from GPT output, its false positive rate is a feature, not a bug.</div>
+            <div class="item-meta"><a href="https://x.com/WrnrWrites">@WrnrWrites</a> · 3h</div>
+        </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- ═══ TOPIC 5: Neuralink ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-neuralink);"></div>
+            <span class="topic-title">Neuralink & Brain-Computer Interfaces</span>
+            <span class="topic-count">1 item</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Neuralink's VOICE clinical trial is helping an ALS patient named Kenneth explore thought-to-speech translation — with 13M views making it the feed's most viral post by an order of magnitude.</div>
+            <div class="item-body">The video shows decoded neural signals being translated into phonemes in real-time. At 71K likes in 5 hours, this is a sign of how viscerally people respond when AI moves from abstract capability to visible human impact. Elon Musk framed it simply: restoring speech to those who have lost the ability to speak.</div>
+            <div class="item-meta"><a href="https://x.com/elonmusk">@elonmusk</a> · 5h · 13M views, 71K likes — the feed's most viral post</div>
+        </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- ═══ TOPIC 6: Data Economy & Geopolitics ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-data);"></div>
+            <span class="topic-title">The Data Economy & Geopolitics</span>
+            <span class="topic-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A widely-shared table estimated annual data spending by AI labs: OpenAI at $1–2B+, Google DeepMind and Meta AI at $500M–1B+ each, Anthropic and xAI at $200–500M+.</div>
+            <div class="item-body">The poster's thesis: someone will make $100M building viral apps whose real business model is selling user data to these labs. With Apple Intelligence, Amazon Bedrock, and Mistral/Cohere also spending hundreds of millions, the data acquisition arms race is now a multi-billion-dollar annual industry.</div>
+            <div class="item-meta"><a href="https://x.com/michael_chomsky">@michael_chomsky</a> · 16h · 253K views &nbsp;|&nbsp; <a href="https://x.com/AlexanderTw33ts">@AlexanderTw33ts</a> · 18h</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A Bloomberg chart showed someone made a $580 million oil trade exactly 15 minutes before Trump tweeted about pausing the Iran war — going viral at 374K views.</div>
+            <div class="item-body">Whether insider trading or coincidence, the timeline speaks for itself: in an era where a single tweet moves commodity markets, the information asymmetry between those with access and those without has never been more valuable.</div>
+            <div class="item-meta"><a href="https://x.com/FurkanGozukara">@FurkanGozukara</a> · 3h · 374K views, 10K likes</div>
+        </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- ═══ TOPIC 7: Creative ═══ -->
+    <div class="topic-section">
+        <div class="topic-header">
+            <div class="topic-bar" style="background: var(--accent-creative);"></div>
+            <span class="topic-title">AI Creative & Viral</span>
+            <span class="topic-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Iranian filmmakers released another AI-generated Lego music video — with noticeably higher production quality than previous entries — hitting 249K views and 8.9K likes.</div>
+            <div class="item-body">The running joke about these Lego videos conceals a real signal: non-Western AI creative communities are iterating faster than most Western studios. Tagged "Made with AI," the clip's quality jump suggests the creators are building genuine production pipelines, not just prompting and hoping.</div>
+            <div class="item-meta"><a href="https://x.com/FurkanGozukara">@FurkanGozukara</a> · 5h · 249K views, 8.9K likes</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Horace Dodd shared a detailed Seedance 2.0 workflow for high-end AI video production — noting it's "undeniably top-tier" but requires orchestrating many moving parts.</div>
+            <div class="item-body">The post signals where AI video stands in March 2026: the capability is there, but the craft is in the prompting, sequencing, and post-production pipeline. You can't just hit generate and pray — which is precisely why Sora's "just generate" approach may have been doomed.</div>
+            <div class="item-meta"><a href="https://x.com/horacedodd">@horacedodd</a> · 3h</div>
+        </div>
+    </div>
+
+    <!-- ═══ META OBSERVATION ═══ -->
+    <div class="meta-observation">
+        Today's feed is defined by a single axis — contraction at OpenAI, expansion at Anthropic. One company killed its flagship creative product, restructured safety oversight, and rebranded for AGI deployment. The other shipped so many features in 52 days that its infographic needed a calendar layout. Whether that divergence holds or corrects, it's the clearest fork in AI company strategy we've seen this year.
+    </div>
+
+</div>
+
+<div class="page-footer">
+    <p>Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> via automated X/Twitter digest &middot; Tuesday March 24, 2026</p>
+    <a href="../index.html" class="back-link">&larr; All Dispatches</a>
+</div>
+
+</body>
+</html>
