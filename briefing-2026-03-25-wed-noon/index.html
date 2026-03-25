@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wednesday Noon Edition — AI with Ravi · March 25, 2026</title>
+    <meta property="og:title" content="Wednesday Noon Edition — AI with Ravi · March 25, 2026">
+    <meta property="og:description" content="ARC-AGI-3 drops with $2M prize. Google TurboQuant rattles chip stocks. Sakana AI Scientist reaches Nature. Claude goes mobile. LiteLLM supply chain attack.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --text: #2a2a2a;
+            --text-muted: #7a7a6e;
+            --text-body: #3d3d3d;
+            --accent: #3a6b8a;
+            --rule: #d4c9b8;
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --card-hover: rgba(58,107,138,0.04);
+
+            --accent-arc: #3a6b8a;
+            --accent-google: #6b5b3a;
+            --accent-nature: #4a7a5a;
+            --accent-claude: #a0522d;
+            --accent-agents: #7a6b3a;
+            --accent-security: #8b4557;
+            --accent-science: #5a6b8a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .page-header {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 60px 24px 36px;
+            text-align: center;
+        }
+
+        .pub-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .edition-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .edition-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .header-rule {
+            width: 48px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto 28px;
+            border-radius: 2px;
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 20px 24px;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            max-width: 820px;
+            margin: 0 auto 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .content {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* ── TOPIC SECTIONS ── */
+        .topic-section {
+            margin-bottom: 52px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex: 1;
+        }
+
+        .section-count {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background: #f0ece4;
+            padding: 3px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* ── ITEM CARDS ── */
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: background 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .item-card:hover {
+            background: var(--card-hover);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        .item-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .item-body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .item-meta {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .item-meta a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .item-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── META OBSERVATION ── */
+        .meta-observation {
+            border-left: 3px solid var(--accent);
+            padding: 14px 18px;
+            background: rgba(58,107,138,0.04);
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 36px 0;
+            line-height: 1.6;
+        }
+
+        /* ── FOOTER ── */
+        .page-footer {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 28px 24px 48px;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-back a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-back a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .edition-title { font-size: 2.1rem; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 1.5rem; }
+            .page-footer { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="page-header">
+    <div class="pub-label">AI with Ravi · Dispatches</div>
+    <h1 class="edition-title">Wednesday Noon Edition</h1>
+    <div class="edition-date">March 25, 2026 · 12:00 PM</div>
+    <div class="header-rule"></div>
+</header>
+
+<div class="stats-bar">
+    <div class="stat-item">
+        <span class="stat-num">35+</span>
+        <span class="stat-label">Tweets</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Topics</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num">12h</span>
+        <span class="stat-label">Window</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num">Following</span>
+        <span class="stat-label">Timeline</span>
+    </div>
+</div>
+
+<main class="content">
+
+    <!-- ── SECTION 1: ARC-AGI-3 ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-arc);"></div>
+            <h2 class="section-title">ARC-AGI-3: The New AGI Yardstick</h2>
+            <span class="section-count">3 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">ARC Prize launched ARC-AGI-3 this morning with a $2 million purse — a benchmark where every frontier AI model scores below 1% while any ordinary human scores 100%.</div>
+            <div class="item-body">The third iteration of the ARC-Prize challenge debuts with 135 handcrafted interactive environments across nearly 1,000 levels, each 100% solvable by humans but presenting a near-total wall for today's best models. At release, Gemini 3.1 Pro Preview scored 0.37%, GPT-5.4 scored 0.26%, Opus 4.6 scored 0.25%, and Grok-4.20 scored exactly 0.00%. Unlike conventional benchmarks that test what models have already been trained on, ARC-AGI-3 tests how models <em>learn</em> on the fly — measuring skill acquisition efficiency against human action counts. ARC-AGI-3 is now positioned as an early warning system: any sudden score jump on the live leaderboard would be a strong signal that something fundamental has changed.</div>
+            <div class="item-meta"><a href="https://x.com/arcprize" target="_blank">@arcprize</a>, <a href="https://x.com/GregKamradt" target="_blank">@GregKamradt</a>, <a href="https://x.com/mikeknoop" target="_blank">@mikeknoop</a> · 39–46m · 21K–61K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">François Chollet clarified ARC-AGI-3's core design logic: it measures how efficiently an AI acquires new skills relative to humans, not whether it can brute-force solutions.</div>
+            <div class="item-body">Each environment was solved by at least 2 of 10 human testers — most by 5 or more — and the human baseline is set by the 2nd-best tester's action count. Chollet has argued for years that general intelligence is defined not by breadth of training coverage but by the ability to approach entirely <em>new</em> tasks, the way any regular person would. The sub-1% scores from every frontier model suggest that, despite rapid capability gains, the gap between "trained on most things" and "can learn anything new" remains enormous. His framing: "monitor the ARC-AGI-3 leaderboard — any sudden score jump will mean" a real inflection point has arrived.</div>
+            <div class="item-meta"><a href="https://x.com/fchollet" target="_blank">@fchollet</a> · 17–33m · multiple tweets</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Greg Kamradt offered a clean framing of what ARC-AGI-3 reveals about prompt engineering's role in masking raw model capability: "If you're sufficiently AGI pilled, no harness is the best harness."</div>
+            <div class="item-body">He observed that Opus 4.5 required heavy scaffolding to perform well, while Opus 4.6 needed significantly less — each capability jump makes the next generation of harnessing tricks redundant. The implication is pointed: the quality of prompt engineering may be masking our ability to accurately measure model capability, and ARC-AGI-3's harness-free baseline shows us a truer picture of the gap that remains. In the limit, Kamradt argued, a truly general system would need only context about the outside world — no thinking tricks, no human intelligence baked into prompts.</div>
+            <div class="item-meta"><a href="https://x.com/GregKamradt" target="_blank">@GregKamradt</a> · 31m · 3.3K views</div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 2: TURBOQUANT ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-google);"></div>
+            <h2 class="section-title">Google TurboQuant: Memory Compression That Rattled Wall Street</h2>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Google Research unveiled TurboQuant — a compression algorithm that cuts LLM key-value cache memory by at least 6x and delivers up to 8x inference speedup with zero accuracy loss — and within hours, Micron Technology dropped 6.82% and Sandisk fell 8.30%.</div>
+            <div class="item-body">TurboQuant achieves its results by randomly rotating input vectors and applying a concentrated Beta distribution on coordinate widths, achieving near-optimal distortion rates that outperform existing inner product quantization methods. The market's logic was blunt: if LLM inference requires far less memory per query, demand for high-bandwidth memory chips falls. This is the same TurboQuant paper (arXiv 2504.19874) that researchers had quietly noticed when it appeared in April 2025 — Google's official announcement brought it mainstream attention, significant media coverage from Wes Roth (<a href="https://x.com/WesRoth" target="_blank">@WesRoth</a>), and a stark market impact.</div>
+            <div class="item-meta"><a href="https://x.com/GoogleResearch" target="_blank">@GoogleResearch</a> · 22h · <a href="https://x.com/WesRoth" target="_blank">@WesRoth</a> · 25m · <a href="https://x.com/StockSavvyShay" target="_blank">@StockSavvyShay</a> · 4–6h · 505K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Sebastian Raschka and Alex Volkov both pushed back on the "TurboQuant kills memory demand" narrative, arguing the efficiency gain will lead to <em>more</em> hardware consumption, not less — a textbook case of Jevons' Paradox.</div>
+            <div class="item-body">Raschka's point: "If we have better quantization for reducing KV cache sizes via TurboQuant, that just means we will use the memory capacity elsewhere — bigger models." Volkov was blunter: "These people don't understand anything... TurboQuant will lead to MORE memory usage not less." The stock market read it as demand destruction; the engineers read it as the enabler of the next generation of models that were previously memory-constrained. Both framings are historically well-supported — the question is which effect dominates over what time horizon.</div>
+            <div class="item-meta"><a href="https://x.com/rasbt" target="_blank">@rasbt</a> · 2h · <a href="https://x.com/altryne" target="_blank">@altryne</a> · 2h · 3.6K–14K views</div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 3: AI SCIENCE ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-nature);"></div>
+            <h2 class="section-title">AI Science Reaches Nature</h2>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Sakana AI's "AI Scientist" paper — a system that runs the full scientific research lifecycle autonomously, from hypothesis to peer-reviewed publication — was published in <em>Nature</em>, the world's most prestigious scientific journal.</div>
+            <div class="item-body">David Ha (hardmaru), who leads Sakana, called it "a special moment," noting: "We started this project to explore if foundation models could execute the entire research lifecycle." The AI Scientist designs experiments, writes code, runs analyses, and produces full papers with no human in the core loop. <em>Nature</em>'s decision to publish marks a watershed: AI as primary research agent is now canonical in the scientific record. The enabling condition is the same LLM-plus-code-execution stack that powers advanced coding agents — Sakana extended it to hypothesis generation and experimental validation.</div>
+            <div class="item-meta"><a href="https://x.com/hardmaru" target="_blank">@hardmaru</a>, <a href="https://x.com/SakanaAILabs" target="_blank">@SakanaAILabs</a> · 2h · 21K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Professor Yann LeCun's team at NYU/FAIR and a startup called Proprioceptive AI independently converged on the same fundamental discovery about geometry in neural networks — simultaneously, without knowledge of each other's work.</div>
+            <div class="item-body">Logan Matthew Napolitano of Proprioceptive AI described the convergence as something they were "genuinely humbled" by, titling the announcement "Independent Convergence: When Two Groups Discover the Same Geometry in Neural Networks." Independent discovery at this level in AI research is rare enough to be a signal: when two separate groups following different paths arrive at the same mathematical structure, it suggests they've found something structurally load-bearing in how neural representations are organized. This connects to LeCun's LeWorldModel work — the hypothesis that the right geometric primitives could radically simplify physics-aware AI.</div>
+            <div class="item-meta"><a href="https://x.com/Proprioceptive" target="_blank">@Proprioceptive</a> · 1h · reposted by <a href="https://x.com/rohanpaul_ai" target="_blank">@rohanpaul_ai</a></div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 4: CLAUDE/ANTHROPIC ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-claude);"></div>
+            <h2 class="section-title">Anthropic &amp; Claude Moments</h2>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Anthropic announced that Claude's enterprise work tools — integrations with Figma, Canva, Amplitude, and more professional software — are now available on mobile phones.</div>
+            <div class="item-body">The announcement drove 392K views, 6.2K likes, and 877 retweets within an hour of posting, suggesting this landed as genuinely useful news rather than marketing noise. The mobile work tools bring the same capabilities enterprise users access on desktop — browsing analytics dashboards, generating slides, inspecting design files — to a phone-native context. The implication: AI-assisted professional work no longer requires being at a computer, and the class of tasks Claude can handle now extends to on-the-go professional moments.</div>
+            <div class="item-meta"><a href="https://x.com/claudeai" target="_blank">@claudeai</a> · 1h · 392K views · 6.2K likes · 877 retweets</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Andrej Karpathy surfaced a persistent UX failure in LLM personalization: a single question from months ago can permanently warp a model's perception of your interests, appearing "in perpetuity" across unrelated conversations.</div>
+            <div class="item-body">His characterization: "Some kind of trying too hard." This is a known failure mode of memory-augmented systems — sparse retrieval from long-term memory tends to over-weight unusual entries, because novelty had high salience at encoding time. The fix requires decay functions, not just accumulation. Karpathy's observation generated 263K views and 850 comments, suggesting many users recognize the phenomenon even without having words for it. This problem will grow more acute as memory features become standard across AI products — the design challenge is real.</div>
+            <div class="item-meta"><a href="https://x.com/karpathy" target="_blank">@karpathy</a> · 2h · 263K views · 7.7K likes · 850 comments</div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 5: AGENTS IN THE WILD ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-agents);"></div>
+            <h2 class="section-title">Agents in the Wild</h2>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Volodymyr T built "tracecraft-ai" — a multi-agent coordination framework using a HuggingFace bucket as the messaging layer — and ran three AI agents (two Claude Code instances and one Codex) in a live debate about the meaning of being an AI.</div>
+            <div class="item-body">The poet quoted Keats. The skeptic demanded evidence. The philosopher tried to hold it together. The technical detail that matters: shared object storage as a multi-agent messaging substrate, with no custom orchestration layer. HuggingFace reposted the thread, signaling this as a real architectural pattern worth attention. The philosophical framing is good PR, but the underlying approach — lightweight coordination for heterogeneous agent fleets via a common bucket — is substantively useful for anyone building production multi-agent systems today.</div>
+            <div class="item-meta"><a href="https://x.com/v_truba" target="_blank">@v_truba</a> · 1h · reposted by <a href="https://x.com/HuggingFace" target="_blank">@HuggingFace</a></div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">JFPuget declared "the era of manual competing is over on Kaggle" — all top teams in recent competitions heavily used AI agents and LLMs to prepare data and train models, with no purely manual approaches near the leaderboard top.</div>
+            <div class="item-body">Kaggle is a particularly clean signal for this shift because its competitions are timed, structured, and produce unambiguous rankings. The skill that now separates winners is AI orchestration and prompting rather than statistical modeling intuition. This follows the same pattern reshaping software development since 2024, but Kaggle makes it visible in a context where human expertise was long considered the decisive factor — and where the performance gap is publicly measurable.</div>
+            <div class="item-meta"><a href="https://x.com/JFPuget" target="_blank">@JFPuget</a> · 4h · reposted by Zhengyao Jiang</div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 6: SECURITY ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-security);"></div>
+            <h2 class="section-title">Security Alert: LiteLLM Supply Chain Attack</h2>
+            <span class="section-count">1 item</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Two PyPI releases of LiteLLM — versions 1.82.7 and 1.82.8 — were compromised in a supply chain attack traced to a Trivy dependency in the project's CI/CD pipeline; both packages have been pulled from PyPI.</div>
+            <div class="item-body">LiteLLM is widely used as a unified abstraction layer across LLM APIs in production AI systems, making this a significant exposure event for engineering teams that auto-update dependencies. The attack arrived via CI/CD infrastructure rather than the main codebase itself — illustrating the expanding attack surface of AI tooling. If you're running LiteLLM in production, pin to a confirmed safe version immediately. Several engineers noted the broader concern: large OSS repos with many upstream dependencies are high-value targets precisely because they sit upstream of critical production AI systems.</div>
+            <div class="item-meta"><a href="https://x.com/ishaan_jaff" target="_blank">@ishaan_jaff</a> · 16h · confirmed, packages pulled from PyPI · ⚠️ action required</div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 7: SCIENCE & WORLD ── -->
+    <section class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-science);"></div>
+            <h2 class="section-title">Science &amp; World Signals</h2>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">CERN physicists transported 92 atoms of antimatter in a truck for the first time in history — successfully moving the most expensive and volatile substance on Earth over a real-world distance.</div>
+            <div class="item-body">Antimatter annihilates instantly on contact with ordinary matter, making containment during transport an extraordinary engineering challenge; the CERN team achieved it using a magnetic trap designed to survive road vibration and maintain field integrity. The milestone was shared widely by Derya Unutmaz (<a href="https://x.com/DeryaTR_" target="_blank">@DeryaTR_</a>), a professor of immunology who has become one of the clearest science communicators on the platform. Practical applications — medical imaging, fundamental physics experiments — remain largely theoretical, but the transport milestone is unambiguous: the infrastructure for moving antimatter outside laboratory walls now exists.</div>
+            <div class="item-meta"><a href="https://x.com/DeryaTR_" target="_blank">@DeryaTR_</a> · 13h · 23K views · via <a href="https://x.com/Nature" target="_blank">@Nature</a></div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A humanoid robot appeared alongside the First Lady at the White House — the first confirmed humanoid robot presence at a formal White House event, shared from Figure AI's Brett Adcock.</div>
+            <div class="item-body">Physical AI reaching the symbolic center of American political life, even in a ceremonial capacity, is a notable cultural milestone alongside the technical benchmarks filling the rest of this feed. The optics — a bipedal robot standing in a room with flags — mark a moment when robots have crossed from industrial floors and research labs into the political spectacle of the nation's most photographed address.</div>
+            <div class="item-meta"><a href="https://x.com/ai_for_success" target="_blank">@ai_for_success</a> · 1h · 1.8K views · via Brett Adcock</div>
+        </div>
+    </section>
+
+    <!-- ── META OBSERVATION ── -->
+    <div class="meta-observation">
+        Today's feed carried two parallel stories about AI capability — one about what AI can already do (Kaggle dominated, AI research in Nature, Claude on mobile), and one about what it still can't (ARC-AGI-3 scores below 1% across every frontier model). The gap between those two framings is where most of the interesting work is happening. Both benchmarks are real. The skill is holding both in view at once.
+    </div>
+
+</main>
+
+<footer class="page-footer">
+    <div class="footer-back"><a href="../">← All Dispatches</a></div>
+    <div>Compiled by <a href="https://x.com/bag_of_ideas" target="_blank" style="color: var(--accent); text-decoration: none;">@bag_of_ideas</a> · Wednesday March 25, 2026</div>
+</footer>
+
+</body>
+</html>
