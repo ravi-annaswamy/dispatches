@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI with Ravi — Thursday Evening Edition, March 26 2026</title>
+    <meta property="og:title" content="AI with Ravi — Thursday Evening Edition">
+    <meta property="og:description" content="X/Twitter AI Briefing: Codex plugins, ARC-AGI-3, Chroma Context-1, Suno v5.5, Claude Code auto-fix, and more.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --text: #2a2a2a;
+            --headline: #1a1a1a;
+            --body: #3d3d3d;
+            --muted: #7a7a6e;
+            --accent: #3a6b8a;
+            --accent-ai: #3a6b8a;
+            --accent-bench: #6b5b3a;
+            --accent-models: #a0522d;
+            --accent-music: #8b4557;
+            --accent-gemini: #3a7a6b;
+            --accent-practice: #7a6b3a;
+            --accent-lens: #5b3a6b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--headline);
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 48px;
+            padding: 20px 0;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* Topic sections */
+        .topic-section {
+            margin-bottom: 40px;
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .topic-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .topic-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--headline);
+        }
+
+        .topic-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--card-border);
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Item cards */
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 22px 24px;
+            margin-bottom: 14px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .item-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--headline);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .item-body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            color: var(--body);
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+
+        .item-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .item-meta a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .item-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 22px 24px;
+            margin: 40px 0;
+            font-style: italic;
+            color: var(--body);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 48px;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 16px 60px; }
+            .header h1 { font-size: 30px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .topic-title { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Thursday Evening Edition</h1>
+            <div class="header-date">March 26, 2026 &middot; X/Twitter Briefing</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">25+</div>
+                <div class="stat-label">Tweets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">7</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">10h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- AI Coding Tools & Codex Plugins -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-ai)"></div>
+                <div class="topic-title">AI Coding Tools & Codex Plugins</div>
+                <div class="topic-count">4 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">OpenAI launched plugins for Codex, connecting it out of the box with Slack, Figma, Notion, Gmail, and more — turning the async coding agent into a full-stack workflow tool.</div>
+                <div class="item-body">The integration means Codex can now triage bugs from Slack, manage calendars, and keep tabs on team activity without leaving the coding environment. The upstream enabler is OpenAI's decision to share authentication with the user's existing ChatGPT account — zero friction onboarding. This is OpenAI making Codex sticky by making it indispensable beyond just code.</div>
+                <div class="item-meta"><a href="https://x.com/OpenAIDevs">@OpenAIDevs</a> · 4h · 38K views &middot; <a href="https://x.com/thsottiaux">@thsottiaux</a> · 3h</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">OpenAI immediately followed the plugin launch by resetting Codex usage limits across all plans — a clear signal they want maximum adoption velocity on the new capabilities.</div>
+                <div class="item-body">The timing is strategic — dropping expanded limits alongside plugins ensures the new integrations get stress-tested at scale while the excitement is fresh. "You can just build unlimited things with Codex. Have fun!"</div>
+                <div class="item-meta"><a href="https://x.com/OpenAIDevs">@OpenAIDevs</a> · 1h · 12K views, quoting <a href="https://x.com/thsottiaux">@thsottiaux</a></div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Anthropic announced Claude Code auto-fix in the cloud — web and mobile sessions can now autonomously follow PRs, fix CI failures, and address review comments so your PR is always green.</div>
+                <div class="item-body">The key shift is that this happens remotely: you can walk away from your computer entirely and return to a ready-to-merge PR. This is Claude Code evolving from a pair programmer into an autonomous CI agent — the kind of infrastructure that makes "vibe coding" actually sustainable in production.</div>
+                <div class="item-meta"><a href="https://x.com/noahzweben">@noahzweben</a> · 10h · 517K views, 4.3K likes — massive reach reflecting developer hunger for autonomous CI</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Garry Tan celebrated gstack hitting 50K GitHub stars and told developers to install it into Claude Code right now.</div>
+                <div class="item-body">The post had the energy of a founder watching organic growth hit escape velocity. 50K stars places gstack in rare territory for developer tools, and the Claude Code integration angle suggests the AI coding ecosystem is consolidating around a few key stacks.</div>
+                <div class="item-meta"><a href="https://x.com/garrytan">@garrytan</a> · 56m · 373K views, 10K likes</div>
+            </div>
+        </section>
+
+        <!-- ARC-AGI-3 & AI Benchmarks -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-bench)"></div>
+                <div class="topic-title">ARC-AGI-3 & AI Benchmarks</div>
+                <div class="topic-count">2 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">François Chollet announced a new eval designed to measure the actual rate of AGI progress by identifying specific gaps — and immediately faced pushback about whether the bar is too low.</div>
+                <div class="item-body">Chollet's framing is pointed: if you care about AGI progress, you should welcome evals that expose weaknesses rather than confirm priors. He clarified that all ARC-AGI-3 environments are human-feasible (each tested by 10 humans, passing if 2 could solve all levels) and that the bar is "very low, objectively" — not 100% human pass rate, which would be unreasonable for any benchmark including MNIST.</div>
+                <div class="item-meta"><a href="https://x.com/fchollet">@fchollet</a> · 2-3h · 27K views on the clarification thread</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Agentica scored 36.08% on ARC-AGI-3 in a single day using their SDK — a rapid result that both validates the benchmark's accessibility and raises questions about what "hard" means.</div>
+                <div class="item-body">Derya Unutmaz, MD shared this with a simple "Ouch!" — suggesting the result was either impressively fast or disappointingly low depending on your prior. The video showed the ARC-086-8 task at 12.13% solve rate, indicating wide variance across individual puzzles.</div>
+                <div class="item-meta"><a href="https://x.com/agenticasdk">@agenticasdk</a> · 2h · 6.5K views, via <a href="https://x.com/DeryaTR_">@DeryaTR_</a></div>
+            </div>
+        </section>
+
+        <!-- AI Models & Open Source -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-models)"></div>
+                <div class="topic-title">AI Models & Open Source</div>
+                <div class="topic-count">2 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Chroma launched Context-1, a 20-billion parameter search agent that pushes the Pareto frontier of agentic search — claiming an order of magnitude faster and cheaper, released under Apache 2.0.</div>
+                <div class="item-body">The video featured Kelly Hong from Chroma Research explaining the architecture. Christopher Manning reposted it, lending academic credibility. At 434K views and 2.1K likes, this was the highest-engagement AI infrastructure announcement on the timeline — agentic search is clearly the next battleground.</div>
+                <div class="item-meta"><a href="https://x.com/trychroma">@trychroma</a> · 8h · 434K views, 2.1K likes — reposted by Christopher Manning</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Cohere quietly released an Apache 2.0 speech recognition model on Hugging Face — no restricted license, no "research only" asterisk.</div>
+                <div class="item-body">Maziyar Panahi asked whether this is a one-off or a genuine direction change for Cohere. The "Actually open. Respect." reaction captures a community tired of "open" models with restrictive fine print. Whether Cohere sustains this posture will be telling.</div>
+                <div class="item-meta"><a href="https://x.com/MaziyarPanahi">@MaziyarPanahi</a> · 12h · reposted by Hugging Face</div>
+            </div>
+        </section>
+
+        <!-- AI Music & Creative AI -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-music)"></div>
+                <div class="topic-title">AI Music & Creative AI</div>
+                <div class="topic-count">2 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Suno launched v5.5 with native voice input and custom training — users can now record their own voice and creators can train personalized AI models from their existing catalog.</div>
+                <div class="item-body">Wes Roth covered the launch noting the custom training angle: the model learns your style, not just your voice. This is Suno's bid to shift from "AI generates music for you" to "AI amplifies your musical identity" — a distinction that matters enormously for creator adoption.</div>
+                <div class="item-meta"><a href="https://x.com/WesRoth">@WesRoth</a> · 4h &middot; <a href="https://x.com/suno">@suno</a> · 8h</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Andrew Curran reported that OpenAI's unnamed music model — trained with hired professional musicians on original works — will probably not be released.</div>
+                <div class="item-body">OpenAI invested in legitimate music training (professional musicians, original compositions) but may shelve the product. The upstream cause may be licensing complexity and Suno's aggressive v5.5 launch timing making the market harder to enter.</div>
+                <div class="item-meta"><a href="https://x.com/AndrewCurran_">@AndrewCurran_</a> · 3h · 3.6K views</div>
+            </div>
+        </section>
+
+        <!-- Google Gemini -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-gemini)"></div>
+                <div class="topic-title">Google Gemini</div>
+                <div class="topic-count">1 item</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Google launched the ability to import memory and chats from other AI services directly into Gemini — a deliberate play to reduce switching costs and pull users from ChatGPT and Claude.</div>
+                <div class="item-body">Both Josh Woodward (Google product lead) and AshutoshShrivastava confirmed the feature, which lets users transfer personal information and conversation history. AI memory is becoming the new lock-in, and Google is betting that making migration easy will make Gemini the consolidation point rather than the service people leave.</div>
+                <div class="item-meta"><a href="https://x.com/joshwoodward">@joshwoodward</a> · 2h · 3.4K views &middot; <a href="https://x.com/ai_for_success">@ai_for_success</a> · 2h</div>
+            </div>
+        </section>
+
+        <!-- AI in Practice -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-practice)"></div>
+                <div class="topic-title">AI in Practice</div>
+                <div class="topic-count">2 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Dan Shapiro wrote about using Claude to repurpose a Canon camera into a fully functional Rust-based webcam app — replacing software he described as "a World War Two bunker on an otherwise beautiful beach."</div>
+                <div class="item-body">The blog post captures the emerging pattern of developers using AI to solve the problems they've tolerated for years. Claude produced a working app overnight with no discernible bugs. The vibe coding dream, realized for a very specific annoyance.</div>
+                <div class="item-meta">via danshapiro.com · 202 likes, 11K views</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Yohei Nakajima published a comprehensive survey on the state of AI memory systems — benchmarks, architectures, and what actually works — compiled using Claude Opus 4.6 Research.</div>
+                <div class="item-body">The article covers top memory benchmarks and the highest-performing systems, offering a map of a field that's becoming critical as AI agents need persistent context. Using Claude to research memory systems is the kind of self-referential moment this era produces daily.</div>
+                <div class="item-meta"><a href="https://x.com/yoheinakajima">@yoheinakajima</a> · 11h · 12K views</div>
+            </div>
+        </section>
+
+        <!-- The Wider Lens -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-lens)"></div>
+                <div class="topic-title">The Wider Lens</div>
+                <div class="topic-count">2 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Toby Li reminded the timeline that humans are returning to the Moon for the first time in 54 years — exactly one week from today — and that this is not being talked about enough.</div>
+                <div class="item-body">At 373K views and 10K likes, the engagement suggests the timeline agreed. Amid the AI noise, the Artemis mission represents the other great technological story of this moment, and the contrast in attention is itself a comment on where collective excitement has migrated.</div>
+                <div class="item-meta"><a href="https://x.com/tobyliiiiiiiii">@tobyliiiiiiiii</a> · Mar 25 · 373K views, 10K likes</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-headline">Parimal connected Green's Theorem to physical tools still used in medicine and biology — the planimeter, which measures tumor cross-sections on MRIs and rare leaf areas.</div>
+                <div class="item-body">Quoting ScieVision's thread on George Green (1793–1841), the tweet bridges abstract math and physical practice in a way that resonated quietly on the feed. A reminder that centuries-old mathematics lives inside everyday instruments.</div>
+                <div class="item-meta"><a href="https://x.com/Fintech03">@Fintech03</a> · 27m, quoting <a href="https://x.com/scievision369">@scievision369</a></div>
+            </div>
+        </section>
+
+        <!-- Meta observation -->
+        <div class="meta-observation">
+            The three biggest stories by reach tonight — Claude Code auto-fix (517K), Chroma Context-1 (434K), and the Moon return (373K) — represent three different scales of ambition: making today's code better, building tomorrow's AI infrastructure, and returning to another world. The feed is loudest about the first, most excited about the second, and most wistful about the third.
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> via automated X/Twitter digest</p>
+            <a href="../index.html" class="back-link">&larr; All Dispatches</a>
+        </footer>
+
+    </div>
+</body>
+</html>
