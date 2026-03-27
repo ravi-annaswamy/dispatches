@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI with Ravi — Friday Evening Edition, March 27 2026</title>
+    <meta property="og:title" content="AI with Ravi — Friday Evening Edition">
+    <meta property="og:description" content="X/Twitter AI Briefing: Price reversal in reasoning models, interpretability limits, collective intelligence, autoresearch, peer review collapse, Claude Code Hooks, Kimi's attention residuals, and vibe coding atrophy.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --text: #2a2a2a;
+            --headline: #1a1a1a;
+            --body: #3d3d3d;
+            --muted: #7a7a6e;
+            --accent: #3a6b8a;
+            --accent-research: #3a6b8a;
+            --accent-tools: #6b5b3a;
+            --accent-practice: #5b3a6b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--headline);
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .header-date {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .header-note {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 14px;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .header-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 48px;
+            padding: 20px 0;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* Topic sections */
+        .topic-section {
+            margin-bottom: 40px;
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .topic-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .topic-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--headline);
+        }
+
+        .topic-count {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--card-border);
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Item cards */
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 22px 24px;
+            margin-bottom: 14px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .item-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .item-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--headline);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .item-body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            color: var(--body);
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+
+        .item-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .item-meta a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .item-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Meta observation */
+        .meta-observation {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 22px 24px;
+            margin: 40px 0;
+            font-style: italic;
+            color: var(--body);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 48px;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 16px 60px; }
+            .header h1 { font-size: 30px; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 22px; }
+            .topic-title { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-label">AI with Ravi</div>
+            <h1>Friday Evening Edition</h1>
+            <div class="header-date">March 27, 2026 &middot; X/Twitter Briefing</div>
+            <div class="header-note">Curated for longer-term value and learning edge — not the flashy stuff.</div>
+            <div class="header-divider"></div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-num">9</div>
+                <div class="stat-label">Items</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Themes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">12h</div>
+                <div class="stat-label">Window</div>
+            </div>
+        </div>
+
+        <!-- Research & Theory -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-research);"></div>
+                <div class="topic-title">Research &amp; Theory</div>
+                <div class="topic-count">4 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">01</div>
+                <div class="item-headline">The Economics of Reasoning Models Has a Dirty Secret</div>
+                <div class="item-body">A Stanford / UC Berkeley / CMU / Microsoft Research paper exposes the "Price Reversal" phenomenon in Reasoning Language Models: in 21.8% of model-pair comparisons, the model with the <em>lower</em> listed API price actually costs <em>more</em> in practice. The culprit is thinking tokens — one model can consume 900% more thinking tokens than another on the identical query. The paper evaluated 8 frontier RLMs across 9 task categories. The key finding: removing thinking token costs from the ranking reduces reversals by 70% and raises the price-performance correlation from 0.563 to 0.873. Listed API pricing is not a reliable proxy for actual inference cost, and per-query cost prediction is "fundamentally difficult" — repeated runs of the same query yield thinking token variation up to 9.7×. Practical takeaway for anyone selecting models for production: sticker price is close to meaningless without per-query token profiling.</div>
+                <div class="item-meta"><a href="https://x.com/ChenLingjiao" target="_blank">@ChenLingjiao</a> · 5h · 4.1K views · reposted by <a href="https://x.com/jmzou1" target="_blank">@jmzou1</a></div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">02</div>
+                <div class="item-headline">Reading the Chain of Thought Does Not Solve Interpretability</div>
+                <div class="item-body">The interpretability community has been wondering whether simply reading an AI's chain of thought (CoT) constitutes meaningful interpretability. Riya Tyagi and Neel Nanda's answer: no, and they've built 9 hard tasks to prove it. The tasks are designed so that reading the CoT does not reveal the answer — you need to know the true ground truth independently. The research highlights a structural problem: it's surprisingly difficult to prove that CoT monitoring has <em>failed</em>, because any monitoring method that looks at the chain of thought output is subject to the same limitation — the model could be hiding its actual reasoning in the underlying computation rather than exposing it in the visible scratchpad. This is a call to develop mechanistic interpretability tools that go beyond surface-level text output. Neel Nanda: "It's surprisingly hard to tell if you have made progress on interpreting reasoning models."</div>
+                <div class="item-meta"><a href="https://x.com/riyatyagi86" target="_blank">@riyatyagi86</a> · 2h, amplified by <a href="https://x.com/NeelNanda5" target="_blank">@NeelNanda5</a> · 1h</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">03</div>
+                <div class="item-headline">The Intelligence Explosion Will Be Collective, Not a Single Mind</div>
+                <div class="item-body">A new Google DeepMind paper — "Agentic AI and the Next Intelligence Explosion" — makes a foundational argument that challenges the dominant narrative about superintelligence. The paper's central claim: every prior intelligence explosion in human history (language, writing, science, industrialization) was <em>social</em>, not individual. The AI "singularity" imagined as a single superintelligent mind bootstrapping to godlike intelligence is, the authors argue, fundamentally wrong. What's actually emerging is plural, distributed, and organizational: AI reasoning models already spontaneously generate "societies of thought" internally through multi-agent dynamics — exhibiting specialization, hierarchy, division of labor, and structured disagreement. The paper calls for research into how AI groups exhibit these social dynamics and what makes human-agent social reasoning grounded and durable. The implication: the interesting unit of analysis is not the individual model's capability but the architecture of collective AI cognition.</div>
+                <div class="item-meta"><a href="https://x.com/omarsar0" target="_blank">@omarsar0</a> · 1h · 4.2K views</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">04</div>
+                <div class="item-headline">Autoresearch Finds 20 Improvements That All Transfer Across Model Scale</div>
+                <div class="item-body">Andrej Karpathy left autoresearch running on nanochat (a depth=12 model) for two days. It found approximately 20 changes that each improved validation loss. When Karpathy manually tested every single one, all of them were additive — and all transferred to the larger depth=24 model. This is the key result that hasn't been emphasized enough: algorithmic improvements discovered by automated research at small scale generalized to a 2× larger architecture without any human curation or cherry-picking. The follow-up question that points to a genuine coming crisis: if someone were to cite autoresearch in a paper, would they just paste the URL of a tweet? This surfaces a real problem in attribution, reproducibility, and credit in AI research as automated systems begin producing citable scientific results.</div>
+                <div class="item-meta"><a href="https://x.com/neural_avb" target="_blank">@neural_avb</a> · ~15m, citing <a href="https://x.com/karpathy" target="_blank">@karpathy</a> · Mar 9</div>
+            </div>
+        </section>
+
+        <!-- Tools & Architecture -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-tools);"></div>
+                <div class="topic-title">Tools &amp; Architecture</div>
+                <div class="topic-count">2 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">05</div>
+                <div class="item-headline">Claude Code Hooks: The Difference Between Suggestion and Guarantee</div>
+                <div class="item-body">The most practically useful technical thread of the day: Akshay explains Claude Code's Hooks system with a framing that cuts through the noise. "CLAUDE.md is just a suggestion. Hooks are a guarantee." The distinction matters because Claude follows CLAUDE.md <em>most</em> of the time — but not all of the time. Hooks intercept tool calls at two checkpoints: <strong>PreToolUse</strong> (a security gate that can block execution before the tool runs) and <strong>PostToolUse</strong> (a formatter that cleans output after execution). There are three exit codes: 0 means proceed, 1 means error but Claude continues anyway, 2 is the only one that actually blocks execution. Use cases: custom logging/analytics, scanning prompts to block accidentally pasted API keys, auto-summarizing conversations to create persistent memory, running a custom validator when a turn stops. Hooks are behind a feature flag: <code>[features] codex_hooks = true</code>. This changes the mental model of Claude Code from "AI you instruct" to "AI runtime you can program."</div>
+                <div class="item-meta"><a href="https://x.com/akshay_pachaar" target="_blank">@akshay_pachaar</a> · 7h · 5.1K views</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">06</div>
+                <div class="item-headline">Attention as Selective Memory: Kimi's New Architecture</div>
+                <div class="item-body">Yang Zhilin, founder and CEO of Moonshot AI (the Chinese lab behind Kimi), gave a talk on a new architecture concept: <strong>Attention Residuals</strong>. The core argument is about what attention <em>should</em> do: not mechanically store everything, but selectively retain what matters. The framing reframes attention from a retrieval mechanism to a memory curation mechanism — a model keeps the residue of what it found important, rather than maintaining equal fidelity to all inputs. This connects to a long-standing question in architecture research about whether transformers' attention is fundamentally wasteful, and whether something closer to biological selective attention would yield better efficiency and generalization. Moonshot AI released a new architecture alongside this talk.</div>
+                <div class="item-meta"><a href="https://x.com/rohanpaul_ai" target="_blank">@rohanpaul_ai</a> · 1h · 3.1K views (Kimi.ai video)</div>
+            </div>
+        </section>
+
+        <!-- AI in Practice -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <div class="topic-bar" style="background: var(--accent-practice);"></div>
+                <div class="topic-title">AI in Practice</div>
+                <div class="topic-count">3 items</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">07</div>
+                <div class="item-headline">A Doctor Quits Peer Reviewing Because AI Is Better at It</div>
+                <div class="item-body">Derya Unutmaz, immunologist and professor, has announced he will no longer accept requests to review scientific papers, for a principled reason: current top AI models do a better job than he can for more than 95% of the review process. "With less than 5% effort, it would not be fair for me to take credit, and journals don't like it anyway." The same thread links to Jason Locasale's observation that a paper took nearly 3 years from submission to publication, while many academics still won't consider work "real" if it appears first as a preprint. Together these paint a picture of a peer review system simultaneously too slow to be useful and too manual to survive contact with AI. This is not a junior researcher feeling imposter syndrome — it is a senior scientist making a principled institutional exit.</div>
+                <div class="item-meta"><a href="https://x.com/DeryaTR_" target="_blank">@DeryaTR_</a> · 4h · 19K views, 328 likes · <a href="https://x.com/LocasaleLab" target="_blank">@LocasaleLab</a> · 4h</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">08</div>
+                <div class="item-headline">One Pet Owner, No Biology Background, Custom mRNA Cancer Vaccine</div>
+                <div class="item-body">Paul Conyngham — not a biologist, not a doctor — documented how he used AI to design a custom mRNA vaccine protocol for his dog Rosie's cancer. The article "How I created Rosie's mRNA Vaccine Protocol" is being called by Derya Unutmaz "one of the historical inception stories in the age of AI." The pattern here is important: this is not AI as a search engine, or AI as a writing assistant. This is a layperson using AI to navigate a domain that previously required years of graduate training, synthesizing it into a personalized treatment protocol. Whether the vaccine works is almost beside the point — the capability is real and documented, and the implications for democratized medicine, liability, and institutional authority over biological knowledge are profound.</div>
+                <div class="item-meta"><a href="https://x.com/paul_conyngham" target="_blank">@paul_conyngham</a> · Mar 25 · 6.8K views (surfaced by <a href="https://x.com/DeryaTR_" target="_blank">@DeryaTR_</a> · 2h)</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-number">09</div>
+                <div class="item-headline">Vibe Coding's Hidden Cost: Cognitive Atrophy</div>
+                <div class="item-body">Victor Taelin, a developer working on formal verification and type theory, posted a confession that should be read by anyone who has spent serious time with AI coding assistants: "As of March 2026, just prompting agents to implement a termination checker will not work. Even GPT 5.4 Pro's plan is just... bad. Just bad. It seems like I'm gonna need to code this on my own, and my brain is spoiled and lazy from so much vibe coding." Two separate insights are compressed here. First, the hard ceiling: there exist non-trivial software engineering tasks — formal verification, termination analysis — where even frontier models produce bad plans, not just bad code. Second, the cognitive externalization trap: prolonged reliance on AI coding assistance may degrade the practitioner's ability to engage with hard problems independently. This is not technophobia; it's a practitioner reporting atrophy from within the experience.</div>
+                <div class="item-meta"><a href="https://x.com/VictorTaelin" target="_blank">@VictorTaelin</a> · 5h · 18K views, 350 likes</div>
+            </div>
+        </section>
+
+        <!-- Meta observation -->
+        <div class="meta-observation">
+            <strong>A thread through tonight's nine items:</strong> the research edge and the human edge are converging. Models are getting cheaper to benchmark but harder to cost-predict (item 1). Their reasoning is visible but not interpretable (item 2). Their intelligence may be fundamentally social rather than singular (item 3). Their science is automated but unattributable (item 4). Meanwhile, human experts are quietly stepping back — from peer review (item 7), from biology (item 8), from hard code (item 9). What remains in the gap between what AI does fluently and what it cannot yet do at all (items 5 and 6) is exactly where the interesting work is being built.
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Compiled by <a href="https://x.com/bag_of_ideas" target="_blank">@bag_of_ideas</a> &middot; Friday March 27, 2026 &middot; 12-hour window</p>
+            <p><a href="../" class="back-link">← All Dispatches</a></p>
+        </footer>
+
+    </div>
+</body>
+</html>
