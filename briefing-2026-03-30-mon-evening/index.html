@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monday Evening Edition — AI with Ravi</title>
+    <meta property="og:title" content="X/Twitter Briefing — Monday Evening Edition, March 30 2026">
+    <meta property="og:description" content="Anthropic's Big Monday, the Codex Counterattack, open-source models drafting behind frontier research, and robot dog patrols in Atlanta.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --card-bg: #ffffff;
+            --text: #2a2a2a;
+            --headline: #1a1a1a;
+            --body: #3d3d3d;
+            --muted: #7a7a6e;
+            --accent: #3a6b8a;
+            --rule: #e8e4dc;
+            --accent-ai: #3a6b8a;
+            --accent-codex: #8b4557;
+            --accent-oss: #6b5b3a;
+            --accent-dev: #a0522d;
+            --accent-workforce: #3a7a6b;
+            --accent-bench: #7a3a6b;
+            --accent-culture: #6b8a3a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            padding: 56px 24px 20px;
+        }
+
+        .pub-label {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--headline);
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        header .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .header-rule {
+            width: 48px;
+            height: 3px;
+            background: var(--accent);
+            margin: 28px auto;
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 20px 0 36px;
+        }
+
+        .stat { text-align: center; }
+
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ── SECTIONS ── */
+        .topic-section {
+            margin-bottom: 44px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--headline);
+            flex-grow: 1;
+        }
+
+        .section-count {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--rule);
+            padding: 3px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        /* ── ITEM CARDS ── */
+        .item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .item-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--headline);
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .item-body {
+            font-size: 0.935rem;
+            color: var(--body);
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .item-meta {
+            font-size: 0.75rem;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .item-meta a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .item-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 40px 24px 60px;
+            border-top: 1px solid var(--rule);
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.9rem; }
+            .stats-bar { gap: 28px; }
+            .stat-num { font-size: 1.4rem; }
+            .item-card { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="pub-label">AI with Ravi</div>
+    <h1>Monday Evening Edition</h1>
+    <div class="subtitle">March 30, 2026 — X/Twitter Briefing</div>
+    <div class="header-rule"></div>
+</header>
+
+<div class="container">
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Tweets</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">7</div>
+            <div class="stat-label">Topics</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">12h</div>
+            <div class="stat-label">Window</div>
+        </div>
+    </div>
+
+    <!-- ═══ ANTHROPIC'S BIG MONDAY ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-ai);"></div>
+            <div class="section-title">Anthropic's Big Monday</div>
+            <span class="section-count">4 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Anthropic shipped computer use in Claude Code — its fourth iteration in 17 months, and the first that fundamentally changes how developers work.</div>
+            <div class="item-body">Claude can now open apps, click through UIs, and test what it built, all from the CLI. The upstream enabler is 17 months of iteration: from the October 2024 Docker-container API beta through three progressively less clunky versions to this one, which runs natively where developers already live.</div>
+            <div class="item-meta"><a href="https://x.com/aakashgupta">@aakashgupta</a> · 3h · 852 likes — the feed lit up with quote-tweets within minutes</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Claude Code's auto mode expanded to Enterprise plans and API users — letting the model make permission decisions on your behalf.</div>
+            <div class="item-body">Instead of approving every file write and bash command, auto mode lets Claude exercise judgment about what's safe to execute. The move positions Anthropic to compete directly with Codex's cloud-first autonomous workflow.</div>
+            <div class="item-meta"><a href="https://x.com/claudeai">@claudeai</a> · 1h · 1.4K likes, 111K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Lydia Hallie acknowledged that Claude Code users are hitting usage limits far faster than expected — the team is actively investigating.</div>
+            <div class="item-body">The tweet hit 4.4K likes and 281K views, suggesting the rate-limit pain is widespread and the acknowledgment was cathartic for a frustrated user base. Corey Quinn's sardonic workaround — a cron job that burns the 5-hour session window overnight — captured the mood perfectly.</div>
+            <div class="item-meta"><a href="https://x.com/lydiahallie">@lydiahallie</a> · 1h · 4.4K likes, 281K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Computer use just killed an entire class of human labor — any work that existed only because legacy software had no API.</div>
+            <div class="item-body">Government portals, enterprise dashboards, anything locked behind a login is now scriptable for $20/month. The framing is provocative but directionally correct: computer use turns every GUI into a programmable surface.</div>
+            <div class="item-meta"><a href="https://x.com/jumperz">@jumperz</a> · 2h · 325 likes, 36K views</div>
+        </div>
+    </div>
+
+    <!-- ═══ THE CODEX COUNTERATTACK ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-codex);"></div>
+            <div class="section-title">The Codex Counterattack</div>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">OpenAI launched a Codex plugin that runs inside Claude Code — a deliberate Trojan horse that puts OpenAI's cloud agent inside Anthropic's developer tool.</div>
+            <div class="item-body">Rather than compete for the CLI, OpenAI is embedding Codex as a backend engine within the tool developers already prefer. The trending sidebar confirmed the magnitude: #1 news item with 1,069 posts.</div>
+            <div class="item-meta"><a href="https://x.com/ai_for_success">@ai_for_success</a> · Trending · 1,069 posts</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">New Codex usage data shows developers delegate their hardest tasks — refactors, architecture planning — to Codex at the end of the workday.</div>
+            <div class="item-body">The chart shows a dramatic spike in task complexity in the final turn of each day, suggesting developers are using Codex as a night-shift engineer. The clearest signal yet that AI coding is shifting from pair-programming to asynchronous delegation.</div>
+            <div class="item-meta"><a href="https://x.com/OpenAIDevs">@OpenAIDevs</a> · 21m · 160 likes, 7.3K views</div>
+        </div>
+    </div>
+
+    <!-- ═══ OPEN-SOURCE AI MODELS ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-oss);"></div>
+            <div class="section-title">Open-Source AI Models</div>
+            <span class="section-count">3 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A Qwen 3.5 27B model fine-tuned on Opus 4.6 distilled data has been #1 trending on Hugging Face for three weeks — and it beats Sonnet 4.5 on SWE-bench.</div>
+            <div class="item-body">The model runs locally on 16GB in 4-bit quantization, meaning a laptop can now run an agent-grade reasoning model that outperforms a frontier commercial model on coding benchmarks. The pattern: open-source models drafting behind proprietary frontier research via distillation.</div>
+            <div class="item-meta"><a href="https://x.com/Hesamation">@Hesamation</a> · 4h · 705 likes, 38K views — Hugging Face reposted</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">llama.cpp hit 100,000 stars on GitHub — a milestone for the engine that made local LLM execution practical.</div>
+            <div class="item-body">Georgi Gerganov's project, which started as a weekend hack to run LLaMA on a MacBook, has become critical infrastructure for the entire open-source AI ecosystem. The 100K mark puts it alongside TensorFlow and PyTorch in rare company.</div>
+            <div class="item-meta">Trending · 73 posts</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Brian Roemmele reports Qwen3.5-Omni will be fully open-sourced — calling the prospect "monumental."</div>
+            <div class="item-body">If confirmed, this continues Alibaba's pattern of using open-source AI as a geopolitical and commercial differentiator against US-based closed-source providers.</div>
+            <div class="item-meta"><a href="https://x.com/BrianRoemmele">@BrianRoemmele</a> · 4h · 87 likes, 6.2K views</div>
+        </div>
+    </div>
+
+    <!-- ═══ AI CODING & DEVELOPER CULTURE ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-dev);"></div>
+            <div class="section-title">AI Coding &amp; Developer Culture</div>
+            <span class="section-count">4 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Garry Tan's weekly report: 126 commits, 253K lines added, 115 AI coding sessions (113 Claude Code, 2 Gemini), 72-day shipping streak.</div>
+            <div class="item-body">The Y Combinator president is running his own engineering org with AI as the staff. The ratio — 113 Claude Code sessions to 2 Gemini — is revealed-preference data no benchmark can match. Ship of the week: a CLI production RPC via HTTP tool API spanning 1,903 lines.</div>
+            <div class="item-meta"><a href="https://x.com/garrytan">@garrytan</a> · 10h · 611 likes, 533K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">The most complete Claude Code setup in existence: 27 agents, 64 skills, 33 commands — all open source.</div>
+            <div class="item-body">Built by the Anthropic hackathon winner and refined over 10 months, the repo is a professional-grade operating system for Claude Code that turns a coding assistant into an engineering department.</div>
+            <div class="item-meta"><a href="https://x.com/dr_cintas">@dr_cintas</a> · 3h · 823 likes, 67K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">"Minimum viable prompting" — your Claude prompts are probably way too detailed, and it's making outputs worse.</div>
+            <div class="item-body">Ole Lehmann cited Boris Cherny, creator of Claude Code, who keeps his own setup minimal. The advice runs counter to the instinct to over-specify, but aligns with how frontier models benefit from room to reason.</div>
+            <div class="item-meta"><a href="https://x.com/itsolelehmann">@itsolelehmann</a> · 7h · 148 likes, 10K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">A Claude Code skill that clones any website from a single command hit 4,800 GitHub stars in 16 days.</div>
+            <div class="item-body">The tool screenshots the site, extracts every design token, downloads all assets, and spawns a pixel-perfect replica. Web design as a craft is being compressed into a one-line command.</div>
+            <div class="item-meta"><a href="https://x.com/chiefofautism">@chiefofautism</a> · Mar 29 · 507 likes, 42K views</div>
+        </div>
+    </div>
+
+    <!-- ═══ AI & THE WORKFORCE ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-workforce);"></div>
+            <div class="section-title">AI &amp; The Workforce</div>
+            <span class="section-count">2 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Marc Andreessen explains how AI triggered a three-way standoff: PMs, engineers, and designers each think AI lets them do the other two jobs.</div>
+            <div class="item-body">The real disruption isn't job elimination but role-boundary collapse, where every function expands to absorb adjacent ones. The irony: all three may soon find AI can manage them too.</div>
+            <div class="item-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · 1h · 47 likes, 10K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Hinton's 2016 prediction that radiologists would lose their jobs within 5 years was wrong — the number of radiologists has grown.</div>
+            <div class="item-body">The post hit 1.2M views, suggesting deep appetite for AI-prediction accountability. The failed prediction is a synecdoche for a broader pattern: AI's impact on professions is far more nuanced than replacement narratives suggest.</div>
+            <div class="item-meta"><a href="https://x.com/StephenPiment">@StephenPiment</a> · Mar 27 · 359 likes, 1.2M views</div>
+        </div>
+    </div>
+
+    <!-- ═══ BENCHMARKS & BREAKTHROUGHS ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-bench);"></div>
+            <div class="section-title">Benchmarks &amp; Breakthroughs</div>
+            <span class="section-count">3 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">ARC-AGI-3 humiliated top AI models — none scored above 1% on a benchmark designed to test genuine abstraction.</div>
+            <div class="item-body">The result is a useful cold shower for a feed that otherwise reads like an AI capabilities victory lap. The benchmark was the #3 trending news item with 866 posts.</div>
+            <div class="item-meta">Trending · 7h · 866 posts</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">NASA's lead electrostatics scientist claims a "new force" that counteracts gravity — based on 2,000 vacuum chamber experiments.</div>
+            <div class="item-body">Dr. Charles Buhler reports propellantless thrust that persists after power is switched off. Extraordinary claims, not yet peer-reviewed in a major journal — but the sheer number of controlled experiments is unusually high for fringe physics.</div>
+            <div class="item-meta"><a href="https://x.com/AlchemyAmerican">@AlchemyAmerican</a> · 1h · 1.3K likes, 90K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Turbo3 KV cache compression jumped from 4.57x to 5.12x with zero quality loss — plus 3-7% decode speed boost on M2 Pro.</div>
+            <div class="item-body">Better KV cache compression means longer context windows at lower cost — the invisible infrastructure improvement that compounds into every agent workflow.</div>
+            <div class="item-meta"><a href="https://x.com/no_stp_on_snek">@no_stp_on_snek</a> · 1h</div>
+        </div>
+    </div>
+
+    <!-- ═══ CULTURE & CURIOSITIES ═══ -->
+    <div class="topic-section">
+        <div class="section-header">
+            <div class="section-bar" style="background: var(--accent-culture);"></div>
+            <div class="section-title">Culture &amp; Curiosities</div>
+            <span class="section-count">4 items</span>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">How Stefan Banach got tricked into earning his PhD — because he was "allergic to bureaucracy."</div>
+            <div class="item-body">Colleagues told him gentlemen from Warsaw had interesting problems to discuss. The "discussion" turned out to be his doctoral defense. Fermat's Library noted he was discovered by a professor who overheard him discussing Lebesgue integrals in a Kraków park. A reminder that this feed carries a strong contemplative thread alongside the AI signal.</div>
+            <div class="item-meta"><a href="https://x.com/Fintech03">@Fintech03</a> quoting <a href="https://x.com/fermatslibrary">@fermatslibrary</a> · 3h · 3.1K likes, 139K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Turntable in Adobe Illustrator lets you rotate 2D vector art in 3D — no redrawing, just a slider drag.</div>
+            <div class="item-body">For animators and game designers, this eliminates one of the most tedious manual steps in asset creation. Conceptually similar to how AI image models interpolate between viewpoints.</div>
+            <div class="item-meta"><a href="https://x.com/icreatelife">@icreatelife</a> · 6h · 879 likes, 56K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">Atlanta's new autonomous robot dog patrols drew Black Mirror comparisons — Undaunted raised $1M to deploy "packs" on city streets.</div>
+            <div class="item-body">The dogs patrol autonomously but are controlled remotely. The visceral reaction (182K views) suggests this touches the same nerve as Ring doorbell surveillance: people want safety but are uneasy about what patrols the boundary.</div>
+            <div class="item-meta"><a href="https://x.com/DesireeAmerica4">@DesireeAmerica4</a> · 4h · 1.1K likes, 182K views</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-headline">The IRS requires you to report income from illegal activities and stolen property — Schedule 1, Form 1040, line 8z.</div>
+            <div class="item-body">The government's position is logically consistent (all income is taxable) but comedically absurd (please itemize your heist proceeds). Peak tax-season internet.</div>
+            <div class="item-meta"><a href="https://x.com/greg16676935420">@greg16676935420</a> · 4h · 12K likes, 745K views</div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> via automated X/Twitter digest</p>
+    <p><a href="../">← All Dispatches</a></p>
+</footer>
+
+</body>
+</html>
