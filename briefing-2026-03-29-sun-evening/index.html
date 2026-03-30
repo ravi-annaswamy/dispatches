@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI With Ravi – Sunday Evening Edition, March 29 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      background-color: #faf8f4;
+      color: #2a2a2a;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .header-label {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #7a7a6e;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .header-date {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #7a7a6e;
+      margin-bottom: 24px;
+    }
+
+    .divider-bar {
+      height: 4px;
+      width: 48px;
+      background-color: #3a6b8a;
+      margin: 0 auto;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 60px 0;
+      padding: 40px 24px;
+      background-color: #ffffff;
+      border: 1px solid #e8e4dc;
+      border-radius: 2px;
+      text-align: center;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #3a6b8a;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #7a7a6e;
+      font-style: italic;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .section-bar {
+      width: 4px;
+      height: 32px;
+      background-color: #3a6b8a;
+      flex-shrink: 0;
+    }
+
+    .section-bar.ai-models {
+      background-color: #6b5b3a;
+    }
+
+    .section-bar.brain {
+      background-color: #8b4557;
+    }
+
+    .section-bar.india {
+      background-color: #a0522d;
+    }
+
+    .section-bar.surprising {
+      background-color: #3a7a6b;
+    }
+
+    .section-bar.commodification {
+      background-color: #7a6b3a;
+    }
+
+    .section-bar.platform {
+      background-color: #5b3a6b;
+    }
+
+    .section-title h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e8e4dc;
+      padding: 28px;
+      border-radius: 2px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .card-body {
+      font-size: 15px;
+      color: #3d3d3d;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: #7a7a6e;
+      font-style: italic;
+    }
+
+    .card-meta a {
+      color: #3a6b8a;
+      text-decoration: none;
+      border-bottom: 1px dotted #3a6b8a;
+    }
+
+    .card-meta a:hover {
+      color: #2a5a7a;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #e8e4dc;
+      text-align: center;
+      font-size: 14px;
+      color: #7a7a6e;
+    }
+
+    .footer-link {
+      color: #3a6b8a;
+      text-decoration: none;
+      border-bottom: 1px dotted #3a6b8a;
+    }
+
+    .footer-link:hover {
+      color: #2a5a7a;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 40px 16px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .stats-bar {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .section-title {
+        gap: 12px;
+      }
+
+      .section-title h2 {
+        font-size: 20px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .card h3 {
+        font-size: 15px;
+      }
+
+      .card-body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-label">AI With Ravi</div>
+      <h1>Sunday Evening Edition</h1>
+      <div class="header-date">March 29, 2026</div>
+      <div class="divider-bar"></div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">tweets captured</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">7</div>
+        <div class="stat-label">topic clusters</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">~12h</div>
+        <div class="stat-label">scanned</div>
+      </div>
+    </div>
+
+    <!-- Section 1: AI Agents -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar"></div>
+        <h2>AI Agents & the New Developer</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>An Anthropic engineer reportedly hasn't hand-written code in months — his team runs parallel AI agents and operates more like product managers than programmers.</h3>
+          <div class="card-body">Rohan Paul surfaced a Reddit post describing a friend at Anthropic who says the mental model isn't "use AI to code faster" but "you are the PM, the agents are your engineers." The productivity gap between people who think this way and those who don't is already enormous — the clearest firsthand account yet of how AI-native teams work inside the labs.</div>
+          <div class="card-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · 4h</div>
+        </div>
+
+        <div class="card">
+          <h3>A developer gave his Claude Code agent a single metacognitive ability — self-extending on unknown Polymarket categories — and returned a month later to find 11 new analysis modules it had autonomously written.</h3>
+          <div class="card-body">One module analyzes FDA decisions; another breaks down geopolitical risk. The upstream enabler is Claude Code's tool-use architecture, which lets agents write and register their own functions at runtime. Self-improving infrastructure in the wild, not a research demo.</div>
+          <div class="card-meta"><a href="https://x.com/browomo">@browomo</a> · 7h · 21K views</div>
+        </div>
+
+        <div class="card">
+          <h3>Garry Tan shipped a learning system for GStack that remembers patterns across sessions — each run now makes the next one smarter.</h3>
+          <div class="card-body">The YC president's tool (54.6K GitHub stars) now stores per-project learnings in a Supabase-compatible schema. Tan credits Compound Engineering by Every Inc. The competitive moat in AI coding tools is shifting from single-session performance to compounding session intelligence.</div>
+          <div class="card-meta"><a href="https://x.com/garrytan">@garrytan</a> · 55m</div>
+        </div>
+
+        <div class="card">
+          <h3>Ramp's CEO declared the traditional PM playbook dead — the company now hires product managers who code with AI daily and have founder DNA.</h3>
+          <div class="card-body">Pedro Franceschi's listing requires builders, not overseers. 50% of Ramp PMs hired recently are ex-founders. As AI collapses build-time, companies need people who can taste the product, not just describe it.</div>
+          <div class="card-meta"><a href="https://x.com/pedroh96">@pedroh96</a> · 16K views</div>
+        </div>
+
+        <div class="card">
+          <h3>Arvid Kahl flagged that Claude skill discovery remains unsolved — the most impactful skills spread through throwaway mentions in random replies.</h3>
+          <div class="card-body">His mobile browser is full of GitHub links found by accident. The ecosystem is exploding faster than any discovery mechanism. The first person to build a good skill marketplace may capture the Claude Code equivalent of the Chrome Web Store.</div>
+          <div class="card-meta"><a href="https://x.com/arvidkahl">@arvidkahl</a> · 8h · 27K views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: AI Models & Research -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar ai-models"></div>
+        <h2>AI Models & Research</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Nvidia's Nemotron-Cascade-2-30B-A3B landed on Hugging Face — a 30B model that activates only 3B parameters and fits in 24GB VRAM.</h3>
+          <div class="card-body">The cascaded mixture-of-experts architecture gives near-frontier performance on consumer GPUs. For hobbyists and startups running local inference, this may be the best quality-per-dollar model available today.</div>
+          <div class="card-meta"><a href="https://x.com/0xSero">@0xSero</a> · 9h · 58K views</div>
+        </div>
+
+        <div class="card">
+          <h3>MSA-4B broke the 100-million-token context barrier while every competitor collapses past 1M tokens.</h3>
+          <div class="card-body">The chart shows MSA-4B holding near-flat quality from 16K to 100M tokens while Qwen3, DeepSeek, and GPT-4.1 degrade sharply. A multi-scale attention mechanism treats different context lengths as separate resolution layers. Could unlock entire-codebase analysis.</div>
+          <div class="card-meta"><a href="https://x.com/HuggingPapers">@HuggingPapers</a> · 11h · 9.8K views</div>
+        </div>
+
+        <div class="card">
+          <h3>TurboQuant-MLX-LM v0.1 runs Qwen3/3.5 with full-attention KV cache layers natively on Apple Silicon via MLX.</h3>
+          <div class="card-body">Benchmark tables show decode speeds competitive with cloud inference but running entirely on a MacBook. Apple's MLX framework is quietly becoming the standard for local LLM deployment on Mac hardware.</div>
+          <div class="card-meta"><a href="https://x.com/AlicanKiraz0">@AlicanKiraz0</a> · 10h · 19K views</div>
+        </div>
+
+        <div class="card">
+          <h3>Karpathy's autoresearch system hit 42,000 GitHub stars in a week — Fortune calls it "The Karpathy Loop."</h3>
+          <div class="card-body">It runs 100 experiments overnight for $25 on a single GPU, keeping winners and reverting losers. 700 experiments yield 20 improvements at 11% gain. AI is now eating AI research itself.</div>
+          <div class="card-meta"><a href="https://x.com/aakashgupta">@aakashgupta</a> · 59K views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Brain, Biology & Biotech -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar brain"></div>
+        <h2>Brain, Biology & Biotech</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Meta released TRIBE v2, a trimodal brain encoder that predicts how the human brain responds to any sight or sound.</h3>
+          <div class="card-body">Building on their 2025 Algonauts architecture, TRIBE v2 processes visual, auditory, and language inputs to model neural activation patterns. The implications for advertising, content creation, and clinical neuroscience are staggering — and largely unregulated.</div>
+          <div class="card-meta"><a href="https://x.com/AIatMeta">@AIatMeta</a> · Mar 26 · 4K likes, 1.3M views</div>
+        </div>
+
+        <div class="card">
+          <h3>After 28 years of only Minoxidil and Finasteride, two new hair loss drugs have arrived working through entirely different mechanisms.</h3>
+          <div class="card-body">Avi Roy's 2M-view thread cites clinical results including Nektar's IL-2 receptor agonist for alopecia areata. The upstream driver is a new understanding of autoimmune pathways, not just hormonal ones. The first genuinely new hope in a generation for millions.</div>
+          <div class="card-meta"><a href="https://x.com/agingroy">@agingroy</a> · 8h · 9.5K likes, 2M views</div>
+        </div>
+
+        <div class="card">
+          <h3>Your mother's cells are literally inside you forever — a phenomenon called microchimerism that most people have never heard of.</h3>
+          <div class="card-body">During pregnancy, fetal and maternal cells cross the placental barrier and persist for decades. Mothers carry cells from every child they've ever carried. A reminder that this feed carries a strong contemplative thread alongside the AI signal.</div>
+          <div class="card-meta"><a href="https://x.com/forallcurious">@forallcurious</a> · 22h · 3.8K views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: India & Startup Ecosystem -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar india"></div>
+        <h2>India & Startup Ecosystem</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>An Indian engineer built a brain-controlled robotic prosthetic hand entirely from scratch — 100% designed and manufactured in India.</h3>
+          <div class="card-body">Ansh Mishra's demo shows a functional neural-interface prosthetic built with low-cost components, documented at brhm.in. The project echoes India's jugaad innovation tradition. For a country with millions of amputees, this could be transformative.</div>
+          <div class="card-meta"><a href="https://x.com/Shree108ansh">@Shree108ansh</a> · 4h · 165 likes, 6.2K views</div>
+        </div>
+
+        <div class="card">
+          <h3>1LittleCoder called out YC's Startup School India for leading with test scores as its first question — at odds with YC's founder-first ethos.</h3>
+          <div class="card-body">The application asks about entrepreneurship clubs and IIT/Ivy League before asking what you've built. A tension between institutional prestige and builder culture. The irony: YC's most successful founders often dropped out.</div>
+          <div class="card-meta"><a href="https://x.com/1littlecoder">@1littlecoder</a> · 9h · 427 likes, 42K views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Surprising & Delightful -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar surprising"></div>
+        <h2>Surprising & Delightful</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Someone built an LLM trained on 28,000 British Library books from 1837-1899 — a Victorian Gentleman Chatbot untouched by modern data.</h3>
+          <div class="card-body">The AI speaks in authentic 19th-century prose and speculates about 1900 with period-appropriate innocence. A time machine in the form of a language model. LLMs don't have to chase benchmarks — they can be cultural artifacts.</div>
+          <div class="card-meta"><a href="https://x.com/birdabo">@birdabo</a> · 8h · 153 likes, 7.5K views</div>
+        </div>
+
+        <div class="card">
+          <h3>Japan is running out of Buddhist monks — temples are training AI robots called "buddharoids" to conduct ceremonies.</h3>
+          <div class="card-body">The robots serve temples in rural areas where no human monks are available. For anyone tracking how AI intersects with tradition, culture, and spirituality, this is the most evocative story of the week.</div>
+          <div class="card-meta"><a href="https://x.com/yoheinakajima">@yoheinakajima</a> · Mar 28 · 17K views</div>
+        </div>
+
+        <div class="card">
+          <h3>"EGO-BIRD" promises 100,000 hours of POV bird footage to train autonomous drones — a satirical post barely distinguishable from real AI research.</h3>
+          <div class="card-body">Tejes Srivalsan's follow-up to EGO-SNAKE landed perfectly because the joke is indistinguishable from reality. When satire and real announcements are interchangeable, the field has reached escape velocity.</div>
+          <div class="card-meta"><a href="https://x.com/tejessrivalsan">@tejessrivalsan</a> · 4h · 29K views</div>
+        </div>
+
+        <div class="card">
+          <h3>A university student's confiscated pens turned out to have complete cheat notes intricately engraved into the casings.</h3>
+          <div class="card-body">Carlos Perez shared the image predicting students will soon hide tiny LLMs inside pens. The craftsmanship is somewhere between calligraphy and crime — a delightful artifact of the analog-to-digital transition.</div>
+          <div class="card-meta"><a href="https://x.com/IntuitMachine">@IntuitMachine</a> · 9h · 2.5K views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: The Commodification Critique -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar commodification"></div>
+        <h2>The Commodification Critique</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>"The sun was free — they sold you SPF 50 and a vitamin D deficiency" — Sama Hoole's thread on monetized wellness hit 1.6M views.</h3>
+          <div class="card-body">The thread traces a pattern from sleep to walking to fasting: each was free, each got packaged into products and apps. Levelsio's repost amplified it to indie makers. A cultural counter-movement forming against optimization culture itself.</div>
+          <div class="card-meta"><a href="https://x.com/SamaHoole">@SamaHoole</a> · 17h · 23K likes, 1.6M views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Platform & Global -->
+    <section>
+      <div class="section-title">
+        <div class="section-bar platform"></div>
+        <h2>Platform & Global</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Grok now auto-translates and recommends X posts across languages — making the platform's global user base visible to each other for the first time.</h3>
+          <div class="card-body">Musk's announcement coincides with Nikita Bier's viral context: Japan leads X usage globally with two-thirds of the country monthly active. The combined effect could fundamentally change the English-language feed by surfacing Japanese, Portuguese, and other content at scale.</div>
+          <div class="card-meta"><a href="https://x.com/elonmusk">@elonmusk</a> · 2h · 63K likes, 10M views / <a href="https://x.com/nikitabier">@nikitabier</a> · 72K likes, 6.7M views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>AI With Ravi · Sunday Evening Edition · March 29, 2026</p>
+      <p style="margin-top: 16px;"><a class="footer-link" href="../index.html">← All Dispatches</a></p>
+    </footer>
+  </div>
+</body>
+</html>
