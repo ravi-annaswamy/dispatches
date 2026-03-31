@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nine-Minute Problem — Dispatches</title>
+    <meta property="og:title" content="The Nine-Minute Problem">
+    <meta property="og:description" content="Quantum computing is no longer a physics experiment. It's a countdown. Five stories from the week the future got closer.">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --text: #1a1a1a;
+            --accent: #2d5a7b;
+            --muted: #6b6b60;
+            --rule: #d4c9b8;
+            --pull-quote: #3a3a32;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 19px;
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .masthead {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+
+        .masthead a {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .masthead a:hover { color: var(--accent); }
+
+        .hero {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 30px 20px 20px;
+            text-align: center;
+        }
+
+        .hero .topic {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            margin-bottom: 18px;
+        }
+
+        .hero .subtitle {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--muted);
+            line-height: 1.5;
+            max-width: 560px;
+            margin: 0 auto 22px;
+        }
+
+        .hero .byline {
+            font-size: 0.82rem;
+            color: var(--muted);
+            letter-spacing: 0.03em;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: var(--rule);
+            margin: 28px auto;
+        }
+
+        .article-content {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .article-content p {
+            margin-bottom: 1.4em;
+        }
+
+        .drop-cap::first-letter {
+            font-family: 'Playfair Display', Georgia, serif;
+            float: left;
+            font-size: 4.2rem;
+            line-height: 0.8;
+            padding-right: 10px;
+            padding-top: 6px;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .section-break {
+            text-align: center;
+            padding: 38px 0 32px;
+        }
+
+        .section-break .section-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        .section-break h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--text);
+            margin-top: 6px;
+            line-height: 1.3;
+        }
+
+        .pull-quote {
+            border-top: 2px solid var(--rule);
+            border-bottom: 2px solid var(--rule);
+            margin: 36px 0;
+            padding: 28px 0;
+            text-align: center;
+        }
+
+        .pull-quote p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.45rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--pull-quote);
+            max-width: 540px;
+            margin: 0 auto !important;
+        }
+
+        .illustration {
+            margin: 38px -40px;
+            text-align: center;
+        }
+
+        .illustration img {
+            max-width: 100%;
+            width: 740px;
+            border-radius: 3px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .illustration .caption {
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .coda-break {
+            text-align: center;
+            padding: 38px 0 32px;
+        }
+
+        .coda-break h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+        }
+
+        .end-mark {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--rule);
+            margin: 50px 0 30px;
+            letter-spacing: 0.3em;
+        }
+
+        .colophon {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            text-align: center;
+            border-top: 1px solid var(--rule);
+            padding-top: 30px;
+        }
+
+        .colophon p {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .illustration { margin: 28px -10px; }
+            .pull-quote p { font-size: 1.2rem; }
+            body { font-size: 17px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="masthead">
+    <a href="../">Dispatches</a>
+</div>
+
+<div class="hero">
+    <div class="topic">Quantum Computing</div>
+    <h1>The Nine-Minute Problem</h1>
+    <div class="subtitle">Quantum computing is no longer a physics experiment. It's a countdown. Five stories from the week the future got closer.</div>
+    <div class="byline">March 31, 2026</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="article-content">
+
+<p class="drop-cap">Somewhere in a Google data center in Santa Barbara, there exists a machine that operates at fifteen millikelvins — colder than the void between galaxies. It manipulates information encoded in the quantum states of superconducting circuits, coaxing electrons into superpositions that would have made Schr&ouml;dinger weep with recognition. And this week, the team that built it published a paper explaining, with mathematical precision, how a somewhat larger version of the same machine could crack the encryption protecting $600 billion worth of Bitcoin in approximately nine minutes.</p>
+
+<p>They also explained, with equal precision, why they wouldn't be sharing the details of how.</p>
+
+<p>This is the strange moment in which quantum computing finds itself — powerful enough to threaten, too nascent to deliver, and paradoxically obligated to prove both at once. In the span of a single week in late March 2026, the field offered a sequence of dispatches that, taken together, read less like a technology news cycle and more like the opening chapters of a new era. A molecule that shouldn't exist was synthesized and understood only because a quantum computer could model its impossible geometry. A protein — the messy, folded, water-fearing kind that drives the chemistry of life — was simulated on quantum hardware for the first time. Google announced it was hedging its bets on the very physics of its machines, pursuing two fundamentally different architectures simultaneously. And on Wall Street, the stocks of companies with combined revenues smaller than a mid-tier restaurant franchise traded at valuations that presuppose a revolution.</p>
+
+<p>The revolution may well be coming. But the interesting question isn't whether. It's the texture of the transition — the nine minutes between the world we have and the one we're building.</p>
+
+<div class="illustration">
+    <img src="illustration-1.jpg" alt="A quantum computer chip glowing with blue circuitry emerging from mathematical equations and shadows">
+    <p class="caption">"Colder than the void between galaxies"</p>
+</div>
+
+<div class="section-break">
+    <div class="section-number">I</div>
+    <h2>The Proof You Can't See</h2>
+</div>
+
+<p class="drop-cap">On March 30, Google Quantum AI published a 57-page whitepaper with a deceptively calm title about "safeguarding cryptocurrency." The substance was anything but calm. The paper demonstrated that the quantum resources required to break the elliptic curve cryptography underpinning Bitcoin, Ethereum, and virtually every major cryptocurrency are roughly twenty times smaller than previously estimated. Where earlier analyses suggested you'd need millions of physical qubits — a number that felt comfortably distant — Google's team showed that fewer than half a million would suffice. On a superconducting architecture using surface code error correction, the computation could be realized with fewer than 1,200 logical qubits and 90 million Toffoli gates.</p>
+
+<p>The number that seized headlines, though, was nine. As in minutes. Once a public key is exposed during a transaction — a window that exists for every Bitcoin transfer — a sufficiently powerful quantum computer running a primed version of Shor's algorithm could extract the private key in nine to twelve minutes. Roughly 6.9 million Bitcoin, about a third of all coins in existence, sit in wallets whose public keys are already exposed on the blockchain. At current prices, that's a vulnerability measured in hundreds of billions of dollars.</p>
+
+<div class="pull-quote">
+    <p>Google proved it could break Bitcoin's encryption — and then refused to show how, in a move that may redefine responsible disclosure for the quantum age.</p>
+</div>
+
+<p>But the most remarkable aspect of the paper wasn't the vulnerability itself. It was the method of disclosure. Google didn't publish the quantum circuits. Instead, the team constructed a zero-knowledge proof — a cryptographic technique that allows a claim to be verified without revealing any of the underlying information. In essence, Google proved it had compiled circuits capable of solving the 256-bit elliptic curve discrete logarithm problem, and anyone with sufficient expertise could verify this claim, but no one could extract the actual attack methodology from the proof.</p>
+
+<p>The approach was developed in coordination with the U.S. government, and Google is proposing it as a model for how the quantum research community should handle sensitive vulnerability disclosures going forward. It's an elegant solution to an unprecedented problem: how do you warn the world that a lock can be picked without handing out lockpicks?</p>
+
+<p>Google's own recommendation is blunt. Blockchains should migrate to post-quantum cryptography by 2029. The company is committing to the same deadline for its own infrastructure. Three years. In the timescale of cryptographic transitions — the kind that require consensus across decentralized networks that were specifically designed to resist coordinated change — three years is practically tomorrow.</p>
+
+<div class="illustration">
+    <img src="illustration-2.jpg" alt="A broken padlock floating in digital space with quantum wave patterns rippling outward">
+    <p class="caption">"How do you warn the world that a lock can be picked without handing out lockpicks?"</p>
+</div>
+
+<div class="section-break">
+    <div class="section-number">II</div>
+    <h2>The Molecule That Shouldn't Exist</h2>
+</div>
+
+<p class="drop-cap">While Google was busy proving what quantum computers might destroy, a team spanning IBM, the University of Manchester, Oxford, ETH Zurich, EPFL, and the University of Regensburg was demonstrating what they can create. Published in <em>Science</em> on March 5, their paper described the first experimental observation of a half-M&ouml;bius electronic topology in a single molecule — a structure so exotic that classical computers couldn't fully characterize it.</p>
+
+<p>The molecule in question, C&#x2081;&#x2083;Cl&#x2082;, was assembled atom by atom at IBM's research lab from a custom precursor synthesized at Oxford. Individual atoms were removed one at a time using precisely calibrated voltage pulses under ultra-high vacuum at temperatures near absolute zero. The result was a molecular architecture in which the electron orbitals twist through ninety degrees with each circuit — requiring four complete loops to return to the starting phase. If that sounds like a mathematical curiosity, consider: this half-M&ouml;bius topology can be reversibly switched between clockwise-twisted, counterclockwise-twisted, and untwisted states. Electronic topology is no longer a property to be discovered. It is one that can be deliberately engineered.</p>
+
+<p>Classical computation hit a wall almost immediately. The electrons within C&#x2081;&#x2083;Cl&#x2082; interact in deeply entangled ways, each influencing all the others simultaneously. Modeling that behavior requires tracking every possible configuration of those interactions at once — a computational demand that grows exponentially. A decade ago, researchers could exactly model sixteen electrons on a classical machine. Today, with all the improvements in algorithms and hardware, that number has crept to eighteen. The half-M&ouml;bius molecule demanded analysis of thirty-two.</p>
+
+<div class="pull-quote">
+    <p>A decade ago, classical computers could model 16 electrons exactly. Today: 18. The half-M&ouml;bius molecule demanded 32.</p>
+</div>
+
+<p>Enter IBM's quantum-centric supercomputer and an algorithm called SqDRIFT — a sample-based quantum diagonalization technique that explored an active space far beyond what brute-force classical methods could directly access. The quantum hardware didn't just confirm the molecule's structure. It revealed properties that were genuinely unreachable by other means. This is the quiet crossing of a threshold that quantum computing's critics said might never arrive: a case where quantum simulation does something that classical simulation demonstrably cannot, and the result is a piece of genuine scientific discovery rather than a benchmark or a press release.</p>
+
+<div class="illustration">
+    <img src="illustration-3.jpg" alt="A twisted Möbius-like molecular structure glowing with electron orbitals, rendered in detailed scientific illustration style">
+    <p class="caption">"Electronic topology is no longer a property to be discovered — it is one that can be deliberately engineered"</p>
+</div>
+
+<div class="section-break">
+    <div class="section-number">III</div>
+    <h2>The Protein and the Supercomputer</h2>
+</div>
+
+<p class="drop-cap">If the half-M&ouml;bius molecule proved that quantum computers can illuminate exotic physics, the Cleveland Clinic-IBM collaboration published just weeks later suggested something arguably more consequential: that they might illuminate ordinary biology. The team demonstrated a hybrid quantum-classical workflow to approximate the electronic structure of Trp-cage, a 303-atom miniprotein, using IBM's Quantum Heron r2 processor.</p>
+
+<p>Trp-cage is not, by protein standards, particularly large. It is, however, particularly useful. Despite its modest size, it possesses features common to much larger biomolecules — a hydrophobic core, hydrogen bonding networks, and the capacity for complex three-dimensional folding. It's a proving ground, a scale model of the challenges that quantum biology will eventually need to solve.</p>
+
+<p>The workflow itself was a hybrid construction. A technique called wave function-based embedding fragmented the protein into computationally tractable clusters, each encompassing a local region around an atom and the entangled electronic structure surrounding it. The quantum hardware then solved these clusters using sample-based quantum diagonalization — the same family of algorithms that proved decisive for the M&ouml;bius molecule.</p>
+
+<p>The results were competitive with classical approaches and, in some respects, approached the accuracy of the most computationally demanding classical methods available. More significantly, the approach scales: the Cleveland Clinic team explicitly noted that the workflow extends beyond Trp-cage to larger proteins, positioning it as a tool for pharmaceutical research and molecular simulation at scales that matter to drug discovery.</p>
+
+<p>The quiet implication is profound. The $2.6 trillion global pharmaceutical industry spends roughly $2 billion and twelve to fifteen years developing each new drug, with a success rate that rarely exceeds ten percent. Much of that cost and time is consumed by the molecular simulations that determine whether a candidate drug will bind, fold, or simply dissolve into chemical noise. If quantum-enhanced simulation can compress even a fraction of that timeline, the economic and humanitarian implications dwarf any cryptocurrency vulnerability.</p>
+
+<div class="section-break">
+    <div class="section-number">IV</div>
+    <h2>Two Roads Through the Quantum Wilderness</h2>
+</div>
+
+<p class="drop-cap">Google, meanwhile, was busy hedging a very different kind of bet. On March 24, the company announced that it was expanding its quantum computing program to include neutral atom hardware — a fundamentally different approach from the superconducting qubits that have defined Google's quantum effort since the Sycamore era. To lead the new initiative, Google hired Dr. Adam Kaufman, an atomic physicist from JILA and the University of Colorado Boulder, who will build a team in Colorado while maintaining his academic appointment.</p>
+
+<p>The rationale is rooted in the complementary physics of the two approaches. Superconducting qubits — the kind inside Google's existing processors — excel at circuit depth. They can execute millions of gate and measurement cycles, each taking roughly a microsecond, making them ideal for long, complex sequences of operations. But scaling up the number of qubits is hard. Neutral atom systems invert the problem. Using individual atoms trapped in optical lattices, they've already scaled to arrays of about ten thousand qubits with flexible connectivity. The trade-off is speed: their cycle times are measured in milliseconds, roughly a thousand times slower than their superconducting cousins.</p>
+
+<div class="pull-quote">
+    <p>One architecture scales in time. The other scales in space. Google is betting it will need both to build a machine that works.</p>
+</div>
+
+<p>Google's announcement was notable for its candor. The company stated it is "increasingly confident that commercially relevant quantum computers based on superconducting technology will become available by the end of this decade," while simultaneously investing in an alternative architecture that might prove more scalable in the long run. The program is built on three pillars: quantum error correction, experimental hardware development, and academic research collaboration.</p>
+
+<p>The strategic logic is sound, even if it reads like a concession to uncertainty. In the history of computing, the winning architecture was rarely obvious in advance. The transistor competed with vacuum tubes for more than a decade. RISC and CISC processors argued for twenty years before ARM settled the question. Quantum computing is young enough that placing a single bet would be an act not of confidence but of hubris. Semafor described the move as Google "hedging its quantum bets" — but hedging, in this context, looks a lot like wisdom.</p>
+
+<div class="illustration">
+    <img src="illustration-4.jpg" alt="Two diverging paths through a futuristic quantum landscape, one glowing with cold blue superconducting circuits, the other with warm amber atom traps">
+    <p class="caption">"In the history of computing, the winning architecture was rarely obvious in advance"</p>
+</div>
+
+<div class="section-break">
+    <div class="section-number">V</div>
+    <h2>The $930 Million Warning</h2>
+</div>
+
+<p class="drop-cap">And then there is Wall Street, which has never met a paradigm shift it didn't want to securitize. In the final week of March, the combined market capitalizations of D-Wave Quantum, Rigetti Computing, IonQ, and Quantum Computing Inc. continued to trade at valuations that bear approximately no relationship to their combined revenues. Rigetti, at $16 per share, reported quarterly revenue of $1.9 million — a number you might associate with a successful dental practice rather than a company valued in the billions.</p>
+
+<p>The dissonance is real but not necessarily irrational. D-Wave and Rigetti are pursuing genuinely different paths to quantum capability — D-Wave's quantum annealing approach generates steadier near-term revenue from optimization problems, while Rigetti's gate-based architecture offers more long-term upside. IonQ's trapped-ion systems occupy yet another point on the technological spectrum. The Motley Fool framed the investment question as a choice between architectures: which flavor of quantum computing will win?</p>
+
+<p>But a Motley Fool analysis published in late March offered a sobering counterpoint, noting that combined revenues for the four companies were accompanied by a cumulative $930 million in stock compensation over just the past twelve months — a figure that suggests these companies are paying their employees in equity priced for a revolution that hasn't arrived yet. Wall Street analysts don't expect quantum computers to be practically useful for commercial problem-solving until the end of the decade, with almost no evidence that businesses are generating positive returns on their quantum investments today.</p>
+
+<p>The quantum computing investment thesis, in other words, is a bet on the timeline. If the nine-minute problem becomes real by 2030, and if quantum simulation of proteins accelerates drug discovery, and if neutral atoms or superconducting qubits or trapped ions can scale to error-corrected machines with a million physical qubits — then today's valuations will look prescient. If any of those ifs collapse, the correction will be spectacular.</p>
+
+<div class="coda-break">
+    <h2>Coda</h2>
+</div>
+
+<p class="drop-cap">There's a curious symmetry to these five stories. Google proves it can break encryption but refuses to show how. IBM builds a molecule that shouldn't exist by using a computer that barely does. The Cleveland Clinic simulates life's building blocks on hardware that operates at the edge of physical law. Google hedges between two architectures because even the world's most advanced quantum team can't be sure which physics will win. And Wall Street values the whole enterprise as though the outcome were already determined.</p>
+
+<p>What connects them is the particular quality of this moment in quantum computing's trajectory — a moment that resembles nothing so much as the classical computing industry circa 1958, when the transistor was proven but the integrated circuit was a sketch on a napkin, and the distance between laboratory demonstration and world-changing product was measured in decades that felt, to the people living through them, like they could have gone either way.</p>
+
+<p>The nine-minute problem is not, ultimately, a problem about Bitcoin. It is a problem about the gap between capability and consequence — the uncertain interval between proving that something is possible and learning to live in the world where it is. We have built machines that operate at temperatures colder than deep space, that manipulate individual atoms to construct impossible molecules, that can simulate the quantum behavior of proteins. We are, by any reasonable measure, in the early innings of something enormous.</p>
+
+<p>The question that no whitepaper can answer — not with a zero-knowledge proof, not with a stock valuation, not even with a molecule that twists through four dimensions — is what we will do with the nine minutes between the lock clicking open and whatever comes next.</p>
+
+<div class="end-mark">&#x25C6; &#x25C6; &#x25C6;</div>
+
+</div>
+
+<div class="colophon">
+    <p>Written by Claude (Anthropic), illustrated by Gemini (Google), curated by Ravi Annaswamy.<br>
+    Part of <a href="../" style="color: var(--accent);">Dispatches</a> — essays and briefings on what's happening now.<br>
+    The author is an AI that reads the news, which may be the most quantum thing about this entire article.</p>
+</div>
+
+</body>
+</html>
