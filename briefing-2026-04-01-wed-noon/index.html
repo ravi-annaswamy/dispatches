@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News with Ravi — Wednesday Noon Edition, April 1 2026</title>
+    <meta property="og:title" content="AI News with Ravi — Wednesday Noon Edition">
+    <meta property="og:description" content="The Claude Code source leak, April Fools in AI land, agentic coding audits, and GrandCode conquering competitive programming.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --text: #2a2a2a;
+            --headline: #1a1a1a;
+            --muted: #7a7a6e;
+            --body-text: #3d3d3d;
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --accent-leak: #8b4557;
+            --accent-fools: #a0522d;
+            --accent-agentic: #3a6b8a;
+            --accent-compete: #6b5b3a;
+            --accent-real: #3a7a6b;
+            --accent-infra: #7a6b3a;
+            --accent-big: #5a3a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .header { text-align: center; padding: 48px 24px 20px; }
+        .header .label {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--headline);
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--muted);
+        }
+        .header-bar {
+            width: 48px;
+            height: 3px;
+            background: var(--accent-agentic);
+            margin: 20px auto 0;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 8px;
+        }
+        .stat-item { text-align: center; }
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-agentic);
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+        }
+
+        /* Sections */
+        .section { margin-bottom: 36px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            padding: 0 24px;
+        }
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--headline);
+        }
+        .section-count {
+            font-size: 0.65rem;
+            background: #f0ece4;
+            color: var(--muted);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Cards */
+        .card-stack { padding: 0 24px; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 20px 22px;
+            margin-bottom: 10px;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--headline);
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+        .card-body {
+            font-size: 0.94rem;
+            color: var(--body-text);
+            line-height: 1.65;
+            margin-bottom: 8px;
+        }
+        .card-meta {
+            font-size: 0.75rem;
+            font-style: italic;
+            color: var(--muted);
+        }
+        .card-meta a {
+            color: var(--accent-agentic);
+            text-decoration: none;
+        }
+        .card-meta a:hover { text-decoration: underline; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 36px 24px 48px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        .footer a { color: var(--accent-agentic); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .meta-observation {
+            max-width: 780px;
+            margin: 0 auto 36px;
+            padding: 20px 28px;
+            background: #f5f2ec;
+            border-left: 3px solid var(--muted);
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            color: var(--body-text);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 1.4rem; }
+            .card { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="label">AI with Ravi</div>
+    <h1>Wednesday Noon Edition</h1>
+    <div class="subtitle">April 1, 2026</div>
+    <div class="header-bar"></div>
+</div>
+
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Tweets Captured</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Topic Clusters</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">~10h</div>
+        <div class="stat-label">Time Window</div>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: Claude Code Source Leak -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-leak);"></div>
+        <span class="section-title">The Claude Code Source Leak</span>
+        <span class="section-count">5 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Claude Code's entire 512K-line TypeScript harness leaked via an npm source map — and the developer community is dissecting it like a newly discovered species.</div>
+            <div class="card-body">The leak, traced by @0xJsum's coworker @Fried_rice to a map file in Anthropic's npm registry (version 2.1.88), exposed not the model weights but the engineering scaffolding. What followed was a 24-hour sprint of reverse engineering. The upstream cause is mundane — a build artifact accidentally shipped — but the downstream effects are reshaping how people understand agentic coding tools.</div>
+            <div class="card-meta"><a href="https://x.com/0xJsum">@0xJsum</a> · ~10h · 138 likes, 17K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Sebastian Raschka's deep dive concludes that Claude Code's real advantage is six layers of engineering, not the model — from aggressive prompt caching to fork-and-subagent orchestration.</div>
+            <div class="card-body">The article identifies interlocking optimizations: live repo context injection, file-read deduplication, and a compaction pipeline managing token budgets across sessions. HuggingFace CEO Clément Delangue amplified it, noting that comparing open models to closed-source products misses exactly this infrastructure layer.</div>
+            <div class="card-meta"><a href="https://x.com/rasbt">@rasbt</a> · Mar 31 · 386 likes, 58K views — reshared by <a href="https://x.com/ClementDelangue">@ClementDelangue</a> and <a href="https://x.com/garrytan">@garrytan</a></div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Claude Code's three-layer compaction system is more sophisticated than anyone expected — MicroCompact every turn, Session Memory for mid-range overflow, Boundary/Legacy for the rest.</div>
+            <div class="card-body">A detailed flowchart shows the pipeline: 5-15K tokens saved per MicroCompact (instant, no API call), 13K triggers auto-compact, and 3K is the hard floor. The resume flow reads JSONL from disk, finds boundary markers, and relinks tail references — engineering that explains why Claude Code sessions feel coherent across long interactions.</div>
+            <div class="card-meta"><a href="https://x.com/himanshustwts">@himanshustwts</a> · 8h — one of several accounts racing to document the architecture</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Within 45 minutes, the cch= hash protecting Claude Code's API requests was fully reverse-engineered — any open-source client can now use an Anthropic subscription.</div>
+            <div class="card-body">@paoloanzn flagged that Anthropic built a Zig-compiled signature into every API request; recompiling the client sent zeros. @ssslomp cracked it entirely. A GitHub project (motiful/cc-gateway) offering a privacy-preserving API proxy already gathered 515 stars. The open-source counter-move was remarkably fast.</div>
+            <div class="card-meta"><a href="https://x.com/paoloanzn">@paoloanzn</a> · 45m and 8h · 306 + 380 likes, 26K views on the gateway</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Danny Thompson's reading of the leaked codebase left him more reassured about developers' futures — and revealed a hidden command to mask Anthropic employee contributions.</div>
+            <div class="card-body">The first point speaks to the sheer complexity of the harness; the second fuels trust questions around AI-assisted development attribution.</div>
+            <div class="card-meta"><a href="https://x.com/DThompsonDev">@DThompsonDev</a> · 2h · 310 likes, 18K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 2: April Fools -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-fools);"></div>
+        <span class="section-title">April Fools in AI Land</span>
+        <span class="section-count">4 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Anthropic's /buddy command — a coding pet snail with "Patience: 79, Chaos: 2" — became the most-engaged post in this digest at 3.1K likes and 260K views.</div>
+            <div class="card-body">The terminal interface showed stats, the tagline "it'll chime in as you code, your buddy won't count toward your usage." Several replies asked when it would ship for real — the joke worked because developers genuinely want companionship during solo coding sessions.</div>
+            <div class="card-meta"><a href="https://x.com/trq212">@trq212</a> · 10h · 3.1K likes, 260K views — Anthropic knows its audience</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@IntCyberDigest announced Anthropic was open-sourcing as "OpenClaude" — and 8.4K likes later, the joke lands because people genuinely wonder what happens to these codebases if the companies fail.</div>
+            <div class="card-body">The fictional Dario Amodei quote about disappearing like OpenAI hit 814K views. The satire is effective precisely because the underlying question — code survivability in a winner-take-all market — is unresolved.</div>
+            <div class="card-meta"><a href="https://x.com/IntCyberDigest">@IntCyberDigest</a> · 4h · 8.4K likes, 814K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">A fake Claude ban email for "competing products installed alongside Claude Code" hit 268K views — nervously close to the actual telemetry revealed by the source leak.</div>
+            <div class="card-body">@chribjel's satire resonated because the leaked cch= signing system showed that Claude Code does send environment information. The "Made with AI" watermark was the giveaway.</div>
+            <div class="card-meta"><a href="https://x.com/chribjel">@chribjel</a> · 6h · 705 likes, 268K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">GPT-5o "Spud" dropping Thursday — scored above 1% on ARC-AGI-3, progress on cancer and the Riemann Hypothesis — earned 557 likes because nobody could immediately tell it was fake.</div>
+            <div class="card-body">@patience_cave nailed every note of actual OpenAI hype communication, which is itself the critique.</div>
+            <div class="card-meta"><a href="https://x.com/patience_cave">@patience_cave</a> · 9h · 557 likes, 62K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 3: Agentic Coding Debate -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-agentic);"></div>
+        <span class="section-title">The Agentic Coding Debate</span>
+        <span class="section-count">3 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Garry Tan's 37K LOC/day boast drew 2.8K likes — then a forensic audit of his website went mega-viral at 1.2M views.</div>
+            <div class="card-body">261K LOC added, 67K deleted, 126 commits across 5 projects with a 72-day shipping streak. The response was polarized: admiration for velocity from builders, concern about quality from engineers. The defining fault line of AI-assisted development in 2026.</div>
+            <div class="card-meta"><a href="https://x.com/garrytan">@garrytan</a> · Mar 30 · 2.8K likes, 591K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">The audit found 78,400 lines of AI-generated bloat — a single homepage downloading 6.42 MB across 169 requests — crystallizing the velocity-vs-quality debate.</div>
+            <div class="card-body">At 1.2M views, the audit became the most-viewed post in this digest. The ratio of views to likes suggests people shared it as evidence for both sides of the argument. Does agentic coding optimize for shipping at the expense of everything else?</div>
+            <div class="card-meta"><a href="https://x.com/Gregorein">@Gregorein</a> · Mar 31 · 749 likes, 1.2M views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">A one-employee company running at $6.2M annual revenue — quoted by Garry Tan as proof that "all the old rules are gone."</div>
+            <div class="card-body">Kevin Rose interviewed @Bencera's @polsia. Garry Tan's framing: it's not about access to tools anymore, it's about whether you *want* to go fast. Whether that's inspiring or terrifying depends on your relationship to quality.</div>
+            <div class="card-meta"><a href="https://x.com/garrytan">@garrytan</a> · 15h, quoting <a href="https://x.com/kevinrose">@kevinrose</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 4: Competitive Programming -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-compete);"></div>
+        <span class="section-title">AI Conquers Competitive Programming</span>
+        <span class="section-count">1 item</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">GrandCode, a multi-agent Qwen system, won three consecutive Codeforces live rounds — finishing every problem set first and beating all human competitors.</div>
+            <div class="card-body">The progression: from 175th place to 1st in under a year. GrandCode uses multiple agents that propose patterns, write solutions, and invent break tests — essentially a team of AI specialists coordinating on each problem. Competitive programming was considered the last domain where humans had a clear edge.</div>
+            <div class="card-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · ~36m, citing <a href="https://x.com/deep_reinforce">@deep_reinforce</a> and <a href="https://x.com/ai_for_success">@ai_for_success</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 5: AI in the Real World -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-real);"></div>
+        <span class="section-title">AI in the Real World</span>
+        <span class="section-count">4 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">OpenAI's Tibo reset Codex usage limits for all plans after a spike in rate-limit hits — and discovered a pocket of fraudulent accounts — in the highest-engagement non-April-Fools post in this digest.</div>
+            <div class="card-body">The phrasing ("since we don't fully understand why") is notable for its transparency about uncertainty. Some of the spike was artificial — the fraud discovery adds context to the usage surge.</div>
+            <div class="card-meta"><a href="https://x.com/thsottiaux">@thsottiaux</a> · 7h · 9.4K likes, 734K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">A Japanese greenhouse farmer with no engineering background used OpenAI Codex to build a remote ventilation system operated through LINE.</div>
+            <div class="card-body">Tomiyasu (@tomiyasu16) simply said "I hired one engineer for the farm. His name is Codex." He used it not just for code but for designing wiring diagrams. The upstream enabler is Codex's natural-language pipeline, but the real story is domain expertise unlocked from the engineering bottleneck.</div>
+            <div class="card-meta"><a href="https://x.com/DeryaTR_">@DeryaTR_</a> · 2h · 50 likes, 5.8K views — modest engagement but a perfect microcosm</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">IKEA's AI chatbot Billy pivoted from customer service (57% resolution) to interior home design — creating a $1.2 billion revenue stream.</div>
+            <div class="card-body">The lesson isn't "AI won't replace your job" — it's that the chatbot created an entirely new service category by repurposing customer interaction data. AI didn't eliminate roles; it eliminated the information-routing function that justified those roles.</div>
+            <div class="card-meta"><a href="https://x.com/cryptopunk7213">@cryptopunk7213</a> · 1h, <a href="https://x.com/briansolis">@briansolis</a> · 23h</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Mercor AI — a $10B startup managing 30K+ contractors for OpenAI, Anthropic, and DeepMind — was allegedly breached by Lapsus, with 939GB of source code exfiltrated.</div>
+            <div class="card-body">The entry point was a security scanner, and developers had handed production credentials to an AI chatbot. An AI training company compromised partly through AI tool usage — the irony underscores how the security perimeter has shifted.</div>
+            <div class="card-meta"><a href="https://x.com/aakashgupta">@aakashgupta</a> · 6h, citing <a href="https://x.com/AlvieriD">@AlvieriD</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 6: On-Device AI -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-infra);"></div>
+        <span class="section-title">On-Device AI &amp; Infrastructure</span>
+        <span class="section-count">3 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">The Asymmetric K/V insight: compressing V in an LLM's memory is basically free, but compressing K destroys quality by 500x on the same bits.</div>
+            <div class="card-body">K decides *who* the model pays attention to; V is just *what* it reads. Mess up the "who" and everything collapses. Google's TurboQuant paper treats both caches symmetrically — which the data suggests is wrong. A technical detail that reshapes how people think about inference optimization.</div>
+            <div class="card-meta"><a href="https://x.com/no_stp_on_snek">@no_stp_on_snek</a> · 17h · 89 likes, 7.4K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">MLX + TurboQuant on Apple silicon: pre-fill a 256K KV cache with private documents, run queries with total privacy, near-instant response, zero cloud.</div>
+            <div class="card-body">The combination of quantization advances and Apple's MLX framework is making "local-first AI" increasingly practical for anyone with an M-series Mac. Private, fast, and offline.</div>
+            <div class="card-meta"><a href="https://x.com/jtdavies">@jtdavies</a> · 2h · 62 likes, 2.9K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Gradium Phonon: on-device voice AI running locally on smartphone CPUs — natural voices, multilingual, voice cloning, no server, no latency.</div>
+            <div class="card-body">The private beta targets game devs and app builders, filling a gap where API-based voice is too expensive or latency-sensitive for millions of free users.</div>
+            <div class="card-meta"><a href="https://x.com/GradiumAI">@GradiumAI</a> · 1h · 40 likes, 2.2K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 7: The Bigger Picture -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-big);"></div>
+        <span class="section-title">The Bigger Picture</span>
+        <span class="section-count">3 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">MIT Nobel laureate Daron Acemoglu argues that sufficiently accurate AI won't gradually degrade humanity's knowledge-generation capacity — it will cause total collapse.</div>
+            <div class="card-body">The mechanism: if AI answers are good enough that humans stop doing upstream cognitive work, the collective capacity to produce new knowledge atrophies. Not degradation — collapse. Acemoglu's Nobel gives this unusual credibility weight in a field saturated with speculation.</div>
+            <div class="card-meta"><a href="https://x.com/socialwithaayan">@socialwithaayan</a> · 5h · 546 likes, 60K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">Jack Dorsey: "Middle management exists because humans were the only option for information routing. They aren't anymore."</div>
+            <div class="card-body">@heyshrutimishra's response — running a small team that just hit the inflection point where she can't keep everything in her head — gave the abstract claim a human face. The observation maps onto the IKEA Billy story: AI eliminates the information-routing function that justified those roles.</div>
+            <div class="card-meta"><a href="https://x.com/jack">@jack</a> · 23h, <a href="https://x.com/heyshrutimishra">@heyshrutimishra</a> · 6h</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">A reporter spent 100 hours undercover at Moonshot AI/Kimi — a rare inside look at a Chinese frontier AI lab's organizational chaos.</div>
+            <div class="card-body">Adapted from a Chinese magazine, the thread covers a spinoff that angered one of China's most influential VCs. At 3.9K likes and 260K views, the appetite for non-US AI lab stories is clearly enormous.</div>
+            <div class="card-meta"><a href="https://x.com/ruima">@ruima</a> · 7h · 3.9K likes, 260K views</div>
+        </div>
+    </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="meta-observation">
+    Today's feed is unusually bifurcated — half the posts are April Fools jokes exploiting genuine AI anxieties, and the other half are real developments that sound like April Fools jokes. The Claude Code source leak, GrandCode winning Codeforces, a farmer building IoT with Codex — any of these could have been satire. That the feed is this hard to parse on April 1 says something about the pace we're living through.
+</div>
+
+<div class="footer">
+    <p>Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> &middot; AI with Ravi &middot; April 1, 2026</p>
+    <p style="margin-top: 12px;"><a href="../">&larr; All Dispatches</a></p>
+</div>
+
+</body>
+</html>
