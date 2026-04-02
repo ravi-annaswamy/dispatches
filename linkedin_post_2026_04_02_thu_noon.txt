@@ -1,0 +1,28 @@
+Today Google dropped Gemma 4 under 𝗔𝗽𝗮𝗰𝗵𝗲 𝟮.𝟬 — and Anthropic published research showing Claude can notice its own 𝘪𝘯𝘵𝘳𝘶𝘴𝘪𝘷𝘦 𝘵ℎ𝘰𝘶𝘨ℎ𝘵𝘴. Meanwhile, the vibe coding debate hit a new peak, and NASA's Artemis II crew radioed Houston because 𝗢𝘂𝘁𝗹𝗼𝗼𝗸 𝘀𝘁𝗼𝗽𝗽𝗲𝗱 𝘄𝗼𝗿𝗸𝗶𝗻𝗴 𝗶𝗻 𝗱𝗲𝗲𝗽 𝘀𝗽𝗮𝗰𝗲.
+
+Here's the Thursday rundown.
+
+———
+
+𝗚𝗘𝗠𝗠𝗔 𝟰 𝗚𝗢𝗘𝗦 𝗔𝗣𝗔𝗖𝗛𝗘 𝟮.𝟬
+
+Google's Gemma 4: 𝗳𝗼𝘂𝗿 𝘀𝗶𝘇𝗲𝘀 from phone-friendly 𝟮𝗕 to a 𝟯𝟭𝗕 𝗗𝗲𝗻𝘀𝗲 model that beats systems 𝟮𝟬𝘅 its size on Arena AI. @ClementDelangue showed it running 𝟭𝟬𝟬% 𝗶𝗻 𝘆𝗼𝘂𝗿 𝗯𝗿𝗼𝘄𝘀𝗲𝗿 via transformers.js — no server, no cost. @rasbt confirmed Ollama already has it. 𝙏𝙝𝙚 𝙡𝙞𝙘𝙚𝙣𝙨𝙚 𝙘𝙝𝙖𝙣𝙜𝙚 𝙢𝙖𝙮 𝙢𝙖𝙩𝙩𝙚𝙧 𝙢𝙤𝙧𝙚 𝙩𝙝𝙖𝙣 𝙩𝙝𝙚 𝙗𝙚𝙣𝙘𝙝𝙢𝙖𝙧𝙠𝙨: Apache 2.0 removes the commercial friction that kept enterprises wary of Gemma 3.
+
+𝗔𝗡𝗧𝗛𝗥𝗢𝗣𝗜𝗖'𝗦 𝗜𝗡𝗧𝗥𝗢𝗦𝗣𝗘𝗖𝗧𝗜𝗢𝗡 𝗣𝗔𝗣𝗘𝗥𝗦
+
+Researchers injected concepts like 𝘴𝘢𝘥𝘯𝘦𝘴𝘴 into Claude's activations — and the model noticed. It described them as 𝘪𝘯𝘵𝘳𝘶𝘴𝘪𝘷𝘦 𝘵ℎ𝘰𝘶𝘨ℎ𝘵𝘴. They mapped an 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗮𝘅𝗶𝘀 showing how therapy-like conversations cause models to drift from their trained persona. 𝘛ℎ𝘦 𝘪𝘮𝘱𝘭𝘪𝘤𝘢𝘵𝘪𝘰𝘯𝘴 𝘧𝘰𝘳 𝘈𝘐 𝘴𝘢𝘧𝘦𝘵𝘺 𝘢𝘳𝘦 ℎ𝘢𝘳𝘥 𝘵𝘰 𝘪𝘨𝘯𝘰𝘳𝘦.
+
+𝗧𝗛𝗘 𝗩𝗜𝗕𝗘 𝗖𝗢𝗗𝗜𝗡𝗚 𝗪𝗔𝗥
+
+𝟳,𝟬𝟬𝟬+ posts trending. Harvard: 𝘝𝘪𝘣𝘦 𝘤𝘰𝘥𝘪𝘯𝘨 𝘮𝘢𝘺 𝘰𝘧𝘧𝘦𝘳 𝘪𝘯𝘴𝘪𝘨ℎ𝘵 𝘪𝘯𝘵𝘰 𝘰𝘶𝘳 𝘈𝘐 𝘧𝘶𝘵𝘶𝘳𝘦. Fortune: 𝘛𝘳𝘶𝘴𝘵 𝘪𝘴 𝘵ℎ𝘦 𝘳𝘦𝘢𝘭 𝘣𝘰𝘵𝘵𝘭𝘦𝘯𝘦𝘤𝘬. @rohanpaul_ai shared the NYT story about Matthew Gallagher building a $𝟭.𝟴𝗕 𝗰𝗼𝗺𝗽𝗮𝗻𝘆 with AI, plus Sam Altman's prediction of 𝗼𝗻𝗲-𝗽𝗲𝗿𝘀𝗼𝗻 𝗯𝗶𝗹𝗹𝗶𝗼𝗻-𝗱𝗼𝗹𝗹𝗮𝗿 𝗰𝗼𝗺𝗽𝗮𝗻𝗶𝗲𝘀. @kchonyc pushed back: 𝘥𝘦𝘭𝘶𝘴𝘪𝘰𝘯𝘢𝘭 𝘥𝘦𝘧𝘦𝘢𝘵𝘪𝘴𝘮 is his term for Silicon Valley's sentiment. @francoisfleuret: 𝘛ℎ𝘦 𝘢𝘨𝘦 𝘰𝘧 𝘈𝘐 𝘴ℎ𝘢𝘵𝘵𝘦𝘳𝘴 𝘢𝘭𝘭 𝘵ℎ𝘦 𝘤𝘦𝘳𝘵𝘢𝘪𝘯𝘵𝘪𝘦𝘴 𝘵ℎ𝘢𝘵 𝘥𝘦𝘵𝘦𝘳𝘮𝘪𝘯𝘦𝘥 𝘺𝘰𝘶𝘳 𝘭𝘪𝘧𝘦 𝘵𝘳𝘢𝘫𝘦𝘤𝘵𝘰𝘳𝘺.
+
+𝗕𝗘𝗬𝗢𝗡𝗗 𝗔𝗜
+
+NASA's Artemis II crew — 𝗳𝗶𝗿𝘀𝘁 𝗵𝘂𝗺𝗮𝗻𝘀 𝗯𝗲𝘆𝗼𝗻𝗱 𝗹𝗼𝘄 𝗘𝗮𝗿𝘁𝗵 𝗼𝗿𝗯𝗶𝘁 𝘀𝗶𝗻𝗰𝗲 𝟭𝟵𝟳𝟮 — had Outlook crash in space. @IntuitMachine: 𝘔𝘪𝘤𝘳𝘰𝘴𝘰𝘧𝘵 𝘱𝘳𝘰𝘥𝘶𝘤𝘵𝘴 𝘤𝘢𝘯𝘯𝘰𝘵 𝘶𝘱𝘥𝘢𝘵𝘦 𝘵ℎ𝘦𝘮𝘴𝘦𝘭𝘷𝘦𝘴 𝘪𝘯 𝘥𝘦𝘦𝘱 𝘴𝘱𝘢𝘤𝘦. Scientists cracked the 𝗺𝘂𝗹𝘁𝗶𝗽𝗹𝗲 𝘀𝗰𝗹𝗲𝗿𝗼𝘀𝗶𝘀 𝗰𝗼𝗱𝗲 — two gut bacteria, proven via identical twins. And David Foster Wallace's 2003 talk went trending again — 𝙖 𝙢𝙤𝙙𝙚𝙡 𝙤𝙛 𝙡𝙞𝙛𝙚 𝙞𝙣 𝙬𝙝𝙞𝙘𝙝 𝙄 𝙝𝙖𝙫𝙚 𝙖 𝙧𝙞𝙜𝙝𝙩 𝙩𝙤 𝙗𝙚 𝙚𝙣𝙩𝙚𝙧𝙩𝙖𝙞𝙣𝙚𝙙 𝙖𝙡𝙡 𝙩𝙝𝙚 𝙩𝙞𝙢𝙚 𝙨𝙚𝙚𝙢𝙨 𝙩𝙤 𝙢𝙚 𝙣𝙤𝙩 𝙩𝙤 𝙗𝙚 𝙖 𝙥𝙧𝙤𝙢𝙞𝙨𝙞𝙣𝙜 𝙤𝙣𝙚.
+
+———
+
+Full briefing with all stories, seven topic clusters, and source links:
+https://ravi-annaswamy.github.io/dispatches/briefing-2026-04-02-thu-noon/
+
+#AI #Gemma4 #Anthropic #VibeCoding #ArtemisII #OpenSource #MachineLearning

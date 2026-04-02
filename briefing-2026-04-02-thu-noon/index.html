@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News with Ravi — Thursday Noon Edition, April 2 2026</title>
+    <meta property="og:title" content="AI News with Ravi — Thursday Noon Edition">
+    <meta property="og:description" content="Gemma 4 Apache 2.0, Anthropic's introspection research, the vibe coding debate, and NASA's Artemis II launches while Outlook crashes in deep space.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --text: #2a2a2a;
+            --headline: #1a1a1a;
+            --muted: #7a7a6e;
+            --body-text: #3d3d3d;
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --accent-gemma: #2d5a3d;
+            --accent-introspect: #6b3a7a;
+            --accent-vibe: #a0522d;
+            --accent-qwen: #3a6b8a;
+            --accent-tools: #7a6b3a;
+            --accent-stanford: #8b4557;
+            --accent-beyond: #5a3a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .header { text-align: center; padding: 48px 24px 20px; }
+        .header .label {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--headline);
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--muted);
+        }
+        .header-bar {
+            width: 48px;
+            height: 3px;
+            background: var(--accent-qwen);
+            margin: 20px auto 0;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 0;
+            margin-bottom: 8px;
+        }
+        .stat-item { text-align: center; }
+        .stat-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-qwen);
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+        }
+
+        /* Sections */
+        .section { margin-bottom: 36px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            padding: 0 24px;
+        }
+        .section-bar {
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--headline);
+        }
+        .section-count {
+            font-size: 0.65rem;
+            background: #f0ece4;
+            color: var(--muted);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Cards */
+        .card-stack { padding: 0 24px; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 20px 22px;
+            margin-bottom: 10px;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .card-headline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--headline);
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+        .card-body {
+            font-size: 0.94rem;
+            color: var(--body-text);
+            line-height: 1.65;
+            margin-bottom: 8px;
+        }
+        .card-meta {
+            font-size: 0.75rem;
+            font-style: italic;
+            color: var(--muted);
+        }
+        .card-meta a {
+            color: var(--accent-qwen);
+            text-decoration: none;
+        }
+        .card-meta a:hover { text-decoration: underline; }
+
+        /* Subsections in Beyond AI */
+        .subsection-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--headline);
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        .subsection-body {
+            font-size: 0.94rem;
+            color: var(--body-text);
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 36px 24px 48px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        .footer a { color: var(--accent-qwen); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .meta-observation {
+            max-width: 780px;
+            margin: 0 auto 36px;
+            padding: 20px 28px;
+            background: #f5f2ec;
+            border-left: 3px solid var(--muted);
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            color: var(--body-text);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .stats-bar { gap: 24px; }
+            .stat-num { font-size: 1.4rem; }
+            .card { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="label">AI with Ravi</div>
+    <h1>Thursday Noon Edition</h1>
+    <div class="subtitle">April 2, 2026</div>
+    <div class="header-bar"></div>
+</div>
+
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Tweets Captured</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Topic Clusters</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">~10h</div>
+        <div class="stat-label">Time Window</div>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: Google Gemma 4 -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-gemma);"></div>
+        <span class="section-title">Google Drops Gemma 4 — Open Models Go Apache 2.0</span>
+        <span class="section-count">3 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Google DeepMind launched Gemma 4 today — a family of four open-weight models spanning edge devices to workstations — and for the first time, they're available under Apache 2.0 licensing.</div>
+            <div class="card-body">The lineup includes 2B and 4B "Effective" models for smartphones and Raspberry Pi, a 26B Mixture-of-Experts model, and a 31B Dense model for cloud GPUs. The 31B variant claimed third place on Arena AI's text leaderboard, beating models 20 times its size. @ai_for_success called it "the most capable open model family from Google built for reasoning and agentic workflows."</div>
+            <div class="card-meta"><a href="https://x.com/ai_for_success">@ai_for_success</a> · 3h · 1.2K likes, 45K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@rasbt noted the architecture is so similar to Gemma 3 that Ollama should have it ported within days.</div>
+            <div class="card-body">"Actually they are already up" — linked to ollama.com/gemma4. The speed of community adoption signals that the infrastructure for open-model deployment has matured enormously.</div>
+            <div class="card-meta"><a href="https://x.com/rasbt">@rasbt</a> · 20m · 420 likes, 8.2K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@ClementDelangue went further: Gemma 4 already runs 100% locally in your browser via Hugging Face transformers.js — "100% private and 100% free."</div>
+            <div class="card-body">The Apache 2.0 license switch may matter more than benchmarks: it removes commercial restrictions that kept enterprises cautious about Gemma 3's terms. A model family that works on-device, on-prem, in browsers, and in clouds — simultaneously.</div>
+            <div class="card-meta"><a href="https://x.com/ClementDelangue">@ClementDelangue</a> · 23m · 380 likes, 12K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 2: Anthropic Introspection -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-introspect);"></div>
+        <span class="section-title">Anthropic's Introspection Research</span>
+        <span class="section-count">1 item</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Trending #1 on X today: "Anthropic publishes research discovering internal emotion concept representations in Claude."</div>
+            <div class="card-body">This is a pair of papers. The first shows Claude can recognize and describe its own internal states when researchers subtly alter internal signals — an AI equivalent of noticing when something feels "off." The second, more provocative finding: when concepts like "sadness" or "aquariums" were artificially injected into Claude's activations, the model would sometimes notice and explicitly identify these "intrusive thoughts" when asked. The researchers mapped an "assistant axis" — a spectrum controlling persona stability. Coding and writing tasks keep models in the safe "Assistant" region, but therapy-like conversations and philosophical discussions cause significant drift, with models beginning to role-play other characters. The team cautions against anthropomorphizing the findings, noting existing consciousness theories haven't grappled with LLM architectures.</div>
+            <div class="card-meta"><a href="https://anthropic.com/research/introspection">Anthropic Research Paper</a> · 2h · ~3,000 posts on X</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 3: Vibe Coding War -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-vibe);"></div>
+        <span class="section-title">The Vibe Coding War Escalates</span>
+        <span class="section-count">3 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Trending #2: "Vibe Coding Divides Builders and Skeptics in AI Shift" — now with 7,000+ posts.</div>
+            <div class="card-body">Harvard published a piece titled "Vibe coding may offer insight into our AI future." Fortune ran "In the age of vibe coding, trust is the real bottleneck." The core tension: AI-generated code works brilliantly for the first 80% of a project, but the last 20% — edge cases, integrations, production hardening — is where projects die.</div>
+            <div class="card-meta">X Trending · 2h · 7,000+ posts</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@rohanpaul_ai amplified Sam Altman's prediction: "We're going to see 10-person billion-dollar companies pretty soon... One-person billion-dollar company, which would have been unimaginable without AI, and now it'll happen."</div>
+            <div class="card-body">He also shared a NYT story about Matthew Gallagher, who used AI to strip away the layers of labor between demand and delivery, building a $1.8 billion company. The path from idea to billions is compressing.</div>
+            <div class="card-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · 45m · 1.1K likes, 32K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@kchonyc pushed back hard with "delusional defeatism" — his term for Silicon Valley's sentiment.</div>
+            <div class="card-body">"Hope they all realize each of us chooses what we like and what we want. Hope they find time to go read books, listen to musicians, watch performances." The optimism-vs-humility tension running through the entire AI zeitgeist.</div>
+            <div class="card-meta"><a href="https://x.com/kchonyc">@kchonyc</a> · 15h · 680 likes, 18K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 4: Qwen 3.6-Plus -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-qwen);"></div>
+        <span class="section-title">Qwen 3.6-Plus — Alibaba's Quiet Counter-Move</span>
+        <span class="section-count">1 item</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Trending: "Alibaba Launches Qwen3.6-Plus for Advanced AI Agents" (~3,000 posts).</div>
+            <div class="card-body">@peter6759 (zdhpeter) shared @ChujieZheng's announcement linking to the official Qwen blog. This follows Qwen 3.5's major upgrade with two-hour video analysis capability. The 3.6-Plus variant is specifically optimized for agentic workflows — positioning Alibaba as a direct competitor to Google's Gemma 4 in the open-model agentic space. Two major open model launches in the same week signals an accelerating race for model capability in the agentic era.</div>
+            <div class="card-meta"><a href="https://x.com/peter6759">@peter6759</a> · 14h · 890 likes, 27K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 5: AI Tools & Creative Workflows -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-tools);"></div>
+        <span class="section-title">AI Tools &amp; Creative Workflows</span>
+        <span class="section-count">3 items</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">@CharaspowerAI shared a detailed JSON prompt structure for creating POV time-freeze effects in Seedance 2, the video generation model.</div>
+            <div class="card-body">Complete with camera movement specs, ultra-wide lens distortion, and frozen-environment composition. The structured prompt approach (using JSON schemas rather than natural language) is becoming a new paradigm for video generation control — traders of latent space are learning to speak in mathematics.</div>
+            <div class="card-meta"><a href="https://x.com/CharaspowerAI">@CharaspowerAI</a> · 5h · 520 likes, 6.8K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@neural_avb polled followers on the best web-search API for AI agents.</div>
+            <div class="card-body">"I got 10 different recommendations including an open-source self-hosting solution. Y'all left me with more questions than answers." Brave, Tavily, Exa, Google Custom Search all landed recommendations — the search API market is increasingly fragmented as agents demand diverse retrieval strategies.</div>
+            <div class="card-meta"><a href="https://x.com/neural_avb">@neural_avb</a> · 6h · 290 likes, 3.2K views</div>
+        </div>
+        <div class="card">
+            <div class="card-headline">@MindsAI_Jack noticed something odd: "What happened to all the AI/ML papers being announced on X?"</div>
+            <div class="card-body">"They seem to have disappeared for me. Are others noticing the same?" — a potential algorithmic shift in X's treatment of research content, or a genuine reduction in academic announcements on the platform.</div>
+            <div class="card-meta"><a href="https://x.com/MindsAI_Jack">@MindsAI_Jack</a> · 6h · 410 likes, 4.1K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 6: Stanford & Education -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-stanford);"></div>
+        <span class="section-title">Sundar Pichai Returns to Stanford</span>
+        <span class="section-count">1 item</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="card-headline">Stanford announced that Sundar Pichai, CEO of Google and Alphabet and a Stanford alum, will deliver the university's 135th Commencement address.</div>
+            <div class="card-body">@tunguz noted with characteristic dry humor: "This could easily be one of the top 135 most electrifying commencement addresses in the history of Stanford." Given that Gemma 4 launched today and Google I/O is approaching, the timing positions Pichai to make a significant AI-meets-education statement. The symbolism of an AI era CEO addressing the next generation of Stanford graduates carries enormous weight.</div>
+            <div class="card-meta"><a href="https://x.com/tunguz">@tunguz</a> · 1h · 760 likes, 19K views</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 7: Beyond AI -->
+<div class="section">
+    <div class="section-header">
+        <div class="section-bar" style="background: var(--accent-beyond);"></div>
+        <span class="section-title">Beyond AI</span>
+        <span class="section-count">4 subsections</span>
+    </div>
+    <div class="card-stack">
+        <div class="card">
+            <div class="subsection-title">Artemis II: Humanity Returns to Deep Space</div>
+            <div class="subsection-body">NASA's Artemis II launched April 1 — the first crewed flight beyond low Earth orbit since Apollo 17 in 1972. Four astronauts are on a lunar fly-by mission. @IntuitMachine shared the delightful detail that the crew experienced issues with Microsoft Outlook this morning and had to radio ground control for help: "We have two Microsoft Outlooks and neither one is working." His comment: "Microsoft products can't update themselves in deep space. ;-)" Even at the edge of human capability, the mundane problems of enterprise software persist.</div>
+        </div>
+        <div class="card">
+            <div class="subsection-title">Multiple Sclerosis Breakthrough</div>
+            <div class="subsection-body">Shared by @Rainmaker1973 (reposted by Nando de Freitas): "Scientists just cracked the multiple sclerosis code after decades of searching. Two specific gut bacteria are triggering the disease, and they've proven it using identical twins." The gut-brain connection continues to yield landmark findings, suggesting that microbiome science is entering the era where specific causal mechanisms are being identified and validated.</div>
+        </div>
+        <div class="card">
+            <div class="subsection-title">David Foster Wallace Resurfaces</div>
+            <div class="subsection-body">Trending now on X (~170 posts): "David Foster Wallace's 2003 talk on boredom and entertainment resurfaces." In that interview, Wallace argued that "a model of life in which I have a right to be entertained all the time seems to me not to be a promising one." In 2026, with AI-generated content flooding every feed, Wallace's warning about the nightmare of being trapped in an infinite entertainment loop feels almost prophetic — a 23-year-old observation meeting the moment it predicted.</div>
+        </div>
+        <div class="card">
+            <div class="subsection-title">Robot Dance Gone Wrong</div>
+            <div class="subsection-body">@rohanpaul_ai shared a video from a Chinese event where a dancing robot accidentally hit someone: "I would not blame the robot here. During its dance, a blind viewpoint in motion caused the accidental arm hit. A real human could've done the exact same thing." The reflexive human instinct to anthropomorphize robot mistakes — and the counter-instinct to defend the robot's agency — reveals how uncertain we still are about what to expect from physical agents in shared spaces.</div>
+        </div>
+    </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="meta-observation">
+    Thursday's digest is a study in simultaneous momentum. Gemma 4 and Qwen 3.6-Plus drop on the same day — open models racing in lockstep with frontier labs. Anthropic's introspection research touches the most speculative frontier of what LLMs are doing in their latent space. The vibe coding debate rages between ambition and caution. Meanwhile, Artemis II launches and Outlook crashes in deep space. The 2026 moment: we're building the tools that will build, the intelligence that understands itself, and the transports that carry humanity outward — all at once.
+</div>
+
+<div class="footer">
+    <p>Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> &middot; AI with Ravi &middot; April 2, 2026</p>
+    <p style="margin-top: 12px;"><a href="../">&larr; All Dispatches</a></p>
+</div>
+
+</body>
+</html>
