@@ -12,7 +12,7 @@ This inflection point illuminates everything else in today's signal stream.
 
 ### **The Persistence Layer**
 
-@WesRoth reported Anthropic's Conway—a leaked always-on persistent agent platform running Claude Code 24/7, complete with webhooks, Chrome interface, and CNW ZIP extension standards (essentially an app store for agents). Compare this to Gemma's efficiency gains. The compute ceiling and the autonomy floor are converging: you can now run capable agents continuously at lower cost.
+@WesRoth reported Anthropic's Conway—a leaked always-on persistent agent platform running Claude Code 24/7, complete with webhooks, Chrome interface, and CNW ZIP extension standards (essentially an app store for agents). But @maithra_raghu offered a sharp counterpoint: the more capable agents get, the *more* humans we'll need around them—because long-horizon autonomy creates more effort at the handoff points, and the stakes of each autonomous decision rise with capability. The compute ceiling and the autonomy floor are converging, but the human layer isn't going away—it's becoming the critical bottleneck.
 
 ### **The Paradigm Collapse**
 
