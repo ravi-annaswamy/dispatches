@@ -1,0 +1,60 @@
+𝘼𝙄'𝙎 𝘾𝙊𝙈𝙋𝙐𝙏𝙀 𝙋𝙇𝘼𝙏𝙀𝘼𝙐 𝙄𝙎 𝙍𝙀𝙎𝙃𝘼𝙋𝙄𝙉𝙂 𝙀𝙑𝙀𝙍𝙔𝙏𝙃𝙄𝙉𝙂
+
+
+The most striking signal from today's feed: 𝗚𝗼𝗼𝗴𝗹𝗲 𝗮𝗻𝗱 𝗔𝗻𝘁𝗵𝗿𝗼𝗽𝗶𝗰 𝗳𝗶𝗻𝗶𝘀𝗵𝗲𝗱 𝘁𝗿𝗮𝗶𝗻𝗶𝗻𝗴 𝗰𝗮𝗽𝗮𝗯𝗹𝗲 𝗺𝗼𝗱𝗲𝗹𝘀 𝗶𝗻 𝗠𝗮𝗿𝗰𝗵 𝘀𝗶𝗺𝘂𝗹𝘁𝗮𝗻𝗲𝗼𝘂𝘀𝗹𝘆. Not competition. Convergence. According to @AndrewCurran_, this suggests we've hit pure compute saturation—the frontier is no longer about who can run bigger experiments, but who can extract value from what's already been trained.
+
+This inflection point illuminates everything else in today's signal stream.
+
+———
+
+
+𝗧𝗛𝗘 𝗚𝗘𝗠𝗠𝗔 𝗠𝗢𝗠𝗘𝗡𝗧
+
+@fchollet announced Gemma 4 live: four open-weight models under Apache 2.0, with the 𝟯𝟭𝗕 𝘃𝗮𝗿𝗶𝗮𝗻𝘁 𝗿𝗮𝗻𝗸𝗶𝗻𝗴 #𝟯 𝗼𝗻 𝗔𝗿𝗲𝗻𝗮 𝗔𝗜. @demishassabis posted benchmarks showing it beats models 𝟭𝟬𝘅 𝗶𝘁𝘀 𝘀𝗶𝘇𝗲 (log scale). @osanseviero published a visual architecture guide. What matters more than the rankings: @NVIDIA_AI_PC confirmed 𝟮.𝟳𝘅 𝗳𝗮𝘀𝘁𝗲𝗿 inference on RTX with llama.cpp. Translation: 𝘰𝘱𝘦𝘯-𝘸𝘦𝘪𝘨ℎ𝘵 𝘮𝘰𝘥𝘦𝘭𝘴 𝘢𝘳𝘦 𝘯𝘰 𝘭𝘰𝘯𝘨𝘦𝘳 𝘳𝘦𝘴𝘦𝘢𝘳𝘤ℎ 𝘢𝘳𝘵𝘪𝘧𝘢𝘤𝘵𝘴. They're production assets.
+
+———
+
+
+𝗧𝗛𝗘 𝗣𝗘𝗥𝗦𝗜𝗦𝗧𝗘𝗡𝗖𝗘 𝗟𝗔𝗬𝗘𝗥
+
+@WesRoth reported Anthropic's Conway—a leaked always-on persistent agent platform running Claude Code 𝟮𝟰/𝟳, complete with webhooks, Chrome interface, and CNW ZIP extension standards (essentially an app store for agents). Compare this to Gemma's efficiency gains. The compute ceiling and the autonomy floor are converging: you can now run capable agents continuously at lower cost.
+
+———
+
+
+𝗧𝗛𝗘 𝗣𝗔𝗥𝗔𝗗𝗜𝗚𝗠 𝗖𝗢𝗟𝗟𝗔𝗣𝗦𝗘
+
+@emollick declared the RAG era "𝘴ℎ𝘰𝘳𝘵-𝘭𝘪𝘷𝘦𝘥 𝘣𝘶𝘵 𝘪𝘯𝘵𝘦𝘯𝘴𝘦"—no longer the dominant paradigm. 𝗟𝗼𝗻𝗴 𝗰𝗼𝗻𝘁𝗲𝘅𝘁, 𝘁𝗼𝗼𝗹 𝘂𝘀𝗲, 𝗽𝗲𝗿𝘀𝗶𝘀𝘁𝗲𝗻𝘁 𝗺𝗲𝗺𝗼𝗿𝘆 are taking over. This isn't hype cycling. It's physics: 𝘰𝘯𝘤𝘦 𝘮𝘰𝘥𝘦𝘭𝘴 𝘨𝘦𝘵 𝘨𝘰𝘰𝘥 𝘦𝘯𝘰𝘶𝘨ℎ 𝘢𝘯𝘥 𝘪𝘯𝘧𝘦𝘳𝘦𝘯𝘤𝘦 𝘨𝘦𝘵𝘴 𝘤ℎ𝘦𝘢𝘱 𝘦𝘯𝘰𝘶𝘨ℎ, the engineering leverage shifts from retrieval design to orchestration and memory management.
+
+———
+
+
+𝗧𝗛𝗘 𝗗𝗔𝗡𝗚𝗘𝗥 𝗦𝗜𝗚𝗡𝗔𝗟
+
+But convergence breeds recklessness. @levelsio (of $𝟭𝟬𝟬𝗞 𝗠𝗥𝗥 flight sim fame) admitted vibe coding in production is "𝘷𝘦𝘳𝘺 𝘥𝘢𝘯𝘨𝘦𝘳𝘰𝘶𝘴"—literally cutting off database access. @pmarca noted 𝗔𝗜 𝗶𝗻𝗰𝗿𝗲𝗮𝘀𝗲𝘀 𝘄𝗼𝗿𝗸𝗹𝗼𝗮𝗱, not reduces it. @garrytan reposted @elvissun arguing "𝘈𝘐 𝘴𝘭𝘰𝘱" is the inevitable future.
+
+And then: @simonw warned of an Axios supply chain attack. North Korean 𝗨𝗡𝗖𝟭𝟬𝟲𝟵 social-engineered a single npm maintainer, compromised a package with 𝟭𝟬𝟬𝗠+ 𝘄𝗲𝗲𝗸𝗹𝘆 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝘀 in just 𝟯 𝗵𝗼𝘂𝗿𝘀. Cross-platform RAT shipped. 𝘛ℎ𝘦 𝘴𝘱𝘦𝘦𝘥 𝘰𝘧 𝘤𝘰𝘮𝘱𝘳𝘰𝘮𝘪𝘴𝘦 𝘮𝘪𝘳𝘳𝘰𝘳𝘴 𝘵ℎ𝘦 𝘴𝘱𝘦𝘦𝘥 𝘰𝘧 𝘥𝘦𝘱𝘭𝘰𝘺𝘮𝘦𝘯𝘵.
+
+———
+
+
+𝗧𝗛𝗘 𝗘𝗠𝗘𝗥𝗚𝗘𝗡𝗖𝗘
+
+Netflix released VOID—their first open-source model that removes video objects 𝘢𝘯𝘥 𝘵ℎ𝘦𝘪𝘳 𝘱ℎ𝘺𝘴𝘪𝘤𝘢𝘭 𝘪𝘯𝘵𝘦𝘳𝘢𝘤𝘵𝘪𝘰𝘯𝘴 from frames. Beijing E-Town's April 19 half marathon will feature 𝟯𝟬𝟬 𝗵𝘂𝗺𝗮𝗻𝗼𝗶𝗱 𝗿𝗼𝗯𝗼𝘁𝘀 from 𝟮𝟲 𝗯𝗿𝗮𝗻𝗱𝘀 running full 𝟮𝟭𝗸𝗺 with 𝟯𝟴% 𝗮𝘂𝘁𝗼𝗻𝗼𝗺𝗼𝘂𝘀 𝗻𝗮𝘃𝗶𝗴𝗮𝘁𝗶𝗼𝗻. @rohanpaul_ai covered it.
+
+Meanwhile, 𝟯𝟬𝗞 𝗟𝗟𝗠 𝗮𝗴𝗲𝗻𝘁𝘀 formalized mathematics. @FabianGloeckle translated an entire grad textbook to Lean. @drfeifei kicked off the 𝟭𝟭𝘁𝗵 𝘆𝗲𝗮𝗿 of CS231n.
+
+———
+
+
+𝗧𝗛𝗘 𝗨𝗡𝗜𝗙𝗬𝗜𝗡𝗚 𝗧𝗛𝗘𝗦𝗜𝗦
+
+We're not in a race for bigger models anymore. We're in a race for 𝘱𝘦𝘳𝘴𝘪𝘴𝘵𝘦𝘯𝘵, 𝘤ℎ𝘦𝘢𝘱𝘦𝘳, 𝘥𝘦𝘱𝘭𝘰𝘺𝘢𝘣𝘭𝘦 intelligence at scale. The compute ceiling hit simultaneously for two reasons: (𝟭) 𝘀𝗰𝗮𝗹𝗶𝗻𝗴 𝗹𝗮𝘄𝘀 𝗳𝗹𝗮𝘁𝘁𝗲𝗻 𝗽𝗿𝗲𝗱𝗶𝗰𝘁𝗮𝗯𝗹𝘆, and (𝟮) 𝘀𝗼𝗺𝗲𝗼𝗻𝗲 𝗳𝗶𝗻𝗮𝗹𝗹𝘆 𝗯𝘂𝗶𝗹𝘁 𝘁𝗼𝗼𝗹𝘀 𝗴𝗼𝗼𝗱 𝗲𝗻𝗼𝘂𝗴𝗵 to extract value from plateau. Gemma's efficiency, Conway's persistence, and the shift away from RAG aren't separate trends—they're the market solving for the same constraint: 𝙝𝙤𝙬 𝙙𝙤 𝙬𝙚 𝙤𝙥𝙚𝙧𝙖𝙩𝙞𝙤𝙣𝙖𝙡𝙞𝙯𝙚 𝙛𝙧𝙤𝙣𝙩𝙞𝙚𝙧 𝙘𝙖𝙥𝙖𝙗𝙞𝙡𝙞𝙩𝙮 𝙬𝙝𝙚𝙣 𝙨𝙘𝙖𝙡𝙞𝙣𝙜 𝙘𝙤𝙢𝙥𝙪𝙩𝙚 𝙝𝙞𝙩𝙨 𝙙𝙞𝙢𝙞𝙣𝙞𝙨𝙝𝙞𝙣𝙜 𝙧𝙚𝙩𝙪𝙧𝙣𝙨?
+
+The supply chain attack, the vibe coding warnings, the explosion of open models—they're all pressure valves on the same bottleneck.
+
+𝙒𝙚'𝙫𝙚 𝙚𝙣𝙩𝙚𝙧𝙚𝙙 𝙩𝙝𝙚 𝙚𝙧𝙖 𝙤𝙛 𝙤𝙧𝙘𝙝𝙚𝙨𝙩𝙧𝙖𝙩𝙞𝙤𝙣, 𝙣𝙤𝙩 𝙞𝙣𝙣𝙤𝙫𝙖𝙩𝙞𝙤𝙣. And the winners will be whoever can operate fastest at the new ceiling.
+
+Read the full briefing: https://ravi-annaswamy.github.io/dispatches/briefing-2026-04-03-fri-noon/
+
+#AI #GoogleGemma #OpenWeights #AgentArchitecture #ComputeConvergence
