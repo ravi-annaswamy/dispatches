@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI with Ravi — Saturday Evening Edition | April 4, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f4;
+  --card-bg: #ffffff;
+  --card-border: #e8e4dc;
+  --text: #2a2a2a;
+  --headline: #1a1a1a;
+  --muted: #7a7a6e;
+  --link: #3a6b8a;
+  --accent-open: #3a6b8a;
+  --accent-price: #a0522d;
+  --accent-anthropic: #8b4557;
+  --accent-gpt: #6b5b3a;
+  --accent-genai: #3a7a6b;
+  --accent-method: #4a4a7a;
+  --accent-sec: #7a4a4a;
+  --accent-culture: #7a6b3a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  line-height: 1.65;
+  padding: 0;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 40px 24px 60px; }
+
+.header { text-align: center; margin-bottom: 48px; }
+.header-label {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-size: 42px;
+  color: var(--headline);
+  line-height: 1.15;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.header .subtitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.header-divider {
+  width: 48px;
+  height: 4px;
+  background: var(--accent-open);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 48px;
+  padding: 20px 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-open);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.section { margin-bottom: 40px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.section-bar {
+  width: 4px;
+  height: 28px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--headline);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--muted);
+  background: #f0ede7;
+  padding: 2px 10px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.item-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.2s;
+}
+.item-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.item-headline {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--headline);
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+.item-body {
+  font-size: 15px;
+  color: #3d3d3d;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.item-meta {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+}
+.item-meta a {
+  color: var(--link);
+  text-decoration: none;
+}
+.item-meta a:hover { text-decoration: underline; }
+
+.meta-observation {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  padding: 16px 24px;
+  border-left: 3px solid var(--card-border);
+  margin: 20px 0 40px;
+  line-height: 1.6;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 13px;
+}
+.footer a {
+  color: var(--link);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+.back-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px 40px; }
+  .header h1 { font-size: 32px; }
+  .stats-bar { gap: 24px; }
+  .stat-num { font-size: 24px; }
+  .section-title { font-size: 18px; }
+  .item-headline { font-size: 15px; }
+  .item-body { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-label">AI with Ravi</div>
+  <h1>Saturday Evening Edition</h1>
+  <div class="subtitle">April 4, 2026</div>
+  <div class="header-divider"></div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">52</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Topics</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">~24h</div>
+    <div class="stat-label">Window</div>
+  </div>
+</div>
+
+<!-- SECTION: The Open-Source Undertow -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-open);"></div>
+    <div class="section-title">The Open-Source Undertow</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">AVB: open-weight Qwen, Minimax M-2.5, GLM-5, and Kimi K2.5 are tracking GPT 5.4, Opus 4.6, and Gemini 3.1 at 2–10x lower cost.</div>
+    <div class="item-body">His closing line is the one that will circulate: "Idk how long closed source can keep any moat besides marketing budget." Landing in the same week Google shipped Gemma 4 under Apache 2.0, the framing isn't hype — it's the cumulative weight of a month of open releases finally closing the price-per-token gap on frontier tasks.</div>
+    <div class="item-meta"><a href="https://x.com/neural_avb">@neural_avb</a> · 1h · 21:49 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Matt Hartman published a step-by-step guide to "liberate your OpenClaw" using Hugging Face inference providers.</div>
+    <div class="item-body">Essentially a recipe for pointing the open-source agent framework away from default cloud endpoints and onto user-controlled models. Reflects a broader trend: open-weight models paired with open agent frameworks eliminate the last layer of vendor lock-in for developers who want full-stack independence.</div>
+    <div class="item-meta"><a href="https://x.com/MattHartman">@MattHartman</a> · 8h · 14:55 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Meta is reportedly forcing its employees to use OpenClaw — free, but "your data is belong to Meta for training purposes."</div>
+    <div class="item-body">Whether or not the policy claim is accurate, the framing is revealing: "open source" has become the new surface for data capture, and the community is starting to distinguish between genuinely liberated tools and ones whose economics quietly redirect user data into proprietary training pipelines. The dark twin of the openness narrative.</div>
+    <div class="item-meta"><a href="https://x.com/peter6759">@peter6759</a> · 22h · 00:04 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: Pricing the Post-Labor Economy -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-price);"></div>
+    <div class="section-title">Pricing the Post-Labor Economy</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Bob McGrew: AI agent startups should not price against human labor — they should track "compute + margin."</div>
+    <div class="item-body">Human lawyers are costly because supply is limited; AI lawyers are effectively unlimited. Pricing against scarce human labor works in the short term, but collapses the moment a competitor runs the same frontier model. The only defensible AI moats are network effects, brand, or economies of scale — not "we replace a $300/hour professional." McGrew's framing is suddenly circulating hard as founders watch Q1 2026 pricing collapses in agent products.</div>
+    <div class="item-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · 11h · 13:51 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Carlos Perez: "You've got to wonder if you're making the wrong move when 99% of the work is delegated to skills-based, agentic AI."</div>
+    <div class="item-body">Read charitably, a challenge to professionals outsourcing their cognition faster than they're building judgment. Read darkly, a prompt to notice how much of knowledge work has already been absorbed — quietly, without headlines — into agent loops that no longer require human orchestration at the step level.</div>
+    <div class="item-meta"><a href="https://x.com/IntuitMachine">@IntuitMachine</a> · 11h · 12:48 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Dominik Lukes: comparing model and human performance on intellectual tasks "is not very useful past a certain threshold — which I think we've mostly reached."</div>
+    <div class="item-body">The bottleneck moves from IQ-on-tasks to judgment-in-context — knowing what to ask, when to trust, when to intervene. This is the more productive version of the McGrew argument: not "humans are obsolete," but "the measurement layer we've been using for two years has exhausted its resolution."</div>
+    <div class="item-meta"><a href="https://x.com/techczech">@techczech</a> · 1h · 22:36 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: The Anthropic Backlash -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-anthropic);"></div>
+    <div class="section-title">The Anthropic Backlash</div>
+    <div class="section-count">2 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Derya TR called Anthropic "actually misanthropic" — "the only AI company I've developed negative feelings toward."</div>
+    <div class="item-body">The post comes in the aftermath of the Claude Code source-code leak and the aggressive takedown effort that followed. Whatever the legal merits, the reputational cost is becoming visible in feeds that were friendly to Anthropic six months ago. This is the other half of the story Gemma 4 told last week: when your competitor's differentiation is <em>openness</em> and yours is <em>enforcement</em>, the market narrative bends.</div>
+    <div class="item-meta"><a href="https://x.com/DeryaTR_">@DeryaTR_</a> · 18h · 04:24 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">XFreeze: Anthropic is "the only company that accidentally leaked their own top-secret code and then aggressively punished their own users for it."</div>
+    <div class="item-body">The post itself reads as polemic, but the sentiment — that Anthropic is attacking its own community in response to its own mistake — has traveled far enough to show up on feeds that aren't usually hostile. Reputation damage in this community compounds quickly because the same people who build on Anthropic's API also write the essays that set discourse for everyone else.</div>
+    <div class="item-meta"><a href="https://x.com/XFreeze">@XFreeze</a> · 28h · Apr 3 18:34 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: GPT 5.4 Discontent -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-gpt);"></div>
+    <div class="section-title">GPT 5.4 Discontent</div>
+    <div class="section-count">1 item</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Josh Shpigford, historically bullish on frontier models, spent three hours with GPT 5.4 and had "absolutely nothing good to say about it."</div>
+    <div class="item-body">No benchmarks, no demo — just a cold developer report from someone who was prepared to like the release. Peter Yang's follow-up "what's so bad about it" is visible enough that it frames the vibes around GPT 5.4's rollout: a premium model that is not obviously better at the things paying users wanted it to do. The contrast with the week's Gemma 4 coverage is not subtle.</div>
+    <div class="item-meta"><a href="https://x.com/Shpigford">@Shpigford</a> · 14h · 12:10 UTC | <a href="https://x.com/petergyang">@petergyang</a> · 14h · 12:52 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: Generative Video & Image -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-genai);"></div>
+    <div class="section-title">Generative Video &amp; Image: The Quality Floor Keeps Rising</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Emily posted the first test from Image Gen V2 — the tone was "this is different."</div>
+    <div class="item-body">Not a benchmark claim, but a user-level reaction that used to take months to build and now shows up within hours of a release. The velocity of the generative-image stack is visibly faster than the generative-text stack at the moment.</div>
+    <div class="item-meta"><a href="https://x.com/IamEmily2050">@IamEmily2050</a> · 2h · 21:07 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Max Escu teased Seedance 2.0 — "wait for it..." — with a prompt-to-video demo that makes the "AI video plateau" take look stale.</div>
+    <div class="item-body">ByteDance's generative video line leaps forward on motion coherence and prompt adherence. The comment section is flooded with replication prompts — users aren't debating quality anymore, they're stress-testing edge cases.</div>
+    <div class="item-meta"><a href="https://x.com/maxescu">@maxescu</a> · 20h · 03:01 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Umesh AI shared a 200+ character cinematic prompt — demonstrating how video-prompt language has stabilized into a genre of its own.</div>
+    <div class="item-body">Part screenplay, part director's note. We're watching the emergence of a new writing craft: six months from now there will be style guides, courses, and prompt libraries for video generation the way there are for SEO and copywriting today.</div>
+    <div class="item-meta"><a href="https://x.com/umesh_ai">@umesh_ai</a> · 8h · 14:42 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: Chart Crimes & Method Notes -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-method);"></div>
+    <div class="section-title">Chart Crimes &amp; Method Notes</div>
+    <div class="section-count">2 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">François Chollet called out a "type of chart crime": plotting timeseries tuples on a 2D scatter as if they were independent samples.</div>
+    <div class="item-body">Temporal autocorrelation magnifies any existing x/y correlation and hides the true variance. Rarely trends but matters enormously in AI paper discourse, where benchmarks are routinely presented with plots that overstate effect size. Chollet's gentle prosecutorial style makes the observation memorable: this isn't a mistake, it's a category of mistake.</div>
+    <div class="item-meta"><a href="https://x.com/fchollet">@fchollet</a> · 4h · 18:26 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Yam Peleg asked his timeline: "Hit me with the craziest LLM discoveries you know."</div>
+    <div class="item-body">A rolling anthology of behavioral quirks, jailbreaks, emergent capabilities, and in-context oddities. Threads like this are one of the most underrated knowledge-capture mechanisms in the field — practitioners share tacit findings too weird, too contingent, or too embarrassing to publish.</div>
+    <div class="item-meta"><a href="https://x.com/Yampeleg">@Yampeleg</a> · 6h · 16:55 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: Security & Supply Chain -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-sec);"></div>
+    <div class="section-title">Security &amp; Supply Chain (The Carry-Over)</div>
+    <div class="section-count">2 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Aakash Gupta re-amplified the UNC1069 attack: "North Korean intelligence agents built an entire fake company to compromise one JavaScript developer. And it worked."</div>
+    <div class="item-body">UNC1069 operators cloned a real founder's identity, built a branded Slack workspace with fake employees, and social-engineered the npm credentials of a maintainer whose package is downloaded 100M+ times per week. The story keeps re-circulating — the weakest link in modern software isn't code, it's the credentials of any single human who publishes on behalf of millions.</div>
+    <div class="item-meta"><a href="https://x.com/aakashgupta">@aakashgupta</a> · 30h · Apr 3 20:57 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">A crypto streamer accidentally displayed his wallet private key on stream — $100,000 was drained in seconds.</div>
+    <div class="item-body">The smaller, more immediate bookend to the UNC1069 story. One is nation-state social engineering against a single person; the other is a single person accidentally broadcasting their own credentials. Both end with assets leaving the victim at machine speed. The gap between "mistake" and "permanent loss" is collapsing.</div>
+    <div class="item-meta"><a href="https://x.com/sciencegirl">@sciencegirl</a> · 13h · 10:12 UTC</div>
+  </div>
+</div>
+
+<!-- SECTION: Culture & Heritage -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-culture);"></div>
+    <div class="section-title">Culture, Heritage &amp; the Feed's Other Life</div>
+    <div class="section-count">3 items</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">T.V. Gopalan on a Siva-Uma sculpture from Thillai Nataraj: "a tiny nod and a ghost of a smile."</div>
+    <div class="item-body">An object lesson in how carefully trained eyes read temple sculpture — not as static iconography, but as emotional narrative compressed into stone. In a feed dominated by AI benchmarks, posts like this are the counterweight that reminds the community what kinds of detail human craftsmanship encodes that no training run has yet approached.</div>
+    <div class="item-meta"><a href="https://x.com/TheGopalan">@TheGopalan</a> · 12h · 12:30 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">yajnshri shared posts on the rare darshan of the 64 Yoginis and the stotra of Bhagwan Bhairav.</div>
+    <div class="item-body">A subset of the feed shows up reliably for heritage and devotion content. The cross-traffic between AI researchers and cultural curators is one of this timeline's quiet signatures — very few feeds hold both audiences without fragmenting.</div>
+    <div class="item-meta"><a href="https://x.com/yajnshri">@yajnshri</a> · 23h · 01:58 &amp; 01:27 UTC</div>
+  </div>
+
+  <div class="item-card">
+    <div class="item-headline">Masaya San on the new Tinariwen album — the Tuareg rock band of Berber descent from Mali.</div>
+    <div class="item-body">Praising the dry Saharan feel and gritty grain of the electric guitar sound, paired with a striking animated promo video. Music posts like this function as the feed's pressure valve: a reminder that the signal isn't only technical, and that the humans curating it have aesthetic lives that don't reduce to benchmarks.</div>
+    <div class="item-meta"><a href="https://x.com/masayasan201911">@masayasan201911</a> · 35h · Apr 3 11:21 UTC</div>
+  </div>
+</div>
+
+<div class="meta-observation">
+A meta-observation: today's feed is unusually reflective. Three of the strongest threads — McGrew on pricing, techczech on benchmarks, Chollet on chart crimes — are all about the inadequacy of the measurement frames we've been using to talk about AI since 2023. The field is quietly passing through a methodological inflection point. The question is no longer "is the model better?" but "better at what, measured how, against what baseline, and for whom?" Answers to the latter won't come from bigger runs — they'll come from more honest plots and more honest prices.
+</div>
+
+<div class="footer">
+  Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> via automated X/Twitter digest
+  <br>
+  <a href="../" class="back-link">&larr; Back to Dispatches</a>
+</div>
+
+</div>
+</body>
+</html>

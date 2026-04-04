@@ -1,0 +1,75 @@
+𝗧𝗛𝗘 𝗠𝗘𝗧𝗛𝗢𝗗𝗢𝗟𝗢𝗚𝗬 𝗥𝗘𝗖𝗞𝗢𝗡𝗜𝗡𝗚: 𝗔𝗜'𝗦 𝗠𝗘𝗔𝗦𝗨𝗥𝗘𝗠𝗘𝗡𝗧 𝗟𝗔𝗬𝗘𝗥 𝗜𝗦 𝗕𝗥𝗘𝗔𝗞𝗜𝗡𝗚
+
+The most striking signal from today's feed isn't a release. It's a 𝘳𝘦𝘧𝘭𝘦𝘤𝘵𝘪𝘰𝘯. Three of the sharpest threads in the last 24 hours — from very different corners — all point at the same thing: 𝘁𝗵𝗲 𝗺𝗲𝗮𝘀𝘂𝗿𝗲𝗺𝗲𝗻𝘁 𝗳𝗿𝗮𝗺𝗲𝘀 𝘄𝗲 𝗵𝗮𝘃𝗲 𝗯𝗲𝗲𝗻 𝘂𝘀𝗶𝗻𝗴 𝘁𝗼 𝘁𝗮𝗹𝗸 𝗮𝗯𝗼𝘂𝘁 𝗔𝗜 𝘀𝗶𝗻𝗰𝗲 𝟮𝟬𝟮𝟯 𝗮𝗿𝗲 𝗲𝘅𝗵𝗮𝘂𝘀𝘁𝗲𝗱.
+
+———
+
+𝗧𝗛𝗘 𝗣𝗥𝗜𝗖𝗜𝗡𝗚 𝗖𝗢𝗟𝗟𝗔𝗣𝗦𝗘
+
+@rohanpaul_ai surfaced a Bob McGrew quote that's suddenly everywhere: 𝗔𝗜 𝗮𝗴𝗲𝗻𝘁 𝘀𝘁𝗮𝗿𝘁𝘂𝗽𝘀 𝘀𝗵𝗼𝘂𝗹𝗱 𝗻𝗼𝘁 𝗽𝗿𝗶𝗰𝗲 𝗮𝗴𝗮𝗶𝗻𝘀𝘁 𝗵𝘂𝗺𝗮𝗻 𝗹𝗮𝗯𝗼𝗿 — 𝘁𝗵𝗲𝘆 𝘀𝗵𝗼𝘂𝗹𝗱 𝘁𝗿𝗮𝗰𝗸 𝗰𝗼𝗺𝗽𝘂𝘁𝗲 + 𝗺𝗮𝗿𝗴𝗶𝗻. Human lawyers are costly because supply is limited. AI lawyers are effectively unlimited. The moment a competitor runs the same frontier model, labor-replacement pricing collapses. McGrew's answer: the only defensible moats are 𝘯𝘦𝘵𝘸𝘰𝘳𝘬 𝘦𝘧𝘧𝘦𝘤𝘵𝘴, 𝘣𝘳𝘢𝘯𝘥, 𝘰𝘳 𝘦𝘤𝘰𝘯𝘰𝘮𝘪𝘦𝘴 𝘰𝘧 𝘴𝘤𝘢𝘭𝘦. His framing is resurfacing now because Q1 2026 is watching agent-product prices fall in real time.
+
+———
+
+𝗧𝗛𝗘 𝗢𝗣𝗘𝗡-𝗦𝗢𝗨𝗥𝗖𝗘 𝗨𝗡𝗗𝗘𝗥𝗧𝗢𝗪
+
+@neural_avb posted the receipts: Qwen, Minimax M-2.5, GLM-5, and Kimi K2.5 are now tracking GPT 5.4, Opus 4.6, and Gemini 3.1 on highest settings — at 𝟮–𝟭𝟬𝘅 𝗹𝗼𝘄𝗲𝗿 𝗰𝗼𝘀𝘁. His closing line will circulate: 𝘐𝘥𝘬 ℎ𝘰𝘸 𝘭𝘰𝘯𝘨 𝘤𝘭𝘰𝘴𝘦𝘥 𝘴𝘰𝘶𝘳𝘤𝘦 𝘤𝘢𝘯 𝘬𝘦𝘦𝘱 𝘢𝘯𝘺 𝘮𝘰𝘢𝘵 𝘣𝘦𝘴𝘪𝘥𝘦𝘴 𝘮𝘢𝘳𝘬𝘦𝘵𝘪𝘯𝘨 𝘣𝘶𝘥𝘨𝘦𝘵.
+
+@MattHartman published a guide to 𝘭𝘪𝘣𝘦𝘳𝘢𝘵𝘦 𝘺𝘰𝘶𝘳 𝘖𝘱𝘦𝘯𝘊𝘭𝘢𝘸 via Hugging Face — pairing open-weight models with open agent frameworks to eliminate the last layer of vendor lock-in. Meanwhile @peter6759 claimed Meta is forcing employees onto OpenClaw, 𝘧𝘳𝘦𝘦, 𝘣𝘶𝘵 𝘺𝘰𝘶𝘳 𝘥𝘢𝘵𝘢 𝘪𝘴 𝘣𝘦𝘭𝘰𝘯𝘨 𝘵𝘰 𝘔𝘦𝘵𝘢 𝘧𝘰𝘳 𝘵𝘳𝘢𝘪𝘯𝘪𝘯𝘨. The dark twin of the openness narrative: open source is becoming the new surface for data capture.
+
+———
+
+𝗧𝗛𝗘 𝗔𝗡𝗧𝗛𝗥𝗢𝗣𝗜𝗖 𝗕𝗔𝗖𝗞𝗟𝗔𝗦𝗛
+
+The Claude Code leak aftermath is still ripening. @DeryaTR_ called Anthropic 𝘢𝘤𝘵𝘶𝘢𝘭𝘭𝘺 𝘮𝘪𝘴𝘢𝘯𝘵ℎ𝘳𝘰𝘱𝘪𝘤 — 𝘵ℎ𝘦 𝘰𝘯𝘭𝘺 𝘈𝘐 𝘤𝘰𝘮𝘱𝘢𝘯𝘺 𝘐 ℎ𝘢𝘷𝘦 𝘥𝘦𝘷𝘦𝘭𝘰𝘱𝘦𝘥 𝘯𝘦𝘨𝘢𝘵𝘪𝘷𝘦 𝘧𝘦𝘦𝘭𝘪𝘯𝘨𝘴 𝘵𝘰𝘸𝘢𝘳𝘥. @XFreeze compressed it further: 𝘵ℎ𝘦 𝘰𝘯𝘭𝘺 𝘤𝘰𝘮𝘱𝘢𝘯𝘺 𝘵ℎ𝘢𝘵 𝘢𝘤𝘤𝘪𝘥𝘦𝘯𝘵𝘢𝘭𝘭𝘺 𝘭𝘦𝘢𝘬𝘦𝘥 𝘵ℎ𝘦𝘪𝘳 𝘰𝘸𝘯 𝘵𝘰𝘱-𝘴𝘦𝘤𝘳𝘦𝘵 𝘤𝘰𝘥𝘦 𝘢𝘯𝘥 𝘵ℎ𝘦𝘯 𝘢𝘨𝘨𝘳𝘦𝘴𝘴𝘪𝘷𝘦𝘭𝘺 𝘱𝘶𝘯𝘪𝘴ℎ𝘦𝘥 𝘵ℎ𝘦𝘪𝘳 𝘰𝘸𝘯 𝘶𝘴𝘦𝘳𝘴 𝘧𝘰𝘳 𝘪𝘵. 𝙒𝙝𝙚𝙣 𝙮𝙤𝙪𝙧 𝙘𝙤𝙢𝙥𝙚𝙩𝙞𝙩𝙤𝙧 𝙙𝙞𝙛𝙛𝙚𝙧𝙚𝙣𝙩𝙞𝙖𝙩𝙞𝙤𝙣 𝙞𝙨 𝙤𝙥𝙚𝙣𝙣𝙚𝙨𝙨 𝙖𝙣𝙙 𝙮𝙤𝙪𝙧𝙨 𝙞𝙨 𝙚𝙣𝙛𝙤𝙧𝙘𝙚𝙢𝙚𝙣𝙩, 𝙩𝙝𝙚 𝙢𝙖𝙧𝙠𝙚𝙩 𝙣𝙖𝙧𝙧𝙖𝙩𝙞𝙫𝙚 𝙗𝙚𝙣𝙙𝙨.
+
+———
+
+𝗧𝗛𝗘 𝗕𝗘𝗡𝗖𝗛𝗠𝗔𝗥𝗞 𝗙𝗔𝗧𝗜𝗚𝗨𝗘
+
+@techczech pushed back: comparing model and human performance on intellectual tasks 𝘪𝘴 𝘯𝘰𝘵 𝘷𝘦𝘳𝘺 𝘶𝘴𝘦𝘧𝘶𝘭 𝘱𝘢𝘴𝘵 𝘢 𝘤𝘦𝘳𝘵𝘢𝘪𝘯 𝘵ℎ𝘳𝘦𝘴ℎ𝘰𝘭𝘥 — 𝘸ℎ𝘪𝘤ℎ 𝘐 𝘵ℎ𝘪𝘯𝘬 𝘸𝘦 ℎ𝘢𝘷𝘦 𝘮𝘰𝘴𝘵𝘭𝘺 𝘳𝘦𝘢𝘤ℎ𝘦𝘥. The bottleneck has moved from 𝘐𝘘-𝘰𝘯-𝘵𝘢𝘴𝘬𝘴 to 𝘫𝘶𝘥𝘨𝘮𝘦𝘯𝘵-𝘪𝘯-𝘤𝘰𝘯𝘵𝘦𝘹𝘵 — knowing what to ask, when to trust, when to intervene.
+
+———
+
+𝗧𝗛𝗘 𝗖𝗛𝗔𝗥𝗧 𝗖𝗥𝗜𝗠𝗘
+
+@fchollet called out a 𝘵𝘺𝘱𝘦 𝘰𝘧 𝘤ℎ𝘢𝘳𝘵 𝘤𝘳𝘪𝘮𝘦: plotting timeseries tuples on a 2D scatter as if they were independent samples. Temporal autocorrelation magnifies any x/y correlation and hides the true variance. It's not a mistake — it's a 𝗰𝗮𝘁𝗲𝗴𝗼𝗿𝘆 𝗼𝗳 𝗺𝗶𝘀𝘁𝗮𝗸𝗲. The silent enabler of two years of overstated benchmark gains.
+
+———
+
+𝗧𝗛𝗘 𝗔𝗚𝗘𝗡𝗧 𝗦𝗞𝗘𝗣𝗧𝗜𝗖𝗜𝗦𝗠
+
+@IntuitMachine: 𝘠𝘰𝘶 ℎ𝘢𝘷𝘦 𝘨𝘰𝘵 𝘵𝘰 𝘸𝘰𝘯𝘥𝘦𝘳 𝘪𝘧 𝘺𝘰𝘶 𝘢𝘳𝘦 𝘮𝘢𝘬𝘪𝘯𝘨 𝘵ℎ𝘦 𝘸𝘳𝘰𝘯𝘨 𝘮𝘰𝘷𝘦 𝘸ℎ𝘦𝘯 99% 𝘰𝘧 𝘵ℎ𝘦 𝘸𝘰𝘳𝘬 𝘪𝘴 𝘥𝘦𝘭𝘦𝘨𝘢𝘵𝘦𝘥 𝘵𝘰 𝘴𝘬𝘪𝘭𝘭𝘴-𝘣𝘢𝘴𝘦𝘥, 𝘢𝘨𝘦𝘯𝘵𝘪𝘤 𝘈𝘐. Read darkly: most of the work already has been absorbed — quietly, without headlines — into agent loops that no longer require human orchestration at the step level.
+
+———
+
+𝗧𝗛𝗘 𝗚𝗣𝗧 𝟱.𝟰 𝗖𝗛𝗜𝗟𝗟
+
+@Shpigford spent three hours with GPT 5.4 and had 𝘢𝘣𝘴𝘰𝘭𝘶𝘵𝘦𝘭𝘺 𝘯𝘰𝘵ℎ𝘪𝘯𝘨 𝘨𝘰𝘰𝘥 𝘵𝘰 𝘴𝘢𝘺 𝘢𝘣𝘰𝘶𝘵 𝘪𝘵. @petergyang asked: 𝘸ℎ𝘢𝘵 𝘪𝘴 𝘴𝘰 𝘣𝘢𝘥 𝘢𝘣𝘰𝘶𝘵 𝘪𝘵? A premium model that isn't obviously better at what paying users wanted. The contrast with Gemma 4 is not subtle.
+
+———
+
+𝗧𝗛𝗘 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗜𝗩𝗘 𝗩𝗜𝗗𝗘𝗢 𝗞𝗘𝗘𝗣𝗦 𝗪𝗜𝗡𝗡𝗜𝗡𝗚
+
+Seedance 2.0 teased by @maxescu. Image Gen V2 tested by @IamEmily2050. @umesh_ai shared a 200+ character cinematic prompt that reads like a screenplay. A new writing craft is emerging: in six months there will be style guides for video-prompt authorship the way there are for SEO copy today.
+
+———
+
+𝗧𝗛𝗘 𝗦𝗘𝗖𝗨𝗥𝗜𝗧𝗬 𝗕𝗢𝗢𝗞𝗘𝗡𝗗𝗦
+
+@aakashgupta re-amplified the UNC1069 Axios attack: 𝘕𝘰𝘳𝘵ℎ 𝘒𝘰𝘳𝘦𝘢𝘯 𝘪𝘯𝘵𝘦𝘭𝘭𝘪𝘨𝘦𝘯𝘤𝘦 𝘢𝘨𝘦𝘯𝘵𝘴 𝘣𝘶𝘪𝘭𝘵 𝘢𝘯 𝘦𝘯𝘵𝘪𝘳𝘦 𝘧𝘢𝘬𝘦 𝘤𝘰𝘮𝘱𝘢𝘯𝘺 𝘵𝘰 𝘤𝘰𝘮𝘱𝘳𝘰𝘮𝘪𝘴𝘦 𝘰𝘯𝘦 𝘑𝘢𝘷𝘢𝘚𝘤𝘳𝘪𝘱𝘵 𝘥𝘦𝘷𝘦𝘭𝘰𝘱𝘦𝘳. 𝘈𝘯𝘥 𝘪𝘵 𝘸𝘰𝘳𝘬𝘦𝘥. One maintainer, 𝟭𝟬𝟬𝗠+ 𝘄𝗲𝗲𝗸𝗹𝘆 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝘀 compromised. On the other end: @sciencegirl — a streamer accidentally showed his crypto wallet private key on stream, $𝟭𝟬𝟬,𝟬𝟬𝟬 𝗱𝗿𝗮𝗶𝗻𝗲𝗱 𝗶𝗻 𝘀𝗲𝗰𝗼𝗻𝗱𝘀. Both stories end the same way: assets leaving the victim at machine speed.
+
+———
+
+𝗧𝗛𝗘 𝗨𝗡𝗜𝗙𝗬𝗜𝗡𝗚 𝗧𝗛𝗘𝗦𝗜𝗦
+
+We're not in a race for bigger models anymore. We're in a race for 𝘮𝘰𝘳𝘦 ℎ𝘰𝘯𝘦𝘴𝘵 𝘱𝘭𝘰𝘵𝘴 𝘢𝘯𝘥 𝘮𝘰𝘳𝘦 ℎ𝘰𝘯𝘦𝘴𝘵 𝘱𝘳𝘪𝘤𝘦𝘴. The field is passing through a methodological inflection point. The question is no longer 𝘪𝘴 𝘵ℎ𝘦 𝘮𝘰𝘥𝘦𝘭 𝘣𝘦𝘵𝘵𝘦𝘳? but: 𝗯𝗲𝘁𝘁𝗲𝗿 𝗮𝘁 𝘄𝗵𝗮𝘁, 𝗺𝗲𝗮𝘀𝘂𝗿𝗲𝗱 𝗵𝗼𝘄, 𝗮𝗴𝗮𝗶𝗻𝘀𝘁 𝘄𝗵𝗮𝘁 𝗯𝗮𝘀𝗲𝗹𝗶𝗻𝗲, 𝗮𝗻𝗱 𝗳𝗼𝗿 𝘄𝗵𝗼𝗺?
+
+Answers won't come from bigger training runs. They'll come from founders who stop pricing against labor, researchers who stop plotting timeseries as scatter, and communities who stop mistaking enforcement for moat.
+
+𝙏𝙝𝙚 𝙬𝙞𝙣𝙣𝙚𝙧𝙨 𝙤𝙛 2026 𝙬𝙞𝙡𝙡 𝙗𝙚 𝙬𝙝𝙤𝙚𝙫𝙚𝙧 𝙝𝙖𝙨 𝙩𝙝𝙚 𝙗𝙚𝙩𝙩𝙚𝙧 𝙢𝙚𝙖𝙨𝙪𝙧𝙚𝙢𝙚𝙣𝙩 𝙡𝙖𝙮𝙚𝙧 — 𝙣𝙤𝙩 𝙩𝙝𝙚 𝙗𝙚𝙩𝙩𝙚𝙧 𝙢𝙤𝙙𝙚𝙡.
+
+———
+
+Read the full briefing: https://ravi-annaswamy.github.io/dispatches/briefing-2026-04-04-sat-evening/
+
+#AI #OpenWeights #AgentEconomics #MethodologyMatters #PricingStrategy
