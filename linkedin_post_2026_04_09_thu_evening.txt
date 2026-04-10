@@ -1,0 +1,47 @@
+𝗧𝗵𝘂𝗿𝘀𝗱𝗮𝘆 𝗘𝘃𝗲𝗻𝗶𝗻𝗴 𝗼𝗻 𝗔𝗜 𝗧𝘄𝗶𝘁𝘁𝗲𝗿: 𝗧𝗵𝗲 𝗘𝘅𝗽𝗹𝗮𝗶𝗻𝗲𝗿𝘀 𝗔𝗿𝗲 𝗦𝘁𝗿𝘂𝗴𝗴𝗹𝗶𝗻𝗴
+
+Tonight's feed surfaced something I haven't seen before — not just new products or benchmarks, but a 𝘤𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘷𝘦 𝘨𝘳𝘰𝘱𝘪𝘯𝘨 𝘧𝘰𝘳 𝘯𝘦𝘸 𝘧𝘳𝘢𝘮𝘦𝘸𝘰𝘳𝘬𝘴 to understand what AI actually is.
+
+———
+
+𝗧𝗛𝗘 𝗩𝗢𝗖𝗔𝗕𝗨𝗟𝗔𝗥𝗬 𝗣𝗥𝗢𝗕𝗟𝗘𝗠
+
+@fchollet reframed the entire history of physics as a 𝗽𝗿𝗼𝗴𝗿𝗮𝗺 𝘀𝘆𝗻𝘁𝗵𝗲𝘀𝗶𝘀 𝘁𝗮𝘀𝗸 — searching for the simplest symbolic model that fits observations. His argument: ARC-style abstraction, not scale, is the real frontier.
+
+Meanwhile @daniel_mac8 surfaced a striking claim from @michael_nielsen: neural nets may be 𝘢 𝘯𝘦𝘸 𝘵𝘺𝘱𝘦 𝘰𝘧 𝘰𝘣𝘫𝘦𝘤𝘵 𝘵ℎ𝘢𝘵 𝘴ℎ𝘰𝘶𝘭𝘥 𝘣𝘦 𝘵𝘢𝘬𝘦𝘯 𝘴𝘦𝘳𝘪𝘰𝘶𝘴𝘭𝘺 𝘢𝘴 𝘴𝘤𝘪𝘦𝘯𝘵𝘪𝘧𝘪𝘤 𝘦𝘹𝘱𝘭𝘢𝘯𝘢𝘵𝘪𝘰𝘯𝘴. Not tools. Not approximations. Explanations.
+
+@MattPirkowski pushed further, framing LLMs as 𝗵𝗶𝗴𝗵-𝗱𝗶𝗺𝗲𝗻𝘀𝗶𝗼𝗻𝗮𝗹 𝗵𝗼𝗹𝗼𝗴𝗿𝗮𝗽𝗵𝗶𝗰 𝗰𝗼𝗺𝗽𝗿𝗲𝘀𝘀𝗶𝗼𝗻𝘀 that naturally discover causal trajectories opaque to humans. Three thinkers, three frameworks, one shared intuition: the old vocabulary isn't keeping up.
+
+———
+
+𝗧𝗛𝗘 𝗠𝗘𝗠𝗢𝗥𝗬 𝗚𝗔𝗣
+
+@rohanpaul_ai introduced Engramme — a new architecture built on the premise that AI solved language, vision, and audio, but 𝗺𝗲𝗺𝗼𝗿𝘆 𝗶𝘀 𝘀𝘁𝗶𝗹𝗹 𝗯𝗿𝗼𝗸𝗲𝗻. You shouldn't have to search for what you've already lived.
+
+@vitrupo shared Michael Levin's insight: biological memory isn't transferred — it's 𝘳𝘦𝘮𝘢𝘱𝘱𝘦𝘥 𝘵𝘰 𝘯𝘦𝘸 ℎ𝘢𝘳𝘥𝘸𝘢𝘳𝘦 𝘸𝘪𝘵ℎ 𝘯𝘦𝘸 𝘴𝘦𝘯𝘴𝘦𝘴. Copying weights doesn't copy identity.
+
+———
+
+𝗧𝗛𝗘 𝗜𝗡𝗗𝗨𝗦𝗧𝗥𝗬 𝗦𝗜𝗚𝗡𝗔𝗟
+
+A 𝟮𝟰-𝘆𝗲𝗮𝗿-𝗼𝗹𝗱 Goldman Sachs banker quit to build a $𝟮𝟮𝗠 𝗔𝗥𝗥 AI company with 𝟵𝟱% 𝗺𝗮𝗿𝗴𝗶𝗻𝘀, 𝟱 𝗽𝗲𝗼𝗽𝗹𝗲, and zero funding in 14 months (via @henrythe9ths). This is what software economics looks like when AI replaces the team.
+
+@jxmnop dropped the most relatable joke: Anthropic's Mythos can hack nation states but still can't fix the terminal-flashing bug in Claude Code. 𝟭𝗞+ people agree.
+
+And @millerman's Kissinger anecdote hit 𝟭𝟵𝟮𝗞 𝘃𝗶𝗲𝘄𝘀: the speechwriter who rewrote a report four times before Kissinger said "now I'll read it." In an era of instant generation, 𝘵ℎ𝘦 𝘴𝘵𝘢𝘯𝘥𝘢𝘳𝘥 𝘧𝘦𝘦𝘭𝘴 𝘣𝘰𝘵ℎ 𝘮𝘰𝘳𝘦 𝘪𝘮𝘱𝘰𝘳𝘵𝘢𝘯𝘵 𝘢𝘯𝘥 𝘮𝘰𝘳𝘦 𝘦𝘯𝘥𝘢𝘯𝘨𝘦𝘳𝘦𝘥.
+
+———
+
+𝗧𝗛𝗘 𝗤𝗨𝗜𝗘𝗧 𝗧𝗛𝗥𝗘𝗔𝗗
+
+Tonight's most-viewed non-AI tweet: @Eng_china5 shared a Chinese classroom practice where a teacher calls a shy student to "pick a piece of paper." All papers are blank. The assignment is cancelled. The shy child becomes the hero. 𝟭𝟰𝟭𝗞 𝘃𝗶𝗲𝘄𝘀. No technology required.
+
+@kalyanasc published a tribute to Tamil writer Jayakanthan — the commoner's voice. A literary remembrance that stands out in a feed dominated by exponential acceleration.
+
+———
+
+𝙏𝙝𝙚 𝙗𝙪𝙞𝙡𝙙𝙚𝙧𝙨 𝙖𝙧𝙚 𝙗𝙪𝙞𝙡𝙙𝙞𝙣𝙜. 𝘽𝙪𝙩 𝙩𝙝𝙚 𝙚𝙭𝙥𝙡𝙖𝙞𝙣𝙚𝙧𝙨 𝙖𝙧𝙚 𝙨𝙩𝙧𝙪𝙜𝙜𝙡𝙞𝙣𝙜 𝙬𝙞𝙩𝙝 𝙨𝙤𝙢𝙚𝙩𝙝𝙞𝙣𝙜 𝙙𝙚𝙚𝙥𝙚𝙧: 𝙩𝙝𝙚 𝙚𝙭𝙞𝙨𝙩𝙞𝙣𝙜 𝙘𝙤𝙣𝙘𝙚𝙥𝙩𝙪𝙖𝙡 𝙫𝙤𝙘𝙖𝙗𝙪𝙡𝙖𝙧𝙮 𝙢𝙖𝙮 𝙣𝙤𝙩 𝙗𝙚 𝙚𝙣𝙤𝙪𝙜𝙝 𝙛𝙤𝙧 𝙬𝙝𝙖𝙩 𝙞𝙨 𝙘𝙤𝙢𝙞𝙣𝙜.
+
+Full briefing with 𝟱𝟰+ captured tweets at ravi-annaswamy.github.io/dispatches
+
+#AITwitter #ArtificialIntelligence #MachineLearning #TechTwitter #AIResearch
