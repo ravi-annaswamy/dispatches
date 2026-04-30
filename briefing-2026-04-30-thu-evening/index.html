@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI with Ravi — Thursday Evening Edition, April 30 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f4;
+  --card-bg: #ffffff;
+  --card-border: #e8e4dc;
+  --text: #2a2a2a;
+  --headline: #1a1a1a;
+  --muted: #7a7a6e;
+  --accent: #3a6b8a;
+  --accent-karpathy: #a0522d;
+  --accent-cyber: #8b4557;
+  --accent-infra: #3a6b8a;
+  --accent-org: #6b5b3a;
+  --accent-bio: #3a7a6b;
+  --accent-foundations: #7a6b3a;
+  --accent-math: #5a4a7a;
+  --accent-visual: #6b3a6b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header-label {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--headline);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.accent-bar {
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0 auto;
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 48px;
+  padding: 16px 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.stat { text-align: center; }
+
+.stat-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.section { margin-bottom: 40px; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.section-bar {
+  width: 4px;
+  height: 28px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--headline);
+}
+
+.section-count {
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--card-border);
+  padding: 2px 8px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+.card-headline {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--headline);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.card-body {
+  font-size: 15px;
+  color: #3d3d3d;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.card-meta {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.card-meta a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.card-meta a:hover { text-decoration: underline; }
+
+.meta-observation {
+  background: #f5f3ee;
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+  margin: 40px 0;
+  font-style: italic;
+  color: #4a4a4a;
+  border-radius: 0 8px 8px 0;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .header h1 { font-size: 30px; }
+  .stats-bar { gap: 20px; }
+  .stat-number { font-size: 22px; }
+  body { padding: 24px 16px 40px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI with Ravi</div>
+  <h1>Thursday Evening Edition</h1>
+  <div class="subtitle">April 30, 2026</div>
+  <div class="accent-bar"></div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-number">68+</div>
+    <div class="stat-label">Tweets Captured</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">8</div>
+    <div class="stat-label">Topic Clusters</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">~12h</div>
+    <div class="stat-label">Time Window</div>
+  </div>
+</div>
+
+<!-- Section 1: Karpathy Doctrine -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-karpathy);"></div>
+    <div class="section-title">The Karpathy Doctrine — A Week of Lessons on Agentic Engineering</div>
+    <span class="section-count">3 items</span>
+  </div>
+
+  <div class="meta-observation">
+    Three separate threads in the feed converge on the same person today. After Andrej Karpathy's 30-minute Sequoia masterclass yesterday and his keynote at AI Ascent 2026 this morning (already 339+ posts in two hours, per the trending sidebar), the practitioner community is pulling out the lessons in real time. The shared thesis: the bottleneck is no longer the model — it's the human still standing in the loop.
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Karpathy declared that the only way to extract real value from frontier tools is to "remove yourself as the bottleneck" — to engineer your work so the model doesn't need you to prompt the next thing.</div>
+    <div class="card-body">The quote, surfaced by <a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a>, is the operating principle behind agentic engineering: arrange your task so the system runs to completion without you in the prompt loop. This reframes "vibe coding" as a transitional stage, with the more durable craft being the design of self-sustaining loops.</div>
+    <div class="card-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · 13h · 62K views — high reach for a quote tweet</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">In the same Sequoia talk, Karpathy argued that most apps shipped today are already obsolete at birth because "software is dissolving in front of us" — what used to require code, interfaces, and logic is now just an image plus a prompt.</div>
+    <div class="card-body"><a href="https://x.com/JonhernandezIA">@JonhernandezIA</a>'s pull from the talk frames the dissolution thesis: the network is becoming the runtime, and the artifact-based product model is dying with it. The implication for builders is brutal — the moat isn't the app, it's the workflow you wrap around the model.</div>
+    <div class="card-meta"><a href="https://x.com/JonhernandezIA">@JonhernandezIA</a> · 8h · 7K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline"><a href="https://x.com/aerockrose">@aerockrose</a> extracted "12 lessons" from the same masterclass, organized around three slogans: LLMs as ghosts, the app that shouldn't exist, and outsource thinking, not understanding.</div>
+    <div class="card-body">The middle one is the sharpest cut — it's a swipe at the entire SaaS layer that wraps thin AI features around CRUD, and a pointer to the kind of products that <em>should</em> exist in this regime. The third is the discipline call: delegation without comprehension is the failure mode that produces the slop wave.</div>
+    <div class="card-meta"><a href="https://x.com/aerockrose">@aerockrose</a> · 8h · 46K views — the kind of synthesis post that travels far precisely because it does the homework most readers won't</div>
+  </div>
+</div>
+
+<!-- Section 2: GPT-5.5 Cyber -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-cyber);"></div>
+    <div class="section-title">The GPT-5.5 Cyber Reckoning — Mythos Demystified</div>
+    <span class="section-count">4 items</span>
+  </div>
+
+  <div class="meta-observation">
+    This was the day the "too dangerous to release" framing broke apart in real time. AISI's note that GPT-5.5 completed an end-to-end multi-step cyber-attack simulation reframed Anthropic's earlier withholding of Mythos — and the responses came fast.
+  </div>
+
+  <div class="card">
+    <div class="card-headline">David Sacks declared "Mythos is not magic. It's not a doomsday device. It's the first of many models that can automate cyber tasks (just like coding)" — and noted that OpenAI's GPT-5.5-cyber now does the same, with frontier Chinese models close behind.</div>
+    <div class="card-body">Reposted by Marc Andreessen, the framing is meant to puncture the doomer narrative around Anthropic's withhold decision and reposition cyber-capable LLMs as a new normal rather than a controlled substance. The "(including those from China)" parenthetical is the geopolitical move — once a capability is cross-frontier, withholding becomes ceremonial.</div>
+    <div class="card-meta"><a href="https://x.com/DavidSacks">@DavidSacks</a> · 3h · 428K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Ravid Shwartz Ziv pulled the thread tighter: "The model Anthropic refused to release because it was too dangerous for humanity is, per AISI, within margin of error of the model OpenAI just shipped to anyone with $20."</div>
+    <div class="card-body">The implication is direct — if the AISI benchmark is the reference, then either the original safety framing was overcalibrated or the new release is undercalibrated. There is no third reading.</div>
+    <div class="card-meta"><a href="https://x.com/ziv_ravid">@ziv_ravid</a> · 5h · 3.1K views — the engagement is small but the comparison will travel</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Derya Unutmaz, a longtime AI-in-medicine voice, said he is "still amazed by how mind-blowingly intelligent GPT-5.5 Pro is" and promised to share the OpenAI launch example tonight.</div>
+    <div class="card-body">The signal here is less about the demo and more about a domain expert (immunology) reporting that he hasn't pushed the model "remotely close to its limits" — a continuation of the pattern where domain users, not benchmarks, are the ones marking the capability ceiling.</div>
+    <div class="card-meta"><a href="https://x.com/DeryaTR_">@DeryaTR_</a> · 57m · 2.4K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">At Stripe Sessions, Sam Altman told Patrick Collison that his single biggest contribution was "the most controversial decision we made in the history of OpenAI: iterative deployment" — and that most insiders never say it out loud.</div>
+    <div class="card-body">The framing matters: Altman is pre-emptively claiming that <em>shipping models gradually</em>, not the underlying research, is the load-bearing decision. In a week where the cyber-readiness debate is rebooting, this is a meaningful piece of self-positioning.</div>
+    <div class="card-meta"><a href="https://x.com/heyshrutimishra">@heyshrutimishra</a> · 4h · 8.3K views</div>
+  </div>
+</div>
+
+<!-- Section 3: Agent Infrastructure -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-infra);"></div>
+    <div class="section-title">Agent Infrastructure Goes Vertical</div>
+    <span class="section-count">5 items</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Codex CLI 0.128.0 shipped a <code>/goal</code> primitive that keeps a goal alive across turns until it's achieved — a productized version of the "Ralph loop" pattern.</div>
+    <div class="card-body">Felipe Coury credits Eric Traut (the Pyright author, now at OpenAI) for the implementation. This is the second major CLI to land an explicit "don't stop until done" loop in two weeks; the agentic-completion pattern is becoming a vendor feature, not a script.</div>
+    <div class="card-meta"><a href="https://x.com/fcoury">@fcoury</a> · 3h · 38K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Greg Kamradt announced that ARC-AGI-3 has crossed 1 million scorecards since preview launch — and that ARC Prize finally has real platform infrastructure (replay, audit, tracking) instead of "2x folders of JSON files."</div>
+    <div class="card-body">The shift from artifact-as-benchmark to platform-as-benchmark is the more important story than the headline number. Once you can replay any agent run on any task, the discourse moves from "did the model solve it" to "how did it fail" — which is where the next round of capability gains will come from.</div>
+    <div class="card-meta"><a href="https://x.com/GregKamradt">@GregKamradt</a> · 5h</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">James Zou's <code>paperclip</code> now indexes the full text of arXiv, PubMed Central, and 150 million abstracts, claiming ~100x faster than web search and free.</div>
+    <div class="card-body">This is a substrate move: every agentic research workflow needs a corpus that's better than Google's snippet view, and the academic literature is the domain where the gap is most obvious.</div>
+    <div class="card-meta"><a href="https://x.com/james_y_zou">@james_y_zou</a> · 2h · 11K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Jules opened a waitlist for "an end-to-end agentic product development platform that reads your entire product context, figures out what to build next, comes up with solutions, and ships a PR."</div>
+    <div class="card-body">The promised arc — context → roadmap → solution → PR — is the same arc Cursor, Devin, and Cognition are racing toward. Promising the full stack is now the table-stakes pitch.</div>
+    <div class="card-meta"><a href="https://x.com/julesagent">@julesagent</a> · Ad · 258K impressions</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Mark Cuban bought a Mac Mini specifically to run agentic AI for the purpose of auto-unsubscribing from AI-generated cold emails: "You hit me with AI, I'll hit you with AI back right away."</div>
+    <div class="card-body">The cold-email arms race is now agent-vs-agent at the consumer level — and the early adopters are buying dedicated hardware to fight it.</div>
+    <div class="card-meta"><a href="https://x.com/rohanpaul_ai">@rohanpaul_ai</a> · 5h · 8.8K views</div>
+  </div>
+</div>
+
+<!-- Section 4: No Engineer Era -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-org);"></div>
+    <div class="section-title">The "No Engineer" Era</div>
+    <span class="section-count">1 item</span>
+  </div>
+
+  <div class="meta-observation">
+    One tweet today did the work of a Substack essay. It's worth its own topic because the framing will get reused.
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Jonathan Ross argued that for 50 years, software engineering ran on "code rationing" — and the rationing produced a specific organizational role: "the No Engineer," who said no to scope, no to bandwidth, no to the next idea, because writing code was expensive.</div>
+    <div class="card-body">Ross's claim is that with code now cheap, the No Engineer's organizational function evaporates — the prioritization meeting, the RFC queue, the roadmap negotiation are all artifacts of a constraint that no longer binds. The implication is that the org chart, not the IDE, is the next thing to be rewritten.</div>
+    <div class="card-meta"><a href="https://x.com/JonathanRoss321">@JonathanRoss321</a> · 4h · 42K views — the kind of one-paragraph reframe that names a thing engineers have been feeling but couldn't label</div>
+  </div>
+</div>
+
+<!-- Section 5: AI for Science -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-bio);"></div>
+    <div class="section-title">AI for Science — The Quiet Build-Out</div>
+    <span class="section-count">3 items</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Hugging Face launched "Hugging Science" — a hub for open AI models and datasets specifically for science — and Derya Unutmaz announced he'll be active there as @Biodecoder.</div>
+    <div class="card-body">Reposted by Thomas Wolf, the framing borrows from the PDB analogy: open structures powered structural biology for 50 years; open models and datasets can do the same for AI-driven science.</div>
+    <div class="card-meta"><a href="https://x.com/DeryaTR_">@DeryaTR_</a> · Apr 29 — reposted today</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Bo Wang reported that Goodfire's Silico interpretability tool was used to probe EchoJEPA's representations, calling it "exactly the kind of interpretability work that's been missing for JEPA-style models."</div>
+    <div class="card-body">The detail that matters: unlike MAE-based approaches, EchoJEPA never reconstructs pixels, which historically made it hard to interpret. Silico breaks that ceiling. The cross-pollination between mech-interp tools (<a href="https://x.com/GoodfireAI">@GoodfireAI</a>) and self-supervised vision research (JEPA) is a quiet but important convergence.</div>
+    <div class="card-meta"><a href="https://x.com/BoWang87">@BoWang87</a> · 1h · 3.8K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Dr. Alexander Kalian wrote that "AI for biology is a lot harder than most pure tech people think" — and that high-quality biological data is the bottleneck, not models.</div>
+    <div class="card-body">His specific ask: a major global project to expand high-quality biological data, on the scale of the PDB or the Human Genome Project. This is the corrective response to the "AlphaFold solved biology" narrative — the fold problem yielded to data + scale, but most other biology problems don't have a PDB-equivalent yet.</div>
+    <div class="card-meta"><a href="https://x.com/AlexanderKalian">@AlexanderKalian</a> · 4h · 2.4K views</div>
+  </div>
+</div>
+
+<!-- Section 6: Foundations -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-foundations);"></div>
+    <div class="section-title">Foundations Watch — Dwarkesh, Aaronson, and the Big Questions</div>
+    <span class="section-count">4 items</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Dwarkesh Patel surfaced a Michael Nielsen argument that the tech tree is far larger than we realize — that "computer science basically got started in the 1930s with Turing and Church" and we've spent 90 years exploring consequences of that single framework, with our descendants doomed to explore only a tiny fraction of what's available.</div>
+    <div class="card-body">This is the long-tail framing of progress: not "we are at the end" but "we have barely started," with humility about what scaffold-level breakthroughs we're missing.</div>
+    <div class="card-meta"><a href="https://x.com/dwarkesh_sp">@dwarkesh_sp</a> · 1h · 14K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Scott Aaronson, prompted by recent Shor's-algorithm-on-real-hardware results, declared his "moral duty" to use his quantum-computing blog as a soapbox to sound the alarm — comparing the moment to Frisch and Peierls calculating critical mass.</div>
+    <div class="card-body">The Aaronson framing turns crypto-quantum-readiness from a technical timeline question into an ethical one for the practitioners closest to the math.</div>
+    <div class="card-meta"><a href="https://x.com/AndrewCurran_">@AndrewCurran_</a> · 5h · 21K views — Aaronson's blog rarely makes the timeline; when it does, it's because the underlying physics moved</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">A response to Dwarkesh's compute argument from <a href="https://x.com/industriaalist">@industriaalist</a>: "the main problem is not the loss function but the learning algorithm — gradient descent massively underutilizes compute relative to the data it's trained on. brains use a lot of compute to search for solutions."</div>
+    <div class="card-body">The Slowrun project frames the question well: most efficiency wins in the next decade may come from changing the optimizer, not the model.</div>
+    <div class="card-meta"><a href="https://x.com/industriaalist">@industriaalist</a> · 23h</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Elliot Arledge highlighted Dwarkesh's blackboard lecture with <a href="https://x.com/reinerpope">@reinerpope</a> — a 90-minute walkthrough of how frontier LLMs are actually trained and served.</div>
+    <div class="card-body">The format choice (blackboard, single guest, no editing) is itself a reaction to the saturation of the polished AI-podcast aesthetic. The pedagogical move: assume the listener is willing to do work.</div>
+    <div class="card-meta"><a href="https://x.com/elliotarledge">@elliotarledge</a> · 17h</div>
+  </div>
+</div>
+
+<!-- Section 7: Math & Beauty -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-math);"></div>
+    <div class="section-title">Math, Physics, and the Contemplative Thread</div>
+    <span class="section-count">4 items</span>
+  </div>
+
+  <div class="meta-observation">
+    A reminder that this feed carries a strong "beauty and structure" thread alongside the AI signal — and several of today's most-shared images are pure mathematics.
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Hamid Naderi Yeganeh posted "I drew this white dwarf with mathematical equations" — a converted 2000×1200 image where each pixel's color is computed from a closed-form equation in row and column.</div>
+    <div class="card-body">The replies are the story: a wave of "how do you do that?" questions from an audience that increasingly wants the math, not just the picture. The 16K views in 7 hours suggest the equation-art genre is having a quiet renaissance.</div>
+    <div class="card-meta"><a href="https://x.com/naderi_yeganeh">@naderi_yeganeh</a> · 7h · 16K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Massimo's three-body-problem thread — covering Newton's failure, Poincaré's accidental invention of chaos theory, and the Chenciner-Montgomery 2000 figure-8 proof — drew 134K views.</div>
+    <div class="card-body">The tweet is a reminder that closed-form solutions to gravitational few-body problems are still being found this century, by humans, with pencils. The Šuvakov-Dmitrašinović 13-family extension in 2013 is the kind of result that won't make headlines but will outlive most of what's trending today.</div>
+    <div class="card-meta"><a href="https://x.com/Rainmaker1973">@Rainmaker1973</a> · 15h · 134K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">A Schrödinger wave equation visualization from <a href="https://x.com/PhilosophyOfPhy">@PhilosophyOfPhy</a> and a Holographic Principle explainer from <a href="https://x.com/scievision369">@scievision369</a> sit in the same neighborhood — quiet, pedagogical, uninterested in the model wars.</div>
+    <div class="card-body">Together they form a useful counterweight to the agentic-tooling cluster: the universe is still doing things that no LLM has any model of.</div>
+    <div class="card-meta"><a href="https://x.com/PhilosophyOfPhy">@PhilosophyOfPhy</a> · 7h · 55K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Thomas Ahle shared a Voronoi-diagram visualization for optimal Gaussian quantization (Lloyd-Max-GQ).</div>
+    <div class="card-body">Quantization is having a moment in LLM-land for inference-cost reasons, but Ahle's image is a reminder that the underlying math is half a century old and beautiful in its own right.</div>
+    <div class="card-meta"><a href="https://x.com/thomasahle">@thomasahle</a> · Apr 29</div>
+  </div>
+</div>
+
+<!-- Section 8: Visual Generation -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar" style="background: var(--accent-visual);"></div>
+    <div class="section-title">Visual Generation & Cultural Drift</div>
+    <span class="section-count">3 items</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">A GPT Image 2 prompt asking for "the most clumsy, scribbly, and utterly pathetic" redraws of attached images, "as if drawn in MS Paint with a mouse," went viral — and <a href="https://x.com/1littlecoder">@1littlecoder</a> packaged it into a fal workflow within hours.</div>
+    <div class="card-body">The interesting signal isn't the prompt itself but the speed of productization: a viral aesthetic becomes a one-click workflow before the meme finishes its cycle. The pathetic-redraw trend is also a quiet aesthetic rebellion against the over-polished default of generative image models.</div>
+    <div class="card-meta"><a href="https://x.com/1littlecoder">@1littlecoder</a> · 3h</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Google AI announced that Gemini Embedding 2 — its first natively multimodal embedding model — has been used since release for video analysis tools and visual shopping assistants, with a thread explaining "what is an embedding."</div>
+    <div class="card-body">The pedagogical framing is intentional: Google is betting that the next million developers building on embeddings won't have read the foundational papers, and the docs need to start at "what is this."</div>
+    <div class="card-meta"><a href="https://x.com/GoogleAI">@GoogleAI</a> · 4h · 30K views</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">AVB needled MIT CSAIL's framing of LLMs as "mismanaged geniuses," accusing the framing of being a "skill issue" gaslight directed at users.</div>
+    <div class="card-body">The AVB-vs-MIT exchange is small but representative: the cultural divide between researchers who think the model is fine if you prompt right, and practitioners who think the prompt-engineering ceremony is itself a tell.</div>
+    <div class="card-meta"><a href="https://x.com/neural_avb">@neural_avb</a> · 3h</div>
+  </div>
+</div>
+
+<div class="footer">
+  Compiled by <a href="https://x.com/bag_of_ideas">@bag_of_ideas</a> via automated X/Twitter digest.<br>
+  <a href="../index.html">← All Dispatches</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+𝗧𝗛𝗨𝗥𝗦𝗗𝗔𝗬 𝗘𝗩𝗘𝗡𝗜𝗡𝗚 𝗢𝗡 𝗔𝗜 𝗫 — 𝗔𝗣𝗥𝗜𝗟 𝟯𝟬, 𝟮𝟬𝟮𝟲
+
+𝗧𝗵𝗲 𝘄𝗲𝗲𝗸 𝘁𝗵𝗲 𝗯𝗼𝘁𝘁𝗹𝗲𝗻𝗲𝗰𝗸 𝗺𝗼𝘃𝗲𝗱.
+
+A pattern in the feed today worth pulling out: 𝘵ℎ𝘳𝘦𝘦 𝘴𝘦𝘱𝘢𝘳𝘢𝘵𝘦 𝘷𝘪𝘳𝘢𝘭 𝘵ℎ𝘳𝘦𝘢𝘥𝘴 𝘢𝘭𝘭 𝘤𝘰𝘯𝘷𝘦𝘳𝘨𝘦𝘥 𝘰𝘯 𝘵ℎ𝘦 𝘴𝘢𝘮𝘦 𝘱𝘦𝘳𝘴𝘰𝘯. After @karpathy's 30-minute Sequoia masterclass yesterday and his AI Ascent 2026 keynote this morning, the practitioner community is racing to extract the lessons in real time. The shared thesis is uncomfortably blunt: 𝙩𝙝𝙚 𝙗𝙤𝙩𝙩𝙡𝙚𝙣𝙚𝙘𝙠 𝙞𝙨 𝙣𝙤 𝙡𝙤𝙣𝙜𝙚𝙧 𝙩𝙝𝙚 𝙢𝙤𝙙𝙚𝙡. 𝙄𝙩'𝙨 𝙩𝙝𝙚 𝙝𝙪𝙢𝙖𝙣 𝙨𝙩𝙞𝙡𝙡 𝙨𝙩𝙖𝙣𝙙𝙞𝙣𝙜 𝙞𝙣 𝙩𝙝𝙚 𝙡𝙤𝙤𝙥.
+
+@rohanpaul_ai surfaced the operating principle: 𝘵𝘰 𝘨𝘦𝘵 𝘵ℎ𝘦 𝘮𝘰𝘴𝘵 𝘰𝘶𝘵 𝘰𝘧 𝘧𝘳𝘰𝘯𝘵𝘪𝘦𝘳 𝘵𝘰𝘰𝘭𝘴, 𝘺𝘰𝘶 ℎ𝘢𝘷𝘦 𝘵𝘰 𝘳𝘦𝘮𝘰𝘷𝘦 𝘺𝘰𝘶𝘳𝘴𝘦𝘭𝘧 𝘢𝘴 𝘵ℎ𝘦 𝘣𝘰𝘵𝘵𝘭𝘦𝘯𝘦𝘤𝘬. Don't be there to prompt the next thing. Engineer the loop so the system runs to completion without you.
+
+@JonhernandezIA pulled out the harder claim — that most apps shipped today are 𝘢𝘭𝘳𝘦𝘢𝘥𝘺 𝘰𝘣𝘴𝘰𝘭𝘦𝘵𝘦 𝘢𝘵 𝘣𝘪𝘳𝘵ℎ, because "software is dissolving in front of us" and the network is becoming the runtime.
+
+@aerockrose extracted twelve lessons from the same talk; the sharpest is 𝗼𝘂𝘁𝘀𝗼𝘂𝗿𝗰𝗲 𝘁𝗵𝗶𝗻𝗸𝗶𝗻𝗴, 𝗻𝗼𝘁 𝘂𝗻𝗱𝗲𝗿𝘀𝘁𝗮𝗻𝗱𝗶𝗻𝗴 — the discipline call that separates agentic engineering from the slop wave.
+
+———
+
+𝗧𝗛𝗘 𝗖𝗬𝗕𝗘𝗥 𝗙𝗥𝗔𝗠𝗜𝗡𝗚 𝗖𝗢𝗟𝗟𝗔𝗣𝗦𝗘𝗗 𝗜𝗡 𝗣𝗨𝗕𝗟𝗜𝗖.
+
+AISI noted that 𝗚𝗣𝗧-𝟱.𝟱 𝗰𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱 𝗮𝗻 𝗲𝗻𝗱-𝘁𝗼-𝗲𝗻𝗱 𝗺𝘂𝗹𝘁𝗶-𝘀𝘁𝗲𝗽 𝗰𝘆𝗯𝗲𝗿-𝗮𝘁𝘁𝗮𝗰𝗸 𝘀𝗶𝗺𝘂𝗹𝗮𝘁𝗶𝗼𝗻 — and within hours, @DavidSacks (reposted by @pmarca) was declaring 𝘔𝘺𝘵ℎ𝘰𝘴 𝘪𝘴 𝘯𝘰𝘵 𝘮𝘢𝘨𝘪𝘤. 𝘐𝘵'𝘴 𝘯𝘰𝘵 𝘢 𝘥𝘰𝘰𝘮𝘴𝘥𝘢𝘺 𝘥𝘦𝘷𝘪𝘤𝘦. 𝘐𝘵'𝘴 𝘵ℎ𝘦 𝘧𝘪𝘳𝘴𝘵 𝘰𝘧 𝘮𝘢𝘯𝘺 𝘮𝘰𝘥𝘦𝘭𝘴 𝘵ℎ𝘢𝘵 𝘤𝘢𝘯 𝘢𝘶𝘵𝘰𝘮𝘢𝘵𝘦 𝘤𝘺𝘣𝘦𝘳 𝘵𝘢𝘴𝘬𝘴 (𝘫𝘶𝘴𝘵 𝘭𝘪𝘬𝘦 𝘤𝘰𝘥𝘪𝘯𝘨).
+
+@ziv_ravid drew the sharpest comparison: the model Anthropic withheld as "too dangerous for humanity" is, per AISI, 𝘄𝗶𝘁𝗵𝗶𝗻 𝗺𝗮𝗿𝗴𝗶𝗻 𝗼𝗳 𝗲𝗿𝗿𝗼𝗿 of what OpenAI just shipped to anyone with $𝟮𝟬. Either the original framing was overcalibrated or the new release is undercalibrated. 𝘛ℎ𝘦𝘳𝘦 𝘪𝘴 𝘯𝘰 𝘵ℎ𝘪𝘳𝘥 𝘳𝘦𝘢𝘥𝘪𝘯𝘨.
+
+At Stripe Sessions, @sama told @patrickc that his single biggest contribution wasn't the research — it was 𝗶𝘁𝗲𝗿𝗮𝘁𝗶𝘃𝗲 𝗱𝗲𝗽𝗹𝗼𝘆𝗺𝗲𝗻𝘁. In a week when the cyber-readiness debate is rebooting, "shipping gradually" is being staked out as the load-bearing decision.
+
+———
+
+𝗧𝗛𝗘 𝗜𝗡𝗙𝗥𝗔𝗦𝗧𝗥𝗨𝗖𝗧𝗨𝗥𝗘 𝗟𝗔𝗬𝗘𝗥 𝗜𝗦 𝗚𝗢𝗜𝗡𝗚 𝗩𝗘𝗥𝗧𝗜𝗖𝗔𝗟.
+
+@fcoury shipped /𝗴𝗼𝗮𝗹 𝗶𝗻 𝗖𝗼𝗱𝗲𝘅 𝗖𝗟𝗜 𝟬.𝟭𝟮𝟴.𝟬 — a productized Ralph loop that keeps a goal alive across turns until done, built by Eric Traut (the Pyright author).
+
+@GregKamradt announced ARC-AGI-3 has crossed 𝟭𝗠 𝘀𝗰𝗼𝗿𝗲𝗰𝗮𝗿𝗱𝘀 and finally has real platform infrastructure for replay and audit, replacing the old "two folders of JSON files."
+
+@james_y_zou's paperclip now indexes all of arXiv, PubMed Central, and 𝟭𝟱𝟬𝗠 𝗮𝗯𝘀𝘁𝗿𝗮𝗰𝘁𝘀 — claiming 𝟭𝟬𝟬𝘅 𝗳𝗮𝘀𝘁𝗲𝗿 than web search, free.
+
+@julesagent is opening a waitlist for an end-to-end agentic dev platform. @mcuban bought a Mac Mini specifically to fight AI cold emails with AI: 𝘺𝘰𝘶 ℎ𝘪𝘵 𝘮𝘦 𝘸𝘪𝘵ℎ 𝘈𝘐, 𝘐'𝘭𝘭 ℎ𝘪𝘵 𝘺𝘰𝘶 𝘸𝘪𝘵ℎ 𝘈𝘐 𝘣𝘢𝘤𝘬.
+
+@JonathanRoss321 named the organizational consequence in one paragraph: for 𝟱𝟬 𝘆𝗲𝗮𝗿𝘀 software ran on code rationing, and rationing produced a specific role — 𝘵ℎ𝘦 𝘕𝘰 𝘌𝘯𝘨𝘪𝘯𝘦𝘦𝘳 who said no to scope, no to bandwidth, no to the next idea. With code now cheap, that role evaporates. 𝙏𝙝𝙚 𝙤𝙧𝙜 𝙘𝙝𝙖𝙧𝙩, 𝙣𝙤𝙩 𝙩𝙝𝙚 𝙄𝘿𝙀, 𝙞𝙨 𝙩𝙝𝙚 𝙣𝙚𝙭𝙩 𝙩𝙝𝙞𝙣𝙜 𝙩𝙤 𝙗𝙚 𝙧𝙚𝙬𝙧𝙞𝙩𝙩𝙚𝙣.
+
+———
+
+𝗔𝗡𝗗 𝗧𝗛𝗘 𝗖𝗢𝗡𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗜𝗩𝗘 𝗧𝗛𝗥𝗘𝗔𝗗 𝗜𝗦 𝗟𝗢𝗨𝗗𝗘𝗥 𝗧𝗛𝗔𝗡 𝗨𝗦𝗨𝗔𝗟.
+
+@dwarkesh_sp surfaced a Michael Nielsen argument that computer science basically started in the 1930s with Turing and Church, and we've spent 𝟵𝟬 𝘆𝗲𝗮𝗿𝘀 exploring consequences of one framework — our descendants will get only a tiny fraction of what's available.
+
+@AndrewCurran_ flagged that Scott Aaronson is comparing the Shor's-algorithm-on-real-hardware moment to 𝘍𝘳𝘪𝘴𝘤ℎ 𝘢𝘯𝘥 𝘗𝘦𝘪𝘦𝘳𝘭𝘴 𝘤𝘢𝘭𝘤𝘶𝘭𝘢𝘵𝘪𝘯𝘨 𝘤𝘳𝘪𝘵𝘪𝘤𝘢𝘭 𝘮𝘢𝘴𝘴.
+
+@Rainmaker1973's three-body-problem thread — Newton's failure, Poincaré inventing chaos theory by accident, Chenciner-Montgomery's figure-8 in 2000 — drew 𝟭𝟯𝟰𝗞 𝘃𝗶𝗲𝘄𝘀.
+
+@naderi_yeganeh's white dwarf rendered from closed-form equations drew thousands of ℎ𝘰𝘸 𝘥𝘰 𝘺𝘰𝘶 𝘥𝘰 𝘵ℎ𝘢𝘵 replies.
+
+@BoWang87 reported @GoodfireAI's Silico tool finally cracking interpretability for JEPA-style models that never reconstruct pixels.
+
+———
+
+𝙏𝙝𝙚 𝙨𝙞𝙜𝙣𝙖𝙡: 𝙩𝙝𝙚 𝘼𝙄 𝙛𝙚𝙚𝙙 𝙞𝙨 𝙞𝙣𝙘𝙧𝙚𝙖𝙨𝙞𝙣𝙜𝙡𝙮 𝙗𝙞𝙢𝙤𝙙𝙖𝙡. Half of it is racing to ship the next agent loop. The other half is asking what we even mean by "intelligence" once the optimizer changes. 𝘽𝙤𝙩𝙝 𝙩𝙝𝙧𝙚𝙖𝙙𝙨 𝙗𝙚𝙡𝙤𝙣𝙜 𝙩𝙤 𝙩𝙝𝙚 𝙨𝙖𝙢𝙚 𝙧𝙚𝙖𝙙𝙚𝙧.
+
+———
+
+Full briefing with all 68 captured items and meta-observations:
+ravi-annaswamy.github.io/dispatches/briefing-2026-04-30-thu-evening/
+
+#AI #LLM #AgentEngineering #Karpathy #OpenAI
